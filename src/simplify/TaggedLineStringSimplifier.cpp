@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: TaggedLineStringSimplifier.cpp 3626 2012-05-09 18:02:09Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -348,14 +347,3 @@ TaggedLineStringSimplifier::findFurthestPoint(
 
 } // namespace geos::simplify
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/13 21:52:35  strk
- * Many debugging lines and assertions added. Fixed bug in TaggedLineString class.
- *
- * Revision 1.1  2006/04/12 17:19:57  strk
- * Ported TaggedLineStringSimplifier class, made LineSegment class
- * polymorphic to fix derivation of TaggedLineSegment
- *
- **********************************************************************/

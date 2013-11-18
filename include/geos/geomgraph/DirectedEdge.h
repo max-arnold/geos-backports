@@ -1,9 +1,9 @@
 /**********************************************************************
- * $Id: DirectedEdge.h 2557 2009-06-08 09:30:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
+ * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -14,7 +14,7 @@
  *
  **********************************************************************
  *
- * Last port: geomgraph/DirectedEdge.java rev. 1.5 (JTS-1.10)
+ * Last port: geomgraph/DirectedEdge.java r428 (JTS-1.12)
  *
  **********************************************************************/
 
@@ -189,23 +189,3 @@ private:
 #endif
 
 #endif // ifndef GEOS_GEOMGRAPH_DIRECTEDEDGE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.5  2006/06/14 14:32:20  strk
- * EdgeEnd::getEdge() made non-virtual and inlined.
- *
- * Revision 1.4  2006/05/04 13:38:13  strk
- * doxygen comments cleanup
- *
- * Revision 1.3  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.2  2006/03/15 15:27:23  strk
- * cleanups
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

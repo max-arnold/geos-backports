@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodingValidator.h 2778 2009-12-03 19:44:00Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -111,19 +110,4 @@ public:
 } // namespace geos.noding
 } // namespace geos
 
-//#ifdef GEOS_INLINE
-//# include "geos/noding/NodingValidator.inl"
-//#endif
-
 #endif // GEOS_NODING_NODINGVALIDATOR_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: nodingSnapround.h 1820 2006-09-06 16:54:23Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.

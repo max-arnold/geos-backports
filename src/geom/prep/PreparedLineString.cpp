@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedLineString.cpp 3354 2011-05-12 06:16:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -37,7 +36,6 @@ PreparedLineString::~PreparedLineString()
 	for ( noding::SegmentString::ConstVect::size_type i = 0,
 	     ni = segStrings.size(); i < ni; ++i )
 	{
-		delete segStrings[ i ]->getCoordinates();
 		delete segStrings[ i ];
 	}
 }
@@ -70,9 +68,3 @@ PreparedLineString::intersects(const geom::Geometry * g) const
 } // namespace geos.geom.prep
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/
-

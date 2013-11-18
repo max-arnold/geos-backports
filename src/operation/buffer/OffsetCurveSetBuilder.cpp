@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: OffsetCurveSetBuilder.cpp 3306 2011-04-27 14:13:45Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005 Refractions Research Inc.
@@ -72,7 +71,6 @@ OffsetCurveSetBuilder::~OffsetCurveSetBuilder()
 	for (size_t i=0, n=curveList.size(); i<n; ++i)
 	{
 		SegmentString* ss = curveList[i];
-		delete ss->getCoordinates();
 		delete ss;
 	}
 	for (size_t i=0, n=newLabels.size(); i<n; ++i)
@@ -119,6 +117,7 @@ OffsetCurveSetBuilder::addCurve(CoordinateSequence *coord,
 	// add the edge for a coordinate list which is a raw offset curve
 	Label *newlabel = new Label(0, Location::BOUNDARY, leftLoc, rightLoc);
 
+	// coord ownership transferred to SegmentString
 	SegmentString *e=new NodedSegmentString(coord, newlabel);
 
 	// SegmentString doesnt own the sequence, so we need to delete in
@@ -380,24 +379,3 @@ OffsetCurveSetBuilder::isTriangleErodedCompletely(
 } // namespace geos.operation.buffer
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.36  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.35  2006/06/09 07:42:13  strk
- * * source/geomgraph/GeometryGraph.cpp, source/operation/buffer/OffsetCurveSetBuilder.cpp, source/operation/overlay/OverlayOp.cpp, source/operation/valid/RepeatedPointTester.cpp: Fixed warning after Polygon ring accessor methods changed to work with size_t. Small optimizations in loops.
- *
- * Revision 1.34  2006/05/03 09:14:22  strk
- * * source/operation/buffer/OffsetCurveSetBuilder.cpp: used auto_ptr to protect leaks of CoordinateSequence
- * * source/noding/ScaledNoder.cpp, source/headers/geos/noding/ScaledNoder.h: ported JTS bugfix in scale method.
- *
- * Revision 1.33  2006/03/27 17:04:18  strk
- * Cleanups and explicit initializations
- *
- * Revision 1.32  2006/03/22 11:18:39  strk
- * Changed back 'unable to find edge to compute depths' from assertion to TopologyException
- *
- **********************************************************************/
-

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SegmentNodeList.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -61,12 +60,6 @@ private:
 	// the parent edge
 	const NodedSegmentString& edge; 
 
-	// This vector is here to keep track of created splitEdges
-	std::vector<SegmentString*> splitEdges;
-
-	// This vector is here to keep track of created Coordinates
-	std::vector<geom::CoordinateSequence*> splitCoordLists;
-
 	/**
 	 * Checks the correctness of the set of split edges corresponding
 	 * to this edge
@@ -80,6 +73,8 @@ private:
 	 * (and including) the two intersections.
 	 * The label for the new edge is the same as the label for the
 	 * parent edge.
+	 * 
+	 * ownership of return value is transferred
 	 */
 	SegmentString* createSplitEdge(SegmentNode *ei0, SegmentNode *ei1);
 
@@ -196,25 +191,4 @@ std::ostream& operator<< (std::ostream& os, const SegmentNodeList& l);
 #pragma warning(pop)
 #endif
 
-//#ifdef GEOS_INLINE
-//# include "geos/noding/SegmentNodeList.inl"
-//#endif
-
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.3  2006/05/04 07:41:56  strk
- * const-correct size() method for SegmentNodeList
- *
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

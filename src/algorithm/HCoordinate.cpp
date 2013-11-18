@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: HCoordinate.cpp 3339 2011-05-10 09:51:05Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011      Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2001-2002 Vivid Solutions Inc.

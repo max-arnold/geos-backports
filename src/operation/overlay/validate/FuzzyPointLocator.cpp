@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: FuzzyPointLocator.cpp 2757 2009-12-01 15:39:41Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -150,8 +149,4 @@ FuzzyPointLocator::getLocation(const Coordinate& pt)
 } // namespace geos.operation.overlay
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- **********************************************************************/
 

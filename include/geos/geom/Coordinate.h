@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Coordinate.h 3367 2011-05-17 16:50:03Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -91,8 +90,6 @@ public:
 	static Coordinate& getNull();
 
 	bool isNull() const;
-
-	~Coordinate();
 
 	Coordinate(double xNew=0.0, double yNew=0.0, double zNew=DoubleNotANumber);
 

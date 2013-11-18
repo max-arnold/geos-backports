@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SingleInteriorIntersectionFinder.cpp 2137 2008-07-25 21:00:09Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -68,7 +67,3 @@ SingleInteriorIntersectionFinder::processIntersections(
 
 } // namespace geos.noding
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- **********************************************************************/

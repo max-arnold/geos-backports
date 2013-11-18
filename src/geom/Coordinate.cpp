@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Coordinate.cpp 3521 2011-11-29 14:01:25Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DouglasPeuckerSimplifier.cpp 2757 2009-12-01 15:39:41Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -193,13 +192,3 @@ DouglasPeuckerSimplifier::getResultGeometry()
 
 } // namespace geos::simplify
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/13 16:44:49  strk
- * Fixed a bug in DPTransformer handling of MultiPolygons
- *
- * Revision 1.1  2006/04/11 16:04:34  strk
- * geos::simplify::DouglasPeukerSimplifier class + unit test
- *
- **********************************************************************/

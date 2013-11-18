@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CentroidArea.cpp 3774 2013-02-28 09:45:21Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.

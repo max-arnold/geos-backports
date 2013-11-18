@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Point.cpp 3460 2011-08-20 20:52:21Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2001-2002 Vivid Solutions Inc.

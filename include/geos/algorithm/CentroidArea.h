@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CentroidArea.h 3681 2012-06-22 15:46:04Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -54,6 +53,9 @@ namespace algorithm { // geos::algorithm
  * The code has also be extended to handle degenerate (zero-area) polygons.
  * In this case, the centroid of the line segments in the polygon
  * will be returned.
+ *
+ * @deprecated use Centroid instead
+ *
  */
 class GEOS_DLL CentroidArea {
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: MaximalEdgeRing.h 2731 2009-11-19 21:06:16Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -106,15 +105,3 @@ public:
 } // namespace geos
 
 #endif // ndef GEOS_OP_OVERLAY_MAXIMALEDGERING_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/27 16:02:34  strk
- * Added INL file for MinimalEdgeRing, added many debugging blocks,
- * fixed memory leak in ConnectedInteriorTester (bug #59)
- *
- * Revision 1.1  2006/03/17 13:24:59  strk
- * opOverlay.h header splitted. Reduced header inclusions in operation/overlay implementation files. ElevationMatrixFilter code moved from own file to ElevationMatrix.cpp (ideally a class-private).
- *
- **********************************************************************/
-

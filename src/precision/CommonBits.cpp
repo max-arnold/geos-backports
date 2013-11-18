@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CommonBits.cpp 1820 2006-09-06 16:54:23Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -95,29 +94,5 @@ CommonBits::getCommon()
 	return (double)commonBits;
 }
 
-///**
-//* A representation of the Double bits formatted for easy readability
-//*/
-//String toString(int64 bits)
-//{
-//double x = Double.int64BitsToDouble(bits);
-//String numStr = int64.toBinaryString(bits);
-//String padStr = "0000000000000000000000000000000000000000000000000000000000000000" + numStr;
-//String bitStr = padStr.substring(padStr.length() - 64);
-//String str = bitStr.substring(0, 1) + "  "
-//+ bitStr.substring(1, 12) + "(exp) "
-//+ bitStr.substring(12)
-//+ " [ " + x + " ]";
-//return str;
-//}
-
 } // namespace geos.precision
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/03/23 09:17:19  strk
- * precision.h header split, minor optimizations
- *
- **********************************************************************/
-

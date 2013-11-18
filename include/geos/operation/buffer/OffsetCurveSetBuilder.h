@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: OffsetCurveSetBuilder.h 3306 2011-04-27 14:13:45Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -213,14 +212,4 @@ public:
 #endif
 
 #endif // ndef GEOS_OP_BUFFER_OFFSETCURVESETBUILDER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/05/04 10:15:20  strk
- * Doxygen comments
- *
- * Revision 1.1  2006/03/14 00:19:40  strk
- * opBuffer.h split, streamlined headers in some (not all) files in operation/buffer/
- *
- **********************************************************************/
 

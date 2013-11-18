@@ -1,4 +1,3 @@
-# $Id: Makefile.am 3418 2011-07-05 10:13:26Z strk $
 #
 # This file is part of project GEOS (http://trac.osgeo.org/geos/) 
 #
@@ -19,10 +18,12 @@ SUBDIRS =   \
     tests   \
     tools
 
+BUILT_SOURCES = geos_svn_revision.h
+
 EXTRA_DIST = acsite.m4 makefile.vc nmake.opt autogen.bat CMakeLists.txt \
   cmake/modules/CheckPrototypeExists.cmake \
   cmake/modules/COPYING-CMAKE-SCRIPTS \
-  cmake/cmake_uninstall.cmake.in
+  cmake/cmake_uninstall.cmake.in geos_svn_revision.h
 
 ACLOCAL_AMFLAGS = -I macros
 
@@ -37,3 +38,8 @@ authors.git: authors.svn
 
 svnrebase: authors.git
 	cd $(srcdir) && git svn rebase --authors-file authors.git
+
+geos_svn_revision.h:
+	top_srcdir=$(srcdir) sh $(srcdir)/tools/svn_repo_revision.sh
+
+.PHONY: geos_svn_revision.h

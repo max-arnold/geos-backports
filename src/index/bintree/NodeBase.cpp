@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodeBase.cpp 1820 2006-09-06 16:54:23Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -136,14 +135,3 @@ NodeBase::nodeSize()
 } // namespace geos.index.bintree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.12  2006/03/22 18:12:31  strk
- * indexChain.h header split.
- *
- * Revision 1.11  2006/03/22 16:01:33  strk
- * indexBintree.h header split, classes renamed to match JTS
- *
- **********************************************************************/
-

@@ -1,4 +1,3 @@
-# $Id: Makefile.am 3774 2013-02-28 09:45:21Z strk $
 #
 # This file is part of project GEOS (http://trac.osgeo.org/geos/) 
 #
@@ -33,10 +32,12 @@ SAFE_XMLTESTS=$(srcdir)/tests/testLeaksBig.xml \
 	$(srcdir)/tests/ticket/bug392.xml \
 	$(srcdir)/tests/ticket/bug398.xml \
 	$(srcdir)/tests/ticket/bug434.xml \
+	$(srcdir)/tests/ticket/bug459.xml \
 	$(srcdir)/tests/ticket/bug527.xml \
 	$(srcdir)/tests/ticket/bug582.xml \
 	$(srcdir)/tests/ticket/bug586.xml \
 	$(srcdir)/tests/ticket/bug599.xml \
+	$(srcdir)/tests/ticket/bug605.xml \
 	$(srcdir)/tests/ticket/bug615.xml \
 	$(srcdir)/tests/general/TestBoundary.xml \
 	$(srcdir)/tests/general/TestBuffer.xml \
@@ -126,6 +127,10 @@ XMLTester_SOURCES = \
 	SingleSidedBufferResultMatcher.cpp
 
 XMLTester_LDADD = $(LIBS)
+
+# Intentionally drop -ansi -pedantic
+# See http://trac.osgeo.org/geos/ticket/319
+XMLTester_CXXFLAGS = $(INLINE_FLAGS)
 
 INCLUDES = -I$(top_srcdir)/include
 INCLUDES += -I$(top_srcdir)/src/io/tinyxml -DTIXML_USE_STL

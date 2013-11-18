@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Subgraph.cpp 1820 2006-09-06 16:54:23Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -43,11 +42,4 @@ Subgraph::add(Edge *e)
 
 } // namespace planargraph
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
 

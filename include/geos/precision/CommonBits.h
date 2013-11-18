@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CommonBits.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *
@@ -97,10 +96,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_PRECISION_COMMONBITS_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/23 09:17:19  strk
- * precision.h header split, minor optimizations
- *
- **********************************************************************/

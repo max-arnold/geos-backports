@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IsValidOp.cpp 3756 2013-01-25 17:26:12Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2010 Safe Software Inc.
  * Copyright (C) 2010 Sandro Santilli <strk@keybit.net>

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CentroidLine.cpp 1986 2007-06-08 15:27:42Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005 Refractions Research Inc.
@@ -86,14 +85,3 @@ CentroidLine::getCentroid(Coordinate& c) const
 
 } // namespace geos.algorithm
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.16  2006/03/21 11:12:23  strk
- * Cleanups: headers inclusion and Log section
- *
- * Revision 1.15  2006/03/09 16:46:45  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

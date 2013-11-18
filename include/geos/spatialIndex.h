@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: spatialIndex.h 1820 2006-09-06 16:54:23Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -29,11 +28,3 @@ namespace index {
 #include <geos/index/ItemVisitor.h>
 
 #endif // GEOS_INDEX_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.9  2006/03/20 16:57:43  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

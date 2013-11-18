@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Geometry.cpp 3634 2012-05-21 14:12:06Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -35,9 +34,7 @@
 #include <geos/geom/MultiPolygon.h>
 #include <geos/geom/IntersectionMatrix.h>
 #include <geos/util/IllegalArgumentException.h>
-#include <geos/algorithm/CentroidPoint.h>
-#include <geos/algorithm/CentroidLine.h>
-#include <geos/algorithm/CentroidArea.h>
+#include <geos/algorithm/Centroid.h>
 #include <geos/algorithm/InteriorPointPoint.h>
 #include <geos/algorithm/InteriorPointLine.h>
 #include <geos/algorithm/InteriorPointArea.h>
@@ -62,6 +59,12 @@
 #include <vector>
 #include <cassert>
 #include <memory>
+
+#ifdef _MSC_VER
+#  ifdef MSVC_USE_VLD
+#    include <vld.h>
+#  endif
+#endif
 
 #define SHORTCIRCUIT_PREDICATES 1
 
@@ -203,30 +206,8 @@ bool
 Geometry::getCentroid(Coordinate& ret) const
 {
 	if ( isEmpty() ) { return false; }
-
-	Coordinate c;
-
-	int dim=getDimension();
-	if(dim==0) {
-		CentroidPoint cent; 
-		cent.add(this);
-		if ( ! cent.getCentroid(c) )
-				return false;
-	} else if (dim==1) {
-		CentroidLine cent;
-		cent.add(this);
-		if ( ! cent.getCentroid(c) ) 
-			return false;
-	} else {
-		CentroidArea cent;
-		cent.add(this);
-		if ( ! cent.getCentroid(c) )
-			return false;
-	}
-
-	getPrecisionModel()->makePrecise(c);
-	ret=c;
-
+	if ( ! Centroid::getCentroid(*this, ret) ) return false;
+	getPrecisionModel()->makePrecise(ret); // not in JTS
 	return true;
 }
 

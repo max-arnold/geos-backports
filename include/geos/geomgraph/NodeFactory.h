@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodeFactory.h 2557 2009-06-08 09:30:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -44,29 +43,11 @@ public:
 	static const NodeFactory &instance();
 	virtual ~NodeFactory() {}
 protected:
-	NodeFactory() {};
+	NodeFactory() {}
 };
 
 
 } // namespace geos.geomgraph
 } // namespace geos
 
-//#ifdef GEOS_INLINE
-//# include "geos/geomgraph/NodeFactory.inl"
-//#endif
-
 #endif // ifndef GEOS_GEOMGRAPH_NODEFACTORY_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/06/08 11:20:24  strk
- * Added missing virtual destructor to abstract classes.
- *
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

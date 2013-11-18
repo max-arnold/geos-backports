@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryList.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -82,15 +81,3 @@ private:
 #endif
 
 #endif // GEOS_GEOM_GEOMETRYLIST_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/11 09:53:44  strk
- * Added missing duplicated include sentinel
- *
- * Revision 1.1  2006/04/11 09:41:26  strk
- * Initial implementation of a GeometryList class, to be used to manage
- * lists of Geometry pointers.
- *
- **********************************************************************/
-

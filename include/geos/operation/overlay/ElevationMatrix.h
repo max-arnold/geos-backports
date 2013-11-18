@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ElevationMatrix.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -113,11 +112,3 @@ private:
 #endif
 
 #endif // ndef GEOS_OP_OVERLAY_ELEVATIONMATRIX_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/17 13:24:59  strk
- * opOverlay.h header splitted. Reduced header inclusions in operation/overlay implementation files. ElevationMatrixFilter code moved from own file to ElevationMatrix.cpp (ideally a class-private).
- *
- **********************************************************************/
-

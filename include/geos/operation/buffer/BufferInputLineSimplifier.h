@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferInputLineSimplifier.h 3246 2011-02-23 17:13:31Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  *
@@ -184,8 +183,4 @@ private:
 
 
 #endif // ndef GEOS_OP_BUFFER_BUFFERINPUTLINESIMPLIFIER_H
-
-/**********************************************************************
- * $Log$
- **********************************************************************/
 

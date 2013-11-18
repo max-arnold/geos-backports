@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodedSegmentString.cpp 3233 2011-02-23 09:37:10Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -181,8 +180,3 @@ NodedSegmentString::print(std::ostream& os) const
 
 } // geos::noding
 } // geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

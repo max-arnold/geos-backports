@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: TopologyException.h 2824 2009-12-14 15:23:12Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -62,16 +61,3 @@ private:
 
 
 #endif // GEOS_UTIL_TOPOLOGYEXCEPTION_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/03/23 15:10:29  strk
- * Dropped by-pointer TopologyException constructor, various small cleanups
- *
- * Revision 1.2  2006/03/22 11:19:06  strk
- * opPolygonize.h headers split.
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

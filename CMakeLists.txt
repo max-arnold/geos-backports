@@ -28,8 +28,8 @@ set(CMAKE_MODULE_PATH "${geos_SOURCE_DIR}/cmake/modules")
 # GEOS release version
 # GEOS C++ library SONAME will use these encoding ABI break at every release
 set(VERSION_MAJOR 3)
-set(VERSION_MINOR 3)
-set(VERSION_PATCH 6dev)
+set(VERSION_MINOR 4)
+set(VERSION_PATCH 2)
 set(VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 # JTS_PORT is the version of JTS this release is bound to
@@ -37,9 +37,9 @@ set(JTS_PORT 1.12.0)
 message(STATUS "Setting GEOS version ${VERSION} as port of JTS ${JTS_PORT}")
 
 # GEOS C API version
-set(CAPI_INTERFACE_CURRENT 8)
-set(CAPI_INTERFACE_REVISION 6)
-set(CAPI_INTERFACE_AGE 7)
+set(CAPI_INTERFACE_CURRENT 9)
+set(CAPI_INTERFACE_REVISION 2)
+set(CAPI_INTERFACE_AGE 8)
 
 math(EXPR CAPI_VERSION_MAJOR "${CAPI_INTERFACE_CURRENT} - ${CAPI_INTERFACE_AGE}")
 set(CAPI_VERSION_MINOR ${CAPI_INTERFACE_AGE})
@@ -122,7 +122,7 @@ elseif(MSVC)
   #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
   string(REGEX REPLACE "/W[0-9]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
-  if(MSVC80 OR MSVC90 OR MSVC10)
+  if(MSVC80 OR MSVC90 OR MSVC10 OR MSVC11)
 
     # Option is to enable the /MP switch for Visual Studio 2005 or later
     option(GEOS_MSVC_ENABLE_MP
@@ -237,7 +237,48 @@ include_directories(${geos_BINARY_DIR}/include)
 # Setup checks and generate config headers
 #################################################################################
 
-# TODO: output to CMAKE_CURRENT_BINARY_DIR instead of CMAKE_SOURCE_DIR
+#################################################################################
+#  MACRO: GET_SVN_REVISION
+#  
+#  DESCRIPTION:
+#      MACRO FOR GETTING THE SVN revision for this build
+#################################################################################
+MACRO (GET_SVN_REVISION)
+   FIND_PACKAGE(Subversion)
+   IF(SUBVERSION_FOUND)
+      Subversion_WC_INFO(${PROJECT_SOURCE_DIR} Project)
+      # MESSAGE("Current revision is ${Project_WC_REVISION}")
+      # Subversion_WC_LOG(${PROJECT_SOURCE_DIR} Project)
+      # MESSAGE("Last changed log is ${Project_LAST_CHANGED_LOG}")
+   ENDIF()
+ENDMACRO(GET_SVN_REVISION)
+
+# Determine SVN/Git revision
+if(EXISTS "${CMAKE_SOURCE_DIR}/.svn")
+  GET_SVN_REVISION()
+endif()
+if ( NOT ${Project_WC_REVISION} EQUAL 0 )
+   set( GEOS_SVN_REVISION ${Project_WC_REVISION} )
+   configure_file ( 
+      "${PROJECT_SOURCE_DIR}/tools/geos_svn_revision_cmake.h.in"
+      "${PROJECT_SOURCE_DIR}/geos_svn_revision.h" )
+      # "${geos_BINARY_DIR}/include/geos_svn_revision.h" )
+else()
+   message(STATUS "Generating revision header ${CMAKE_SOURCE_DIR}/geos_svn_revision.h")
+   find_program(SH sh)
+   if(SH)
+      execute_process(COMMAND ${SH} -c 
+      "cd ${CMAKE_SOURCE_DIR} && ${CMAKE_SOURCE_DIR}/tools/svn_repo_revision.sh")
+
+      file(RENAME "${CMAKE_SOURCE_DIR}/geos_svn_revision.h"
+      "${CMAKE_BINARY_DIR}/geos_svn_revision.h")
+   else()
+      message("*** sh-compatible command not found, cannot create geos_svn_revision.h")
+      message("*** Check SVN revision and create revision header manually:")
+      message("*** echo '#define GEOS_SVN_REVISION XYZ' > ${CMAKE_SOURCE_DIR}/geos_svn_revision.h")
+   endif()
+endif()
+# End: Determine SVN/Git revision
 
 if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/include/geos/platform.h)
   message(STATUS "Disabling existing ${CMAKE_CURRENT_SOURCE_DIR}/include/geos/platform.h")

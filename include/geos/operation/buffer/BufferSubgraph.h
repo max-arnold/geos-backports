@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferSubgraph.h 3301 2011-04-27 09:42:31Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -196,17 +195,4 @@ bool BufferSubgraphGT(BufferSubgraph *first, BufferSubgraph *second);
 #endif
 
 #endif // ndef GEOS_OP_BUFFER_BUFFERSUBGRAPH_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/03/15 11:45:06  strk
- * doxygen comments
- *
- * Revision 1.2  2006/03/14 14:16:52  strk
- * operator<< for BufferSubgraph, more debugging calls
- *
- * Revision 1.1  2006/03/14 00:19:40  strk
- * opBuffer.h split, streamlined headers in some (not all) files in operation/buffer/
- *
- **********************************************************************/
 

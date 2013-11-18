@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: RelateNodeGraph.h 2557 2009-06-08 09:30:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -97,11 +96,3 @@ private:
 } // namespace geos
 
 #endif // GEOS_OP_RELATE_RELATENODEGRAPH_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 13:11:29  strk
- * opRelate.h header split
- *
- **********************************************************************/
-

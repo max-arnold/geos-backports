@@ -1,7 +1,7 @@
 /**********************************************************************
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -96,7 +96,6 @@ AbstractPreparedPolygonContains::findAndClassifyIntersections(const geom::Geomet
 
 	for (std::size_t i = 0, ni = lineSegStr.size(); i < ni; i++ )
 	{
-		delete lineSegStr[i]->getCoordinates();
 		delete lineSegStr[i];
 	}
 }
@@ -192,8 +191,3 @@ AbstractPreparedPolygonContains::eval( const geom::Geometry * geom)
 } // geos::geom::prep
 } // geos::geom
 } // geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

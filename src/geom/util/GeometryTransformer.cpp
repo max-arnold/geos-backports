@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryTransformer.cpp 3181 2011-02-04 08:50:42Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -386,17 +385,3 @@ GeometryTransformer::transformGeometryCollection(
 } // namespace geos.geom.util
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/06/19 21:20:22  strk
- * updated port info
- *
- * Revision 1.2  2006/04/11 16:04:34  strk
- * geos::simplify::DouglasPeukerSimplifier class + unit test
- *
- * Revision 1.1  2006/04/11 12:21:48  strk
- * GeometryTransformer class ported
- *
- **********************************************************************/
-

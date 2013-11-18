@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryList.cpp 2952 2010-03-26 12:01:13Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -79,12 +78,3 @@ GeometryList::operator[] (GeometryList::size_type i) const
 
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/04/11 09:41:26  strk
- * Initial implementation of a GeometryList class, to be used to manage
- * lists of Geometry pointers.
- *
- **********************************************************************/
-

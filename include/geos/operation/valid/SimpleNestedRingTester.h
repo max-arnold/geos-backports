@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SimpleNestedRingTester.h 3274 2011-03-26 14:02:20Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -94,11 +93,3 @@ public:
 #endif
 
 #endif // GEOS_OP_SIMPLENESTEDRINGTESTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

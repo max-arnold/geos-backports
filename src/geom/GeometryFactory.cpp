@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryFactory.cpp 3181 2011-02-04 08:50:42Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -33,6 +32,8 @@
 #include <geos/geom/GeometryCollection.h>
 #include <geos/geom/PrecisionModel.h>
 #include <geos/geom/Envelope.h>
+#include <geos/geom/util/CoordinateOperation.h>
+#include <geos/geom/util/GeometryEditor.h>
 #include <geos/util/IllegalArgumentException.h>
 
 #include <cassert>
@@ -57,14 +58,23 @@ using namespace std;
 namespace geos {
 namespace geom { // geos::geom
 
-//namespace { 
-//	class gfCoordinateOperation: public CoordinateOperation {
-//	using CoordinateOperation::edit;
-//	public:
-//		virtual CoordinateSequence* edit(const CoordinateSequence *coordinates,
-//				const Geometry *geometry);
-//	};
-//}
+namespace { 
+
+class gfCoordinateOperation: public util::CoordinateOperation {
+using CoordinateOperation::edit;
+  const CoordinateSequenceFactory* _gsf;
+public:
+  gfCoordinateOperation(const CoordinateSequenceFactory* gsf)
+      : _gsf(gsf)
+  {}
+  CoordinateSequence* edit( const CoordinateSequence *coordSeq,
+                            const Geometry * )
+  {
+    return _gsf->create(*coordSeq);
+  }
+};
+
+} // anonymous namespace
 
 
 
@@ -697,13 +707,11 @@ Geometry*
 GeometryFactory::createGeometry(const Geometry *g) const
 {
 	// could this be cached to make this more efficient? Or maybe it isn't enough overhead to bother
-	return g->clone();
-	//GeometryEditor *editor=new GeometryEditor(this);
-	//gfCoordinateOperation *coordOp = new gfCoordinateOperation();
-	//Geometry *ret=editor->edit(g, coordOp);
-	//delete coordOp;
-	//delete editor;
-	//return ret;
+	//return g->clone();
+	util::GeometryEditor editor(this);
+	gfCoordinateOperation coordOp(coordinateListFactory);
+	Geometry *ret = editor.edit(g, &coordOp);
+	return ret;
 }
 
 /*public*/
@@ -717,79 +725,9 @@ GeometryFactory::destroyGeometry(Geometry *g) const
 const GeometryFactory*
 GeometryFactory::getDefaultInstance() 
 {
-	static GeometryFactory defInstance;
-	return &defInstance;
+	static GeometryFactory* defInstance = new GeometryFactory();
+	return defInstance;
 }
 
 } // namespace geos::geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.71  2006/07/08 00:33:54  strk
- *         * configure.in: incremented CAPI minor version, to avoid                        falling behind any future version from the 2.2. branch.
- *         * source/geom/Geometry.cpp, source/geom/GeometryFactory.cpp,
- *         source/geomgraph/EdgeRing.cpp,
- *         source/headers/geos/geom/Geometry.h,
- *         source/headers/geos/geom/GeometryFactory.h,
- *         source/headers/geos/geom/GeometryFactory.inl,
- *         source/headers/geos/geomgraph/EdgeRing.h:
- *         updated doxygen comments (sync with JTS head).
- *         * source/headers/geos/platform.h.in: include <inttypes.h>
- *         rather then <stdint.h>
- *
- * Revision 1.70  2006/06/19 21:17:23  strk
- * port info and doxygen dox.
- *
- * Revision 1.69  2006/06/12 10:10:39  strk
- * Fixed getGeometryN() to take size_t rather then int, changed unsigned int parameters to size_t.
- *
- * Revision 1.68  2006/04/28 11:56:52  strk
- * * source/geom/GeometryFactory.cpp, source/headers/geos/geom/GeometryFactory.h: added LineString copy constructor.
- * * source/geom/Polygon.cpp: fixed getBoundary method to always return a geometry composed by LineStrings (not LinearRings)
- *
- * Revision 1.67  2006/04/11 11:16:25  strk
- * Added LineString and LinearRing constructors by auto_ptr
- *
- * Revision 1.66  2006/04/10 13:09:47  strk
- * Added GeometryFactory::defaultInstance()
- * Made Geometry::INTERNAL_GEOMETRY_FACTORY an alias for it
- * removed last deletion from Unload::Release class
- *
- * Revision 1.65  2006/04/06 12:33:04  strk
- * More debugging lines
- *
- * Revision 1.64  2006/03/31 17:51:24  strk
- * A few assertion checking, comments cleanup, use of initialization lists
- * in constructors, handled NULL parameters.
- *
- * Revision 1.63  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.62  2006/03/20 10:11:50  strk
- * Bug #67 - Debugging helpers in GeometryFactory class
- *
- * Revision 1.61  2006/03/09 16:46:47  strk
- * geos::geom namespace definition, first pass at headers split
- *
- * Revision 1.60  2006/03/06 19:40:46  strk
- * geos::util namespace. New GeometryCollection::iterator interface, many cleanups.
- *
- * Revision 1.59  2006/03/03 10:46:21  strk
- * Removed 'using namespace' from headers, added missing headers in .cpp files, removed useless includes in headers (bug#46)
- *
- * Revision 1.58  2006/03/01 18:37:08  strk
- * Geometry::createPointFromInternalCoord dropped (it's a duplication of GeometryFactory::createPointFromInternalCoord).
- * Fixed bugs in InteriorPoint* and getCentroid() inserted by previous commits.
- *
- * Revision 1.57  2006/02/23 23:17:52  strk
- * - Coordinate::nullCoordinate made private
- * - Simplified Coordinate inline definitions
- * - LMGeometryComponentFilter definition moved to LineMerger.cpp file
- * - Misc cleanups
- *
- * Revision 1.56  2006/02/09 15:52:47  strk
- * GEOSException derived from std::exception; always thrown and cought by const ref.
- *
- **********************************************************************/
-

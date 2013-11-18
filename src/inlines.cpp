@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: inlines.cpp 3368 2011-05-17 17:04:47Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *
@@ -57,7 +56,6 @@
 #include <geos/geom/MultiLineString.inl>
 #include <geos/geom/MultiPolygon.inl>
 #include <geos/geom/CoordinateArraySequenceFactory.inl>
-#include <geos/noding/SegmentString.inl>
 #include <geos/noding/snapround/HotPixel.inl>
 #include <geos/noding/MCIndexNoder.inl>
 

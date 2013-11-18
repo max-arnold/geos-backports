@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPoint.cpp 3405 2011-07-05 09:44:00Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -36,8 +35,3 @@ PreparedPoint::intersects(const geom::Geometry* g)
 } // namespace geos.geom.prep
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

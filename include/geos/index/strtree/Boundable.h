@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Boundable.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -39,7 +38,7 @@ public:
 	 * @see AbstractSTRtree::IntersectsOp
 	 */
 	virtual const void* getBounds() const=0;
-	virtual ~Boundable() {};
+	virtual ~Boundable() {}
 };
 
 
@@ -48,11 +47,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_INDEX_STRTREE_BOUNDABLE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 10:47:34  strk
- * indexStrtree.h split
- *
- **********************************************************************/
-

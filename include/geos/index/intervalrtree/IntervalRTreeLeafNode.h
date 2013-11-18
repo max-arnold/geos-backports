@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IntervalRTreeLeafNode.h 2540 2009-06-05 09:28:04Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -61,7 +60,3 @@ public:
 } // geos
 
 #endif // GEOS_INDEX_INTERVALRTREE_INTERVALRTREELEAFNODE_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

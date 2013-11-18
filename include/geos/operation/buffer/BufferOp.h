@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferOp.h 3299 2011-04-27 09:42:02Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009-2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2007 Refractions Research Inc.
@@ -211,6 +210,28 @@ public:
 	inline void setQuadrantSegments(int nQuadrantSegments);
 
 	/**
+	 * Sets whether the computed buffer should be single-sided.
+	 * 
+	 * A single-sided buffer is constructed on only one side
+	 * of each input line.
+	 * 
+	 * The side used is determined by the sign of the buffer distance:
+	 * - a positive distance indicates the left-hand side
+	 * - a negative distance indicates the right-hand side
+	 * 
+	 * The single-sided buffer of point geometries is
+	 * the same as the regular buffer.
+	 *
+	 * The End Cap Style for single-sided buffers is
+	 * always ignored,
+	 * and forced to the equivalent of <tt>CAP_FLAT</tt>.
+	 *
+	 * @param isSingleSided true if a single-sided buffer
+	 *                      should be constructed
+	 */
+	inline void setSingleSided(bool isSingleSided);
+
+	/**
 	 * Returns the buffer computed for a geometry for a given buffer
 	 * distance.
 	 *
@@ -235,6 +256,12 @@ BufferOp::setEndCapStyle(int s)
 	bufParams.setEndCapStyle((BufferParameters::EndCapStyle)s);
 }
 
+void
+BufferOp::setSingleSided(bool isSingleSided)
+{
+   bufParams.setSingleSided(isSingleSided);
+}
+
 } // namespace geos::operation::buffer
 } // namespace geos::operation
 } // namespace geos
@@ -244,11 +271,4 @@ BufferOp::setEndCapStyle(int s)
 #endif
 
 #endif // ndef GEOS_OP_BUFFER_BUFFEROP_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/14 00:19:40  strk
- * opBuffer.h split, streamlined headers in some (not all) files in operation/buffer/
- *
- **********************************************************************/
 

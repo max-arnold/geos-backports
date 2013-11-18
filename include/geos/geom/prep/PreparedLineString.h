@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedLineString.h 2811 2009-12-08 17:42:02Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -68,8 +67,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_GEOM_PREP_PREPAREDLINESTRING_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-
-

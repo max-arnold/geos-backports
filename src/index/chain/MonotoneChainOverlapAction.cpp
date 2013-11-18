@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: MonotoneChainOverlapAction.cpp 2479 2009-05-06 17:42:58Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -41,11 +40,3 @@ MonotoneChainOverlapAction::overlap(MonotoneChain& mc1, size_t start1,
 } // namespace geos.index.chain
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.11  2006/03/22 18:12:32  strk
- * indexChain.h header split.
- *
- **********************************************************************/
-

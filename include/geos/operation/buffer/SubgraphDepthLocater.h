@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SubgraphDepthLocater.h 3245 2011-02-23 16:46:10Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -121,14 +120,4 @@ private:
 } // namespace geos
 
 #endif // ndef GEOS_OP_BUFFER_SUBGRAPHDEPTHLOCATER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/15 15:50:11  strk
- * const correctness, cleanups
- *
- * Revision 1.1  2006/03/14 00:19:40  strk
- * opBuffer.h split, streamlined headers in some (not all) files in operation/buffer/
- *
- **********************************************************************/
 

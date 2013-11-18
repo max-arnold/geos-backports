@@ -28,17 +28,17 @@
    to reuse the originals but we can't without exposing
    the whole c api. */
 #define GEOS_VERSION_MAJOR 3
-#define GEOS_VERSION_MINOR 3
-#define GEOS_VERSION_PATCH 8
-#define GEOS_VERSION "3.3.8"
+#define GEOS_VERSION_MINOR 4
+#define GEOS_VERSION_PATCH 2
+#define GEOS_VERSION "3.4.2"
 #define GEOS_JTS_PORT "1.12.0"
 
 #define GEOS_CAPI_VERSION_MAJOR 1
-#define GEOS_CAPI_VERSION_MINOR 7
-#define GEOS_CAPI_VERSION_PATCH 8
+#define GEOS_CAPI_VERSION_MINOR 8
+#define GEOS_CAPI_VERSION_PATCH 2
 #define GEOS_CAPI_FIRST_INTERFACE GEOS_CAPI_VERSION_MAJOR 
 #define GEOS_CAPI_LAST_INTERFACE (GEOS_CAPI_VERSION_MAJOR+GEOS_CAPI_VERSION_MINOR)
-#define GEOS_CAPI_VERSION "3.3.8-CAPI-1.7.8"
+#define GEOS_CAPI_VERSION "3.4.2-CAPI-1.8.2"
 
 /* Supported geometry types */
 enum GEOSGeomTypes { 

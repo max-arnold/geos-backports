@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SIRtree.h 2961 2010-03-29 12:17:37Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -94,7 +93,7 @@ protected:
 
 	AbstractNode* createNode(int level);
 
-	IntersectsOp* getIntersectsOp() {return intersectsOp;};
+	IntersectsOp* getIntersectsOp() {return intersectsOp;}
 
 	std::auto_ptr<BoundableList> sortBoundables(const BoundableList* input);
 
@@ -109,14 +108,3 @@ private:
 } // namespace geos
 
 #endif // GEOS_INDEX_STRTREE_SIRTREE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/06/12 10:49:43  strk
- * unsigned int => size_t
- *
- * Revision 1.1  2006/03/21 10:47:34  strk
- * indexStrtree.h split
- *
- **********************************************************************/
-

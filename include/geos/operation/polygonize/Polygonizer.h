@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Polygonizer.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2010 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -225,13 +224,3 @@ friend class Polygonizer::LineStringAdder;
 #endif
 
 #endif // GEOS_OP_POLYGONIZE_POLYGONIZER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/06/12 17:15:29  strk
- * Removed unused parameters warning
- *
- * Revision 1.1  2006/03/22 11:19:06  strk
- * opPolygonize.h headers split.
- *
- **********************************************************************/

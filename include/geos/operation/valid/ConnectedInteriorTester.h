@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ConnectedInteriorTester.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -147,17 +146,3 @@ private:
 #endif
 
 #endif // GEOS_OP_CONNECTEDINTERIORTESTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/04/06 12:48:36  strk
- * Added private vector to keep track of allocated MaximalEdgeRings objects
- *
- * Revision 1.2  2006/03/27 14:20:46  strk
- * Added paranoid assertion checking and a note in header about responsibility of return from buildMaximalEdgeRings()
- *
- * Revision 1.1  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

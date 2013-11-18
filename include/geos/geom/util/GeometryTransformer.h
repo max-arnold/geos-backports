@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryTransformer.h 3179 2011-02-03 19:59:23Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -189,24 +188,4 @@ private:
 } // namespace geos.geom
 } // namespace geos
 
-//#ifdef GEOS_INLINE
-//# include "geos/geom/util/GeometryTransformer.inl"
-//#endif
-
 #endif // GEOS_GEOM_UTIL_GEOMETRYTRANSFORMER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/06/19 21:20:22  strk
- * updated port info
- *
- * Revision 1.3  2006/04/13 14:25:17  strk
- * TopologyPreservingSimplifier initial port
- *
- * Revision 1.2  2006/04/11 12:56:06  strk
- * used typedef for auto_ptr<CoordinateSequence>
- *
- * Revision 1.1  2006/04/11 12:21:49  strk
- * GeometryTransformer class ported
- *
- **********************************************************************/

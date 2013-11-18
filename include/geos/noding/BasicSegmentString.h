@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BasicSegmentString.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009 Sandro Santilli <strk@keybit.net>
  *
@@ -103,10 +102,6 @@ private:
 
 } // namespace geos.noding
 } // namespace geos
-
-#ifdef GEOS_INLINE
-# include "geos/noding/SegmentString.inl"
-#endif
 
 #endif // ndef GEOS_NODING_BASICSEGMENTSTRING_H
 

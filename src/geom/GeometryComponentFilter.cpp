@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryComponentFilter.cpp 2757 2009-12-01 15:39:41Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -38,17 +37,3 @@ void GeometryComponentFilter::filter_ro(const Geometry *geom)
 
 } // namespace geos::geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.12  2006/04/13 14:25:17  strk
- * TopologyPreservingSimplifier initial port
- *
- * Revision 1.11  2006/03/22 16:58:34  strk
- * Removed (almost) all inclusions of geom.h.
- * Removed obsoleted .cpp files.
- * Fixed a bug in WKTReader not using the provided CoordinateSequence
- * implementation, optimized out some memory allocations.
- *
- **********************************************************************/
-

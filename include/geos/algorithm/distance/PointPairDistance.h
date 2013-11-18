@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PointPairDistance.h 2809 2009-12-06 01:05:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  *
@@ -20,26 +19,11 @@
 #ifndef GEOS_ALGORITHM_DISTANCE_POINTPAIRDISTANCE_H
 #define GEOS_ALGORITHM_DISTANCE_POINTPAIRDISTANCE_H
 
-//#include <geos/geom/LineSegment.h> // for composition
 #include <geos/platform.h> // for DoubleNotANumber
 #include <geos/geom/Coordinate.h> // for inlines
 
 #include <vector> // for composition
 #include <cassert>
-
-namespace geos {
-	namespace algorithm {
-		namespace distance {
-			//class PointPairDistance;
-		}
-	}
-	namespace geom {
-		//class Geometry;
-		class Coordinate; 
-		//class LineString; 
-		//class Polygon; 
-	}
-}
 
 namespace geos {
 namespace algorithm { // geos::algorithm
@@ -153,8 +137,4 @@ private:
 } // geos
 
 #endif // GEOS_ALGORITHM_DISTANCE_POINTPAIRDISTANCE_H
-
-/**********************************************************************
- * $Log$
- **********************************************************************/
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ComponentCoordinateExtracter.h 2772 2009-12-03 19:30:54Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -99,8 +98,3 @@ private:
 } // namespace geos
 
 #endif //GEOS_GEOM_UTIL_COMPONENTCOORDINATEEXTRACTER_H
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

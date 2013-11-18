@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedGeometryFactory.cpp 2418 2009-04-29 08:15:21Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -76,8 +75,3 @@ PreparedGeometryFactory::create( const geom::Geometry * g) const
 } // namespace geos.geom.prep
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

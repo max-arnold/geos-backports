@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IsSimpleOp.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009      Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -218,14 +217,3 @@ private:
 #endif
 
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/15 18:59:33  strk
- * Bug #62: 'struct' CoordinateLessThen in forward declaration
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

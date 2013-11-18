@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SIRtreePointInRing.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -58,14 +57,4 @@ public:
 
 
 #endif // GEOS_ALGORITHM_SIRTREEPOINTINRING_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/21 11:12:23  strk
- * Cleanups: headers inclusion and Log section
- *
- * Revision 1.1  2006/03/09 16:46:48  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
 

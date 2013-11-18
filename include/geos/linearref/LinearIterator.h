@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LinearIterator.h 3012 2010-06-19 11:14:21Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -14,7 +13,7 @@
  *
  **********************************************************************
  *
- * Last port: linearref/LinearIterator.java rev. 1.10
+ * Last port: linearref/LinearIterator.java r463
  *
  **********************************************************************/
 
@@ -91,7 +90,7 @@ public:
 
 	/**
 	 * Checks whether the iterator cursor is pointing to the
-	 * endpoint of a linestring.
+	 * endpoint of a component {@link LineString}.
 	 *
 	 * @return <code>true</true> if the iterator is at an endpoint
 	 */
@@ -144,6 +143,8 @@ private:
 	/**
 	 * Invariant: currentLine <> null if the iterator is pointing
 	 *            at a valid coordinate
+	 *
+	 * @throws IllegalArgumentException if linearGeom is not {@link Lineal}
 	 */
 	void loadCurrentLine();
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: MonotoneChainIndexer.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -36,7 +35,7 @@ class GEOS_DLL MonotoneChainIndexer{
 
 public:
 
-	MonotoneChainIndexer(){};
+	MonotoneChainIndexer(){}
 
 	void getChainStartIndices(const geom::CoordinateSequence*, std::vector<int>&);
 
@@ -51,11 +50,4 @@ private:
 } // namespace geos
 
 #endif // GEOS_GEOMGRAPH_INDEX_MONOTONECHAININDEXER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/14 12:55:55  strk
- * Headers split: geomgraphindex.h, nodingSnapround.h
- *
- **********************************************************************/
 

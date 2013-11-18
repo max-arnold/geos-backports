@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPolygonContains.h 2418 2009-04-29 08:15:21Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -105,7 +104,3 @@ protected:
 } // geos
 
 #endif // GEOS_GEOM_PREP_PREPAREDPOLYGONCONTAINS_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

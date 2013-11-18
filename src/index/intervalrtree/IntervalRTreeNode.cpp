@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IntervalRTreeNode.cpp 2161 2008-08-18 16:29:09Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -34,8 +33,3 @@ namespace intervalrtree {
 } // geos::intervalrtree
 } // geos::index
 } // geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

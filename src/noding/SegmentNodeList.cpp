@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SegmentNodeList.cpp 2481 2009-05-06 17:54:38Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -55,16 +54,6 @@ SegmentNodeList::~SegmentNodeList()
 	for(; it!=nodeMap.end(); it++)
 	{
 		delete *it;
-	}
-
-	for(size_t i=0, n=splitEdges.size(); i<n; ++i)
-	{
-		delete splitEdges[i];
-	}
-
-	for(size_t i=0, n=splitCoordLists.size(); i<n; ++i)
-	{
-		delete splitCoordLists[i];
 	}
 }
 
@@ -222,6 +211,7 @@ SegmentNodeList::addSplitEdges(std::vector<SegmentString*>& edgeList)
 #endif
 }
 
+/*private*/
 void
 SegmentNodeList::checkSplitEdgesCorrectness(std::vector<SegmentString*>& splitEdges)
 {
@@ -285,15 +275,12 @@ SegmentNodeList::createSplitEdge(SegmentNode *ei0, SegmentNode *ei1)
 	}
 	if (useIntPt1) 	pts->setAt(ei1->coord, ipt++);
 
+	// SegmentString takes ownership of CoordinateList 'pts'
 	SegmentString *ret = new NodedSegmentString(pts, edge.getData());
+
 #if GEOS_DEBUG
 	std::cerr<<" SegmentString created"<<std::endl;
 #endif
-	splitEdges.push_back(ret);
-
-	// Keep track of created CoordinateSequence to release
-	// it at this SegmentNodeList destruction time
-	splitCoordLists.push_back(pts);
 
 	return ret;
 }
@@ -317,41 +304,4 @@ operator<< (std::ostream& os, const SegmentNodeList& nlist)
 
 } // namespace geos.noding
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.33  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.32  2006/05/05 10:19:06  strk
- * droppped SegmentString::getContext(), new name is getData() to reflect change in JTS
- *
- * Revision 1.31  2006/05/04 08:35:15  strk
- * noding/SegmentNodeList.cpp: cleanups, changed output operator to be more similar to JTS
- *
- * Revision 1.30  2006/03/15 09:51:12  strk
- * streamlined headers usage
- *
- * Revision 1.29  2006/03/09 15:39:25  strk
- * Fixed debugging lines
- *
- * Revision 1.28  2006/03/06 19:40:47  strk
- * geos::util namespace. New GeometryCollection::iterator interface, many cleanups.
- *
- * Revision 1.27  2006/03/03 10:46:21  strk
- * Removed 'using namespace' from headers, added missing headers in .cpp files, removed useless includes in headers (bug#46)
- *
- * Revision 1.26  2006/03/02 12:12:00  strk
- * Renamed DEBUG macros to GEOS_DEBUG, all wrapped in #ifndef block to allow global override (bug#43)
- *
- * Revision 1.25  2006/03/01 16:01:47  strk
- * Fixed const correctness of operator<<(ostream&, SegmentNodeList&) [bug#37]
- *
- * Revision 1.24  2006/02/28 17:44:27  strk
- * Added a check in SegmentNode::addSplitEdge to prevent attempts
- * to build SegmentString with less then 2 points.
- * This is a temporary fix for the buffer.xml assertion failure, temporary
- * as Martin Davis review would really be needed there.
- *
- **********************************************************************/
 

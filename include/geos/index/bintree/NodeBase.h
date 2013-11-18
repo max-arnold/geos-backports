@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodeBase.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -78,11 +77,4 @@ protected:
 } // namespace geos
 
 #endif // GEOS_IDX_BINTREE_NODEBASE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/22 16:01:33  strk
- * indexBintree.h header split, classes renamed to match JTS
- *
- **********************************************************************/
 

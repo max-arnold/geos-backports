@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SnapIfNeededOverlayOp.cpp 3224 2011-02-21 12:03:25Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009 2011 Sandro Santilli <strk@keybit.net>
  *

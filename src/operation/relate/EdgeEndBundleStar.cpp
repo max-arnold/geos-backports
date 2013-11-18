@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: EdgeEndBundleStar.cpp 2543 2009-06-05 10:23:23Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005 Refractions Research Inc.
@@ -64,11 +63,8 @@ EdgeEndBundleStar::insert(EdgeEnd *e)
 	}
 }
 
-/**
- * Update the IM with the contribution for the EdgeStubs around the node.
- */
 void
-EdgeEndBundleStar::updateIM(IntersectionMatrix *im)
+EdgeEndBundleStar::updateIM(IntersectionMatrix& im)
 {
 	//vector<EdgeEnd*> *edges=getEdges();
 	EdgeEndStar::iterator it=begin();
@@ -83,17 +79,4 @@ EdgeEndBundleStar::updateIM(IntersectionMatrix *im)
 } // namespace geos.operation.relate
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.13  2006/03/21 13:11:29  strk
- * opRelate.h header split
- *
- * Revision 1.12  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- * Revision 1.11  2006/02/19 19:46:50  strk
- * Packages <-> namespaces mapping for most GEOS internal code (uncomplete, but working). Dir-level libs for index/ subdirs.
- *
- **********************************************************************/
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: HotPixel.h 3527 2011-12-06 17:26:09Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -212,17 +211,3 @@ public:
 #endif
 
 #endif // GEOS_NODING_SNAPROUND_HOTPIXEL_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/05/03 17:50:49  strk
- * Doxygen comments
- *
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/14 12:55:56  strk
- * Headers split: geomgraphindex.h, nodingSnapround.h
- *
- **********************************************************************/
-

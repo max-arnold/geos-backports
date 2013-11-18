@@ -1,6 +1,5 @@
 /************************************************************************
  *
- * $Id: geos_c.cpp 3322 2011-05-03 02:27:00Z sgillies $
  *
  * C-Wrapper for GEOS library
  *
@@ -9,14 +8,14 @@
  *
  * This is free software; you can redistribute and/or modify it under
  * the terms of the GNU Lesser General Public Licence as published
- * by the Free Software Foundation. 
+ * by the Free Software Foundation.
  * See the COPYING file for more information.
  *
- * Author: Sandro Santilli <strk@refractions.net>
+ * Author: Sandro Santilli <strk@keybit.net>
  *
  ***********************************************************************/
 
-#include <geos/geom/prep/PreparedGeometryFactory.h> 
+#include <geos/geom/prep/PreparedGeometryFactory.h>
 #include <geos/index/strtree/STRtree.h>
 #include <geos/io/WKTReader.h>
 #include <geos/io/WKBReader.h>
@@ -26,6 +25,10 @@
 #include <geos/operation/overlay/OverlayOp.h>
 #include <geos/operation/union/CascadedPolygonUnion.h>
 #include <geos/algorithm/distance/DiscreteHausdorffDistance.h>
+#include <geos/util/Interrupt.h>
+
+#include <stdexcept>
+#include <new>
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4099)
@@ -99,6 +102,8 @@ initGEOS (GEOSMessageHandler nf, GEOSMessageHandler ef)
         GEOSContext_setNoticeHandler_r(handle, nf);
         GEOSContext_setErrorHandler_r(handle, ef);
     }
+
+    geos::util::Interrupt::cancel();
 }
 
 void
@@ -110,12 +115,30 @@ finishGEOS ()
     }
 }
 
-void 
-GEOSFree (void* buffer) 
-{ 
-    GEOSFree_r( handle, buffer ); 
-} 
-    
+GEOSInterruptCallback*
+GEOS_interruptRegisterCallback(GEOSInterruptCallback* cb)
+{
+  return geos::util::Interrupt::registerCallback(cb);
+}
+
+void
+GEOS_interruptRequest()
+{
+  geos::util::Interrupt::request();
+}
+
+void
+GEOS_interruptCancel()
+{
+  geos::util::Interrupt::cancel();
+}
+
+void
+GEOSFree (void* buffer)
+{
+    GEOSFree_r( handle, buffer );
+}
+
 /****************************************************************
 ** relate()-related functions
 ** return 0 = false, 1 = true, 2 = error occured
@@ -215,15 +238,15 @@ GEOSRelateBoundaryNodeRule(const Geometry *g1, const Geometry *g2, int bnr)
 
 
 char
-GEOSisValid(const Geometry *g1)
+GEOSisValid(const Geometry *g)
 {
-    return GEOSisValid_r( handle, g1 );
+    return GEOSisValid_r( handle, g );
 }
 
 char *
-GEOSisValidReason(const Geometry *g1)
+GEOSisValidReason(const Geometry *g)
 {
-    return GEOSisValidReason_r( handle, g1 );
+    return GEOSisValidReason_r( handle, g );
 }
 
 char
@@ -279,6 +302,12 @@ GEOSLength(const Geometry *g, double *length)
     return GEOSLength_r( handle, g, length );
 }
 
+CoordinateSequence *
+GEOSNearestPoints(const Geometry *g1, const Geometry *g2)
+{
+    return GEOSNearestPoints_r( handle, g1, g2 );
+}
+
 Geometry *
 GEOSGeomFromWKT(const char *wkt)
 {
@@ -286,9 +315,9 @@ GEOSGeomFromWKT(const char *wkt)
 }
 
 char *
-GEOSGeomToWKT(const Geometry *g1)
+GEOSGeomToWKT(const Geometry *g)
 {
-    return GEOSGeomToWKT_r( handle, g1 );
+    return GEOSGeomToWKT_r( handle, g );
 }
 
 // Remember to free the result!
@@ -319,15 +348,15 @@ GEOSGeomFromHEX_buf(const unsigned char *hex, size_t size)
 }
 
 char
-GEOSisEmpty(const Geometry *g1)
+GEOSisEmpty(const Geometry *g)
 {
-    return GEOSisEmpty_r( handle, g1 );
+    return GEOSisEmpty_r( handle, g );
 }
 
 char
-GEOSisSimple(const Geometry *g1)
+GEOSisSimple(const Geometry *g)
 {
-    return GEOSisSimple_r( handle, g1 );
+    return GEOSisSimple_r( handle, g );
 }
 
 char
@@ -340,16 +369,16 @@ GEOSisRing(const Geometry *g)
 
 //free the result of this
 char *
-GEOSGeomType(const Geometry *g1)
+GEOSGeomType(const Geometry *g)
 {
-    return GEOSGeomType_r( handle, g1 );
+    return GEOSGeomType_r( handle, g );
 }
 
 // Return postgis geometry type index
 int
-GEOSGeomTypeId(const Geometry *g1)
+GEOSGeomTypeId(const Geometry *g)
 {
-    return GEOSGeomTypeId_r( handle, g1 );
+    return GEOSGeomTypeId_r( handle, g );
 }
 
 
@@ -360,9 +389,9 @@ GEOSGeomTypeId(const Geometry *g1)
 //-------------------------------------------------------------------
 
 Geometry *
-GEOSEnvelope(const Geometry *g1)
+GEOSEnvelope(const Geometry *g)
 {
-    return GEOSEnvelope_r( handle, g1 );
+    return GEOSEnvelope_r( handle, g );
 }
 
 Geometry *
@@ -372,39 +401,39 @@ GEOSIntersection(const Geometry *g1, const Geometry *g2)
 }
 
 Geometry *
-GEOSBuffer(const Geometry *g1, double width, int quadrantsegments)
+GEOSBuffer(const Geometry *g, double width, int quadrantsegments)
 {
-    return GEOSBuffer_r( handle, g1, width, quadrantsegments );
+    return GEOSBuffer_r( handle, g, width, quadrantsegments );
 }
 
 Geometry *
-GEOSBufferWithStyle(const Geometry *g1, double width, int quadsegs,
+GEOSBufferWithStyle(const Geometry *g, double width, int quadsegs,
 	int endCapStyle, int joinStyle, double mitreLimit)
 {
-    return GEOSBufferWithStyle_r( handle, g1, width, quadsegs, endCapStyle,
+    return GEOSBufferWithStyle_r( handle, g, width, quadsegs, endCapStyle,
                                joinStyle, mitreLimit );
 }
 
 Geometry *
-GEOSSingleSidedBuffer(const Geometry *g1, double width, int quadsegs,
+GEOSSingleSidedBuffer(const Geometry *g, double width, int quadsegs,
 	int joinStyle, double mitreLimit, int leftSide)
 {
-    return GEOSSingleSidedBuffer_r( handle, g1, width, quadsegs, 
+    return GEOSSingleSidedBuffer_r( handle, g, width, quadsegs,
                                joinStyle, mitreLimit, leftSide );
 }
 
 Geometry *
-GEOSOffsetCurve(const Geometry *g1, double width, int quadsegs,
+GEOSOffsetCurve(const Geometry *g, double width, int quadsegs,
 	int joinStyle, double mitreLimit)
 {
-    return GEOSOffsetCurve_r( handle, g1, width, quadsegs, 
+    return GEOSOffsetCurve_r( handle, g, width, quadsegs,
                                joinStyle, mitreLimit );
 }
 
 Geometry *
-GEOSConvexHull(const Geometry *g1)
+GEOSConvexHull(const Geometry *g)
 {
-    return GEOSConvexHull_r( handle, g1 );
+    return GEOSConvexHull_r( handle, g );
 }
 
 Geometry *
@@ -414,9 +443,9 @@ GEOSDifference(const Geometry *g1, const Geometry *g2)
 }
 
 Geometry *
-GEOSBoundary(const Geometry *g1)
+GEOSBoundary(const Geometry *g)
 {
-    return GEOSBoundary_r( handle, g1 );
+    return GEOSBoundary_r( handle, g );
 }
 
 Geometry *
@@ -432,21 +461,27 @@ GEOSUnion(const Geometry *g1, const Geometry *g2)
 }
 
 Geometry *
-GEOSUnaryUnion(const Geometry *g1)
+GEOSUnaryUnion(const Geometry *g)
 {
-    return GEOSUnaryUnion_r( handle, g1);
+    return GEOSUnaryUnion_r( handle, g);
 }
 
 Geometry *
-GEOSUnionCascaded(const Geometry *g1)
+GEOSNode(const Geometry *g)
 {
-	return GEOSUnionCascaded_r( handle, g1 );
+    return GEOSNode_r( handle, g );
 }
 
 Geometry *
-GEOSPointOnSurface(const Geometry *g1)
+GEOSUnionCascaded(const Geometry *g)
 {
-    return GEOSPointOnSurface_r( handle, g1 );
+	return GEOSUnionCascaded_r( handle, g );
+}
+
+Geometry *
+GEOSPointOnSurface(const Geometry *g)
+{
+    return GEOSPointOnSurface_r( handle, g );
 }
 
 
@@ -466,33 +501,33 @@ GEOSGeom_destroy(Geometry *a)
 
 
 int
-GEOSGetNumCoordinates(const Geometry *g1)
+GEOSGetNumCoordinates(const Geometry *g)
 {
-    return GEOSGetNumCoordinates_r( handle, g1 );
+    return GEOSGetNumCoordinates_r( handle, g );
 }
 
 /*
- * Return -1 on exception, 0 otherwise. 
+ * Return -1 on exception, 0 otherwise.
  * Converts Geometry to normal form (or canonical form).
  */
 int
-GEOSNormalize(Geometry *g1)
+GEOSNormalize(Geometry *g)
 {
-    return GEOSNormalize_r( handle, g1 );
+    return GEOSNormalize_r( handle, g );
 }
 
 int
-GEOSGetNumInteriorRings(const Geometry *g1)
+GEOSGetNumInteriorRings(const Geometry *g)
 {
-    return GEOSGetNumInteriorRings_r( handle, g1 );
+    return GEOSGetNumInteriorRings_r( handle, g );
 }
 
 
 // returns -1 on error and 1 for non-multi geometries
 int
-GEOSGetNumGeometries(const Geometry *g1)
+GEOSGetNumGeometries(const Geometry *g)
 {
-    return GEOSGetNumGeometries_r( handle, g1 );
+    return GEOSGetNumGeometries_r( handle, g );
 }
 
 
@@ -501,9 +536,9 @@ GEOSGetNumGeometries(const Geometry *g1)
  * Return a pointer to the internal Geometry.
  */
 const Geometry *
-GEOSGetGeometryN(const Geometry *g1, int n)
+GEOSGetGeometryN(const Geometry *g, int n)
 {
-    return GEOSGetGeometryN_r( handle, g1, n );
+    return GEOSGetGeometryN_r( handle, g, n );
 }
 
 /*
@@ -511,27 +546,27 @@ GEOSGetGeometryN(const Geometry *g1, int n)
  * Returns NULL on exception
  */
 Geometry *
-GEOSGeomGetPointN(const Geometry *g1, int n)
+GEOSGeomGetPointN(const Geometry *g, int n)
 {
-	return GEOSGeomGetPointN_r(handle, g1, n);
+	return GEOSGeomGetPointN_r(handle, g, n);
 }
 
 /*
  * Call only on LINESTRING
  */
 Geometry *
-GEOSGeomGetStartPoint(const Geometry *g1)
+GEOSGeomGetStartPoint(const Geometry *g)
 {
-	return GEOSGeomGetStartPoint_r(handle, g1);
+	return GEOSGeomGetStartPoint_r(handle, g);
 }
 
 /*
  * Call only on LINESTRING
  */
 Geometry *
-GEOSGeomGetEndPoint(const Geometry *g1)
+GEOSGeomGetEndPoint(const Geometry *g)
 {
-	return GEOSGeomGetEndPoint_r(handle, g1);
+	return GEOSGeomGetEndPoint_r(handle, g);
 }
 
 /*
@@ -539,9 +574,9 @@ GEOSGeomGetEndPoint(const Geometry *g1)
  * return 2 on exception, 1 on true, 0 on false
  */
 char
-GEOSisClosed(const Geometry *g1)
+GEOSisClosed(const Geometry *g)
 {
-	return GEOSisClosed_r(handle, g1);
+	return GEOSisClosed_r(handle, g);
 }
 
 /*
@@ -549,9 +584,9 @@ GEOSisClosed(const Geometry *g1)
  * returns 0 on exception, otherwise 1
  */
 int
-GEOSGeomGetLength(const Geometry *g1, double *length)
+GEOSGeomGetLength(const Geometry *g, double *length)
 {
-	return GEOSGeomGetLength_r(handle, g1, length);
+	return GEOSGeomGetLength_r(handle, g, length);
 }
 
 /*
@@ -559,9 +594,9 @@ GEOSGeomGetLength(const Geometry *g1, double *length)
  * returns -1 on exception
  */
 int
-GEOSGeomGetNumPoints(const Geometry *g1)
+GEOSGeomGetNumPoints(const Geometry *g)
 {
-	return GEOSGeomGetNumPoints_r(handle, g1);
+	return GEOSGeomGetNumPoints_r(handle, g);
 }
 
 /*
@@ -569,9 +604,9 @@ GEOSGeomGetNumPoints(const Geometry *g1)
  * returns 0 on exception, otherwise 1
  */
 int
-GEOSGeomGetX(const Geometry *g1, double *x)
+GEOSGeomGetX(const Geometry *g, double *x)
 {
-	return GEOSGeomGetX_r(handle, g1, x);
+	return GEOSGeomGetX_r(handle, g, x);
 }
 
 /*
@@ -579,9 +614,9 @@ GEOSGeomGetX(const Geometry *g1, double *x)
  * returns 0 on exception, otherwise 1
  */
 int
-GEOSGeomGetY(const Geometry *g1, double *y)
+GEOSGeomGetY(const Geometry *g, double *y)
 {
-	return GEOSGeomGetY_r(handle, g1, y);
+	return GEOSGeomGetY_r(handle, g, y);
 }
 
 /*
@@ -589,9 +624,9 @@ GEOSGeomGetY(const Geometry *g1, double *y)
  * Return a copy of the internal Geometry.
  */
 const Geometry *
-GEOSGetExteriorRing(const Geometry *g1)
+GEOSGetExteriorRing(const Geometry *g)
 {
-    return GEOSGetExteriorRing_r( handle, g1 );
+    return GEOSGetExteriorRing_r( handle, g );
 }
 
 /*
@@ -599,9 +634,9 @@ GEOSGetExteriorRing(const Geometry *g1)
  * Return a pointer to internal storage, do not destroy it.
  */
 const Geometry *
-GEOSGetInteriorRingN(const Geometry *g1, int n)
+GEOSGetInteriorRingN(const Geometry *g, int n)
 {
-    return GEOSGetInteriorRingN_r( handle, g1, n );
+    return GEOSGetInteriorRingN_r( handle, g, n );
 }
 
 Geometry *
@@ -653,7 +688,7 @@ GEOSSetSRID(Geometry *g, int srid)
     return GEOSSetSRID_r( handle, g, srid );
 }
 
-char 
+char
 GEOSHasZ(const Geometry *g)
 {
     return GEOSHasZ_r( handle, g );
@@ -811,15 +846,15 @@ GEOSGeom_getCoordinateDimension(const Geometry *g)
 }
 
 Geometry *
-GEOSSimplify(const Geometry *g1, double tolerance)
+GEOSSimplify(const Geometry *g, double tolerance)
 {
-    return GEOSSimplify_r( handle, g1, tolerance );
+    return GEOSSimplify_r( handle, g, tolerance );
 }
 
 Geometry *
-GEOSTopologyPreserveSimplify(const Geometry *g1, double tolerance)
+GEOSTopologyPreserveSimplify(const Geometry *g, double tolerance)
 {
-    return GEOSTopologyPreserveSimplify_r( handle, g1, tolerance );
+    return GEOSTopologyPreserveSimplify_r( handle, g, tolerance );
 }
 
 
@@ -984,7 +1019,7 @@ GEOSWKBWriter_setIncludeSRID(GEOSWKBWriter* writer, const char newIncludeSRID)
 
 
 //-----------------------------------------------------------------
-// Prepared Geometry 
+// Prepared Geometry
 //-----------------------------------------------------------------
 
 const geos::geom::prep::PreparedGeometry*
@@ -1075,14 +1110,14 @@ GEOSSTRtree_insert (geos::index::strtree::STRtree *tree,
 
 void
 GEOSSTRtree_query (geos::index::strtree::STRtree *tree,
-                   const geos::geom::Geometry *g, 
+                   const geos::geom::Geometry *g,
                    GEOSQueryCallback cb,
                    void *userdata)
 {
     GEOSSTRtree_query_r( handle, tree, g, cb, userdata );
 }
 
-void 
+void
 GEOSSTRtree_iterate(geos::index::strtree::STRtree *tree,
                     GEOSQueryCallback callback,
                     void *userdata)
@@ -1227,6 +1262,12 @@ Geometry*
 GEOSBufferWithParams(const Geometry* g, const GEOSBufferParams* p, double w)
 {
   return GEOSBufferWithParams_r(handle, g, p, w);
+}
+
+Geometry *
+GEOSDelaunayTriangulation(const Geometry *g, double tolerance, int onlyEdges)
+{
+  return GEOSDelaunayTriangulation_r(handle, g, tolerance, onlyEdges);
 }
 
 } /* extern "C" */

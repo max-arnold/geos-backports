@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Writer.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -36,9 +35,10 @@ namespace io {
 class GEOS_DLL Writer {
 public:
 	Writer();
+	void reserve(std::size_t capacity);
 	~Writer();
-	void write(std::string txt);
-	std::string toString();
+	void write(const std::string& txt);
+	const std::string& toString();
 private:
 	std::string str;
 };
@@ -51,10 +51,3 @@ private:
 #endif
 
 #endif // #ifndef GEOS_IO_WRITER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/20 18:18:15  strk
- * io.h header split
- *
- **********************************************************************/

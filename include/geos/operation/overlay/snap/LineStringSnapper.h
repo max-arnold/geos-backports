@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineStringSnapper.h 3225 2011-02-21 14:02:37Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009-2010  Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -143,6 +142,11 @@ private:
 	///           or one found on the snapPt)
 	///
 	geom::CoordinateList::iterator findSegmentToSnap(
+			const geom::Coordinate& snapPt,
+			geom::CoordinateList::iterator from,
+			geom::CoordinateList::iterator too_far);
+
+	geom::CoordinateList::iterator findVertexToSnap(
 			const geom::Coordinate& snapPt,
 			geom::CoordinateList::iterator from,
 			geom::CoordinateList::iterator too_far);

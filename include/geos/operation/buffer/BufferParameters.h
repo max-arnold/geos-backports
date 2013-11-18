@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferParameters.h 3300 2011-04-27 09:42:13Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  *

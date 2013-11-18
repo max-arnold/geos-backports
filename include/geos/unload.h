@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: unload.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -10,22 +9,6 @@
  * the terms of the GNU Lesser General Public Licence as published
  * by the Free Software Foundation. 
  * See the COPYING file for more information.
- *
- **********************************************************************
- * $Log$
- * Revision 1.3  2006/03/06 19:43:20  strk
- * Fixed Unload class definition namespace (geos::io)
- *
- * Revision 1.2  2006/03/01 10:39:58  strk
- * ctor and dtor made private and inlined
- *
- * Revision 1.1  2004/07/02 13:20:42  strk
- * Header files moved under geos/ dir.
- *
- * Revision 1.2  2003/11/07 01:23:42  pramsey
- * Add standard CVS headers licence notices and copyrights to all cpp and h
- * files.
- *
  *
  **********************************************************************/
 

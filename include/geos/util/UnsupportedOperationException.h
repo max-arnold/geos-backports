@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: UnsupportedOperationException.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -46,7 +45,7 @@ public:
 		GEOSException("UnsupportedOperationException", msg)
 	{}
 
-	~UnsupportedOperationException() throw() {};
+	~UnsupportedOperationException() throw() {}
 };
 
 } // namespace geos::util
@@ -54,10 +53,3 @@ public:
 
 
 #endif // GEOS_UTIL_UNSUPPORTEDOPERATIONEXCEPTION_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

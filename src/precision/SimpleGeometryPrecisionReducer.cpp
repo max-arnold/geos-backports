@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SimpleGeometryPrecisionReducer.cpp 2368 2009-04-15 10:02:01Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -38,6 +37,8 @@ using namespace geos::geom::util;
 
 namespace geos {
 namespace precision { // geos.precision
+
+namespace {
 
 class PrecisionReducerCoordinateOperation :
 		public geom::util::CoordinateOperation
@@ -120,6 +121,7 @@ PrecisionReducerCoordinateOperation::edit(const CoordinateSequence *cs,
 	return noRepeatedCoords;
 }
 
+} // anonymous namespace
 
 //---------------------------------------------------------------
 
@@ -171,14 +173,4 @@ SimpleGeometryPrecisionReducer::reduce(const Geometry *geom)
 
 } // namespace geos.precision
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.14  2006/04/03 13:56:54  strk
- * Made externally-owned PrecisionModel  const
- *
- * Revision 1.13  2006/03/23 09:17:19  strk
- * precision.h header split, minor optimizations
- *
- **********************************************************************/
 

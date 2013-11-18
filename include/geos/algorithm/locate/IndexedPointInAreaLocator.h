@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IndexedPointInAreaLocator.h 2770 2009-12-03 19:27:18Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -125,7 +124,3 @@ public:
 } // geos
 
 #endif // GEOS_ALGORITHM_LOCATE_INDEXEDPOINTINAREALOCATOR_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

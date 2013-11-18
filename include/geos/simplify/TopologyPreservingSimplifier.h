@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: TopologyPreservingSimplifier.h 3626 2012-05-09 18:02:09Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -97,13 +96,3 @@ private:
 #endif
 
 #endif // GEOS_SIMPLIFY_TOPOLOGYPRESERVINGSIMPLIFIER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/04/13 16:04:10  strk
- * Made TopologyPreservingSimplifier implementation successfully build
- *
- * Revision 1.2  2006/04/13 14:25:17  strk
- * TopologyPreservingSimplifier initial port
- *
- **********************************************************************/

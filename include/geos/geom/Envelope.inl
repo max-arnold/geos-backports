@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Envelope.inl 2470 2009-05-05 14:28:27Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *

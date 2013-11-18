@@ -1,10 +1,9 @@
 /************************************************************************
  *
- * $Id: geos_ts_c.cpp 3685 2012-06-25 10:20:08Z strk $
  *
  * C-Wrapper for GEOS library
  *
- * Copyright (C) 2010 2011 Sandro Santilli <strk@keybit.net>
+ * Copyright (C) 2010-2012 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *
  * This is free software; you can redistribute and/or modify it under
@@ -12,7 +11,7 @@
  * by the Free Software Foundation. 
  * See the COPYING file for more information.
  *
- * Author: Sandro Santilli <strk@refractions.net>
+ * Author: Sandro Santilli <strk@keybit.net>
  * Thread Safety modifications: Chuck Thibert <charles.thibert@ingres.com>
  *
  ***********************************************************************/
@@ -46,19 +45,24 @@
 #include <geos/algorithm/BoundaryNodeRule.h>
 #include <geos/simplify/DouglasPeuckerSimplifier.h>
 #include <geos/simplify/TopologyPreservingSimplifier.h>
-#include <geos/operation/valid/IsValidOp.h>
-#include <geos/operation/polygonize/Polygonizer.h>
+#include <geos/noding/GeometryNoder.h>
+#include <geos/noding/Noder.h>
+#include <geos/operation/buffer/BufferBuilder.h>
+#include <geos/operation/buffer/BufferOp.h>
+#include <geos/operation/buffer/BufferParameters.h>
+#include <geos/operation/distance/DistanceOp.h>
 #include <geos/operation/linemerge/LineMerger.h>
 #include <geos/operation/overlay/OverlayOp.h>
 #include <geos/operation/overlay/snap/GeometrySnapper.h>
-#include <geos/operation/union/CascadedPolygonUnion.h>
-#include <geos/operation/buffer/BufferOp.h>
-#include <geos/operation/buffer/BufferParameters.h>
-#include <geos/operation/buffer/BufferBuilder.h>
+#include <geos/operation/polygonize/Polygonizer.h>
 #include <geos/operation/relate/RelateOp.h>
 #include <geos/operation/sharedpaths/SharedPathsOp.h>
+#include <geos/operation/union/CascadedPolygonUnion.h>
+#include <geos/operation/valid/IsValidOp.h>
 #include <geos/linearref/LengthIndexedLine.h>
+#include <geos/triangulate/DelaunayTriangulationBuilder.h>
 #include <geos/util/IllegalArgumentException.h>
+#include <geos/util/Interrupt.h>
 #include <geos/util/UniqueCoordinateArrayFilter.h>
 #include <geos/util/Machine.h>
 #include <geos/version.h> 
@@ -92,6 +96,7 @@
 #define GEOSWKBWriter_t geos::io::WKBWriter
 
 #include "geos_c.h"
+#include "../geos_svn_revision.h"
 
 // Intentional, to allow non-standard C elements like C99 functions to be
 // imported through C++ headers of C library, like <cmath>.
@@ -146,8 +151,8 @@ class CAPI_ItemVisitor : public geos::index::ItemVisitor {
     void *userdata;
   public:
     CAPI_ItemVisitor (GEOSQueryCallback cb, void *ud)
-        : ItemVisitor(), callback(cb), userdata(ud) {};
-    void visitItem (void *item) { callback(item, userdata); };
+        : ItemVisitor(), callback(cb), userdata(ud) {}
+    void visitItem (void *item) { callback(item, userdata); }
 };
 
 
@@ -156,11 +161,12 @@ class CAPI_ItemVisitor : public geos::index::ItemVisitor {
 extern "C" const char GEOS_DLL *GEOSjtsport();
 extern "C" char GEOS_DLL *GEOSasText(Geometry *g1);
 
+
 namespace { // anonymous
 
 char* gstrdup_s(const char* str, const std::size_t size)
 {
-    char* out = static_cast<char*>(std::malloc(size + 1));
+    char* out = static_cast<char*>(malloc(size + 1));
     if (0 != out)
     {
         // as no strlen call necessary, memcpy may be faster than strcpy
@@ -193,7 +199,7 @@ initGEOS_r(GEOSMessageHandler nf, GEOSMessageHandler ef)
     GEOSContextHandleInternal_t *handle = 0;
     void *extHandle = 0;
 
-    extHandle = std::malloc(sizeof(GEOSContextHandleInternal_t));
+    extHandle = malloc(sizeof(GEOSContextHandleInternal_t));
     if (0 != extHandle)
     {
         handle = static_cast<GEOSContextHandleInternal_t*>(extHandle);
@@ -204,6 +210,8 @@ initGEOS_r(GEOSMessageHandler nf, GEOSMessageHandler ef)
         handle->WKBByteOrder = getMachineByteOrder();
         handle->initialized = 1;
     }
+
+    geos::util::Interrupt::cancel();
 
     return static_cast<GEOSContextHandle_t>(extHandle);
 }
@@ -246,7 +254,7 @@ void
 finishGEOS_r(GEOSContextHandle_t extHandle)
 {
     // Fix up freeing handle w.r.t. malloc above
-    std::free(extHandle);
+    free(extHandle);
     extHandle = NULL;
 }
 
@@ -255,7 +263,7 @@ GEOSFree_r (GEOSContextHandle_t extHandle, void* buffer)
 { 
     assert(0 != extHandle);
 
-    std::free(buffer); 
+    free(buffer); 
 } 
 
 //-----------------------------------------------------------
@@ -705,19 +713,19 @@ GEOSRelateBoundaryNodeRule_r(GEOSContextHandle_t extHandle, const Geometry *g1, 
         switch (bnr) {
           case GEOSRELATE_BNR_MOD2: /* same as OGC */
             im = RelateOp::relate(g1, g2,
-              BoundaryNodeRule::MOD2_BOUNDARY_RULE);
+                BoundaryNodeRule::getBoundaryRuleMod2());
             break;
           case GEOSRELATE_BNR_ENDPOINT:
             im = RelateOp::relate(g1, g2,
-              BoundaryNodeRule::ENDPOINT_BOUNDARY_RULE);
+                BoundaryNodeRule::getBoundaryEndPoint());
             break;
           case GEOSRELATE_BNR_MULTIVALENT_ENDPOINT:
             im = RelateOp::relate(g1, g2,
-              BoundaryNodeRule::MULTIVALENT_ENDPOINT_BOUNDARY_RULE);
+                BoundaryNodeRule::getBoundaryMultivalentEndPoint());
             break;
           case GEOSRELATE_BNR_MONOVALENT_ENDPOINT:
             im = RelateOp::relate(g1, g2,
-              BoundaryNodeRule::MONOVALENT_ENDPOINT_BOUNDARY_RULE);
+                BoundaryNodeRule::getBoundaryMonovalentEndPoint());
             break;
           default:
             handle->ERROR_MESSAGE("Invalid boundary node rule %d", bnr);
@@ -1144,6 +1152,39 @@ GEOSLength_r(GEOSContextHandle_t extHandle, const Geometry *g, double *length)
     return 0;
 }
 
+CoordinateSequence *
+GEOSNearestPoints_r(GEOSContextHandle_t extHandle, const Geometry *g1, const Geometry *g2)
+{
+    if ( 0 == extHandle )
+    {
+        return NULL;
+    }
+
+    GEOSContextHandleInternal_t *handle = 0;
+    handle = reinterpret_cast<GEOSContextHandleInternal_t*>(extHandle);
+    if ( 0 == handle->initialized )
+    {
+        return NULL;
+    }
+
+    try
+    {
+        if (g1->isEmpty() || g2->isEmpty()) return 0;
+        return geos::operation::distance::DistanceOp::nearestPoints(g1, g2);
+    }
+    catch (const std::exception &e)
+    {
+        handle->ERROR_MESSAGE("%s", e.what());
+    }
+    catch (...)
+    {
+        handle->ERROR_MESSAGE("Unknown exception thrown");
+    }
+    
+    return NULL;
+}
+
+
 Geometry *
 GEOSGeomFromWKT_r(GEOSContextHandle_t extHandle, const char *wkt)
 {
@@ -1232,7 +1273,7 @@ GEOSGeomToWKB_buf_r(GEOSContextHandle_t extHandle, const Geometry *g, size_t *si
     using geos::io::WKBWriter;
     try
     {
-        int byteOrder = static_cast<int>(handle->WKBByteOrder);
+        int byteOrder = handle->WKBByteOrder;
         WKBWriter w(handle->WKBOutputDims, byteOrder);
         std::ostringstream os(std::ios_base::binary);
         w.write(*g, os);
@@ -1240,7 +1281,7 @@ GEOSGeomToWKB_buf_r(GEOSContextHandle_t extHandle, const Geometry *g, size_t *si
         const std::size_t len = wkbstring.length();
 
         unsigned char* result = 0;
-        result = static_cast<unsigned char*>(std::malloc(len));
+        result = static_cast<unsigned char*>(malloc(len));
         if (0 != result)
         {
             std::memcpy(result, wkbstring.c_str(), len);
@@ -1318,7 +1359,7 @@ GEOSGeomToHEX_buf_r(GEOSContextHandle_t extHandle, const Geometry *g, size_t *si
     using geos::io::WKBWriter;
     try
     {
-        int byteOrder = static_cast<int>(handle->WKBByteOrder);
+        int byteOrder = handle->WKBByteOrder;
         WKBWriter w(handle->WKBOutputDims, byteOrder);
         std::ostringstream os(std::ios_base::binary);
         w.writeHEX(*g, os);
@@ -2001,6 +2042,45 @@ GEOSUnaryUnion_r(GEOSContextHandle_t extHandle, const Geometry *g)
 }
 
 Geometry *
+GEOSNode_r(GEOSContextHandle_t extHandle, const Geometry *g)
+{
+    if ( 0 == extHandle )
+    {
+        return NULL;
+    }
+
+    GEOSContextHandleInternal_t *handle = 0;
+    handle = reinterpret_cast<GEOSContextHandleInternal_t*>(extHandle);
+    if ( 0 == handle->initialized )
+    {
+        return NULL;
+    }
+
+    try
+    {
+        std::auto_ptr<Geometry> g3 = geos::noding::GeometryNoder::node(*g);
+        return g3.release();
+    }
+    catch (const std::exception &e)
+    {
+#if VERBOSE_EXCEPTIONS
+        std::ostringstream s; 
+        s << "Exception on GEOSUnaryUnion with following inputs:" << std::endl;
+        s << "A: "<<g1->toString() << std::endl;
+        s << "B: "<<g2->toString() << std::endl;
+        handle->NOTICE_MESSAGE("%s", s.str().c_str());
+#endif // VERBOSE_EXCEPTIONS
+        handle->ERROR_MESSAGE("%s", e.what());
+    }
+    catch (...)
+    {
+        handle->ERROR_MESSAGE("Unknown exception thrown");
+    }
+    
+    return NULL;
+}
+
+Geometry *
 GEOSUnionCascaded_r(GEOSContextHandle_t extHandle, const Geometry *g1)
 {
     if ( 0 == extHandle )
@@ -2560,7 +2640,7 @@ GEOSGeomGetNumPoints_r(GEOSContextHandle_t extHandle, const Geometry *g1)
 			handle->ERROR_MESSAGE("Argument is not a LineString");
 			return -1;
 		}
-		return ls->getNumPoints();
+		return static_cast<int>(ls->getNumPoints());
     }
     catch (const std::exception &e)
     {
@@ -3230,7 +3310,9 @@ GEOSGetSRID_r(GEOSContextHandle_t extHandle, const Geometry *g)
 
 const char* GEOSversion()
 {
-    return GEOS_CAPI_VERSION;
+  static char version[256];
+  sprintf(version, "%s r%d", GEOS_CAPI_VERSION, GEOS_SVN_REVISION);
+  return version;
 }
 
 const char* GEOSjtsport()
@@ -3402,7 +3484,7 @@ GEOSCoordSeq_setOrdinate_r(GEOSContextHandle_t extHandle, CoordinateSequence *cs
 
     try
     {
-        cs->setOrdinate(static_cast<int>(idx), static_cast<int>(dim), val);
+        cs->setOrdinate(idx, dim, val);
         return 1;
     }
     catch (const std::exception &e)
@@ -3489,7 +3571,7 @@ GEOSCoordSeq_getOrdinate_r(GEOSContextHandle_t extHandle, const CoordinateSequen
 
     try
     {
-        double d = cs->getOrdinate(static_cast<int>(idx), static_cast<int>(dim));
+        double d = cs->getOrdinate(idx, dim);
         *val = d;
 
         return 1;
@@ -4509,6 +4591,13 @@ GEOSWKBReader_destroy_r(GEOSContextHandle_t extHandle, WKBReader *reader)
     }
 }
 
+struct membuf : public std::streambuf
+{
+  membuf(char* s, std::size_t n)
+  {
+    setg(s, s, s + n);
+  }
+};
 
 Geometry*
 GEOSWKBReader_read_r(GEOSContextHandle_t extHandle, WKBReader *reader, const unsigned char *wkb, size_t size)
@@ -4530,11 +4619,15 @@ GEOSWKBReader_read_r(GEOSContextHandle_t extHandle, WKBReader *reader, const uns
 
     try
     {
-        std::string wkbstring(reinterpret_cast<const char*>(wkb), size); // make it binary !
-        std::istringstream is(std::ios_base::binary);
-        is.str(wkbstring);
-        is.seekg(0, std::ios::beg); // rewind reader pointer
-        
+        //std::string wkbstring(reinterpret_cast<const char*>(wkb), size); // make it binary !
+        //std::istringstream is(std::ios_base::binary);
+        //is.str(wkbstring);
+        //is.seekg(0, std::ios::beg); // rewind reader pointer
+
+        // http://stackoverflow.com/questions/2079912/simpler-way-to-create-a-c-memorystream-from-char-size-t-without-copying-t
+        membuf mb((char*)wkb, size);
+        istream is(&mb);
+
         Geometry *g = reader->read(is);
         return g;
     }
@@ -4689,11 +4782,12 @@ GEOSWKBWriter_write_r(GEOSContextHandle_t extHandle, WKBWriter *writer, const Ge
     {
         std::ostringstream os(std::ios_base::binary);
         writer->write(*geom, os);
-        std::string wkbstring(os.str());
+
+        const std::string& wkbstring = os.str();
         const std::size_t len = wkbstring.length();
 
         unsigned char *result = NULL;
-        result = (unsigned char*) std::malloc(len);
+        result = (unsigned char*) malloc(len);
         std::memcpy(result, wkbstring.c_str(), len);
         *size = len;
         return result;
@@ -4737,7 +4831,7 @@ GEOSWKBWriter_writeHEX_r(GEOSContextHandle_t extHandle, WKBWriter *writer, const
         const std::size_t len = wkbstring.length();
 
         unsigned char *result = NULL;
-        result = (unsigned char*) std::malloc(len);
+        result = (unsigned char*) malloc(len);
         std::memcpy(result, wkbstring.c_str(), len);
         *size = len;
         return result;
@@ -4890,7 +4984,7 @@ GEOSWKBWriter_getIncludeSRID_r(GEOSContextHandle_t extHandle, const GEOSWKBWrite
         try
         {
             int srid = writer->getIncludeSRID();
-            ret = static_cast<char>(srid);
+            ret = srid;
         }
         catch (...)
         {
@@ -5916,6 +6010,7 @@ GEOSBufferParams_create_r(GEOSContextHandle_t extHandle)
 void
 GEOSBufferParams_destroy_r(GEOSContextHandle_t extHandle, BufferParameters* p)
 {
+  (void)extHandle;
   delete p;     
 }
 
@@ -6077,6 +6172,39 @@ GEOSBufferWithParams_r(GEOSContextHandle_t extHandle, const Geometry *g1, const 
         BufferOp op(g1, *bp);
         Geometry *g3 = op.getResultGeometry(width);
         return g3;
+    }
+    catch (const std::exception &e)
+    {
+        handle->ERROR_MESSAGE("%s", e.what());
+    }
+    catch (...)
+    {
+        handle->ERROR_MESSAGE("Unknown exception thrown");
+    }
+    
+    return NULL;
+}
+
+Geometry *
+GEOSDelaunayTriangulation_r(GEOSContextHandle_t extHandle, const Geometry *g1, double tolerance, int onlyEdges)
+{
+    if ( 0 == extHandle ) return NULL;
+
+    GEOSContextHandleInternal_t *handle = 0;
+    handle = reinterpret_cast<GEOSContextHandleInternal_t*>(extHandle);
+    if ( 0 == handle->initialized ) return NULL;
+
+    using geos::triangulate::DelaunayTriangulationBuilder;
+
+    try
+    {
+      DelaunayTriangulationBuilder builder;
+      builder.setTolerance(tolerance);
+      builder.setSites(*g1);
+
+      if ( onlyEdges ) return builder.getEdges( *g1->getFactory() ).release();
+      else return builder.getTriangles( *g1->getFactory() ).release();
+
     }
     catch (const std::exception &e)
     {

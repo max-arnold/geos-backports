@@ -1,7 +1,7 @@
 /**********************************************************************
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -61,7 +61,6 @@ namespace prep { // geos.geom.prep
 		bool segsIntersect = fssif->intersects( &lineSegStr);// prepLine.getIntersectionFinder()->intersects(lineSegStr);
 
 		for ( size_t i = 0, ni = lineSegStr.size(); i < ni; i++ ) {
-			delete lineSegStr[ i ]->getCoordinates();
 			delete lineSegStr[ i ];
 		}
 

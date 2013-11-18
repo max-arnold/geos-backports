@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DirectedEdge.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -47,6 +46,8 @@ namespace planargraph { // geos.planargraph
 class GEOS_DLL DirectedEdge: public GraphComponent {
 
 public:
+
+  friend std::ostream& operator << (std::ostream&, const DirectedEdge&);
 
 	typedef std::list<DirectedEdge *> NonConstList;
 	typedef std::list<const DirectedEdge *> ConstList;
@@ -226,20 +227,11 @@ public:
 /// Strict Weak comparator function for containers
 bool pdeLessThan(DirectedEdge *first, DirectedEdge * second);
 
+/// Output operator 
+std::ostream& operator << (std::ostream&, const DirectedEdge&);
 
 
 } // namespace geos::planargraph
 } // namespace geos
 
 #endif // GEOS_PLANARGRAPH_DIRECTEDEDGE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/06/12 15:46:08  strk
- * provided a memory friendly version of toEdges() method.
- *
- * Revision 1.1  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
-

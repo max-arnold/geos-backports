@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPoint.h 3405 2011-07-05 09:44:00Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -58,7 +57,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_GEOM_PREP_PREPAREDPOINT_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

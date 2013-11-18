@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineMerger.h 3309 2011-04-27 15:47:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -144,10 +143,3 @@ public:
 #endif
 
 #endif // GEOS_OP_LINEMERGE_LINEMERGER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/22 10:13:53  strk
- * opLinemerge.h split
- *
- **********************************************************************/

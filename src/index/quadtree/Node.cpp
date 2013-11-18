@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Node.cpp 3404 2011-07-05 09:43:51Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -207,17 +206,3 @@ Node::toString() const
 } // namespace geos.index.quadtree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/23 13:31:58  strk
- * Fixed to allow build with GEOS_DEBUG
- *
- * Revision 1.1  2006/03/22 14:28:53  strk
- * Filenames renamed to match class names (matching JTS)
- *
- * Revision 1.17  2006/03/22 12:22:50  strk
- * indexQuadtree.h split
- *
- **********************************************************************/
-

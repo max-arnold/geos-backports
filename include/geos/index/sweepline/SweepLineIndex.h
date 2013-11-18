@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SweepLineIndex.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -88,11 +87,3 @@ private:
 #endif
 
 #endif // GEOS_INDEX_SWEEPLINE_SWEEPLINEINDEX_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 10:01:30  strk
- * indexSweepline.h header split
- *
- **********************************************************************/
-

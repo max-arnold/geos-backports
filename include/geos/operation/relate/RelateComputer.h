@@ -1,7 +1,7 @@
 /**********************************************************************
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -118,7 +118,7 @@ private:
 	/**
 	 * update the IM with the sum of the IMs for each component
 	 */
-	void updateIM(geom::IntersectionMatrix *imX);
+	void updateIM(geom::IntersectionMatrix& imX);
 
 	/**
 	 * Processes isolated edges by computing their labelling and adding them
@@ -167,11 +167,3 @@ private:
 #endif
 
 #endif // GEOS_OP_RELATE_RELATECOMPUTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 13:11:29  strk
- * opRelate.h header split
- *
- **********************************************************************/
-

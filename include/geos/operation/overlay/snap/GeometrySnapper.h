@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometrySnapper.h 3538 2011-12-09 10:44:54Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009-2010  Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.

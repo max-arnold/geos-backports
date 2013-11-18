@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ConnectedSubgraphFinder.cpp 2891 2010-01-28 18:42:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -96,10 +95,3 @@ ConnectedSubgraphFinder::addEdges(Node* node,
 } // namespace geos.planargraph.algorithm
 } // namespace geos.planargraph 
 } // namespace geos 
-
-/**********************************************************************
- * $Log$
- * Revision 1.5  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/

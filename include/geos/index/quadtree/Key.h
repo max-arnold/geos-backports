@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Key.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -88,11 +87,3 @@ private:
 } // namespace geos
 
 #endif // GEOS_IDX_QUADTREE_KEY_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/22 12:22:50  strk
- * indexQuadtree.h split
- *
- **********************************************************************/
-

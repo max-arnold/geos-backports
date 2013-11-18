@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: timeval.h 2787 2009-12-03 19:59:06Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Wu Yongwei
  *
@@ -10,6 +9,9 @@
  * the terms of the GNU Lesser General Public Licence as published
  * by the Free Software Foundation. 
  * See the COPYING file for more information.
+ *
+ * Note: This code is in the public domain, see 
+ *       http://wyw.dcweb.cn/time.htm
  *
  **********************************************************************/
 

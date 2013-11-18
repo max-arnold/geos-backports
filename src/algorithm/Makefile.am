@@ -1,4 +1,3 @@
-# $Id: Makefile.am 2842 2010-01-13 02:01:12Z mloskot $
 #
 # This file is part of project GEOS (http://trac.osgeo.org/geos/) 
 #
@@ -13,6 +12,7 @@ INCLUDES = -I$(top_srcdir)/include
 libalgorithm_la_SOURCES = \
     Angle.cpp \
     BoundaryNodeRule.cpp \
+    Centroid.cpp \
     CentroidArea.cpp \
     CentroidLine.cpp \
     CentroidPoint.cpp \
@@ -33,7 +33,7 @@ libalgorithm_la_SOURCES = \
     SIRtreePointInRing.cpp 
 
 # Deprecated files
-# (http://geos.refractions.net/pipermail/geos-devel/2006-March/001828.html):
+# (http://geos.osgeo.org/pipermail/geos-devel/2006-March/001828.html):
 #NonRobustLineIntersector.cpp
 #RobustLineIntersector.cpp
 
