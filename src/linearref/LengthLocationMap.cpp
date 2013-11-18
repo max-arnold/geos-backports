@@ -1,9 +1,9 @@
 /**********************************************************************
- * $Id: LengthLocationMap.cpp 2809 2009-12-06 01:05:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
+ * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -14,7 +14,7 @@
  *
  **********************************************************************
  *
- * Last port: algorithm/LengthLocationMap.java rev. 1.35
+ * Last port: algorithm/LengthLocationMap.java r463
  *
  **********************************************************************/
 
@@ -34,12 +34,6 @@ namespace linearref   // geos.linearref
 {
 
 
-LinearLocation LengthLocationMap::getLocation(const Geometry* linearGeom, double length)
-{
-	LengthLocationMap locater(linearGeom);
-	return locater.getLocation(length);
-}
-
 double LengthLocationMap::getLength(const Geometry* linearGeom, const LinearLocation& loc)
 {
 	LengthLocationMap locater(linearGeom);
@@ -50,7 +44,8 @@ double LengthLocationMap::getLength(const Geometry* linearGeom, const LinearLoca
 LengthLocationMap::LengthLocationMap(const Geometry* linearGeom) :
 		linearGeom(linearGeom) {}
 
-LinearLocation LengthLocationMap::getLocation(double length) const
+LinearLocation
+LengthLocationMap::getLocation(double length) const
 {
 	double forwardLength = length;
 	if (length < 0.0)
@@ -61,7 +56,28 @@ LinearLocation LengthLocationMap::getLocation(double length) const
 	return getLocationForward(forwardLength);
 }
 
-LinearLocation LengthLocationMap::getLocationForward(double length) const
+LinearLocation
+LengthLocationMap::getLocation(double length, bool resolveLower) const
+{
+	double forwardLength = length;
+
+	// negative values are measured from end of geometry
+	if (length < 0.0)
+	{
+		double lineLen = linearGeom->getLength();
+		forwardLength = lineLen + length;
+	}
+
+	LinearLocation loc = getLocationForward(forwardLength);
+	if (resolveLower) {
+		return loc;
+	}
+	return resolveHigher(loc);
+}
+
+/* private */
+LinearLocation
+LengthLocationMap::getLocationForward(double length) const
 {
 	if (length <= 0.0)
 		return LinearLocation();
@@ -71,8 +87,22 @@ LinearLocation LengthLocationMap::getLocationForward(double length) const
 	LinearIterator it (linearGeom);
 	while (it.hasNext())
 	{
-		if (! it.isEndOfLine())
-		{
+		/**
+		 * Special handling is required for the situation when the
+		 * length references exactly to a component endpoint.
+		 * In this case, the endpoint location of the current component
+		 * is returned,
+		 * rather than the startpoint location of the next component.
+		 * This produces consistent behaviour with the project method.
+		 */
+		if (it.isEndOfLine()) {
+			if (totalLength == length) {
+				unsigned int compIndex = it.getComponentIndex();
+				unsigned int segIndex = it.getVertexIndex();
+				return LinearLocation(compIndex, segIndex, 0.0);
+			}
+		}
+		else {
 			Coordinate p0 = it.getSegmentStart();
 			Coordinate p1 = it.getSegmentEnd();
 			double segLen = p1.distance(p0);
@@ -86,10 +116,30 @@ LinearLocation LengthLocationMap::getLocationForward(double length) const
 			}
 			totalLength += segLen;
 		}
+
 		it.next();
 	}
 	// length is longer than line - return end location
 	return LinearLocation::getEndLocation(linearGeom);
+}
+
+/* private */
+LinearLocation
+LengthLocationMap::resolveHigher(const LinearLocation& loc) const
+{
+  if (! loc.isEndpoint(*linearGeom)) return loc;
+
+  unsigned int compIndex = loc.getComponentIndex();
+  // if last component can't resolve any higher
+  if (compIndex >= linearGeom->getNumGeometries() - 1) return loc;
+  
+  do {
+    compIndex++;
+  } while (compIndex < linearGeom->getNumGeometries() - 1
+           && linearGeom->getGeometryN(compIndex)->getLength() == 0);
+
+  // resolve to next higher location
+  return LinearLocation(compIndex, 0, 0.0);
 }
 
 

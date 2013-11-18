@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferSubgraph.cpp 3729 2012-12-04 21:39:24Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -71,7 +70,7 @@ BufferSubgraph::create(Node *node)
 	addReachable(node);
 
 	// We are assuming that dirEdgeList 
-	// contains *at least* ONE forward DirectedEdge
+	// contains *at leas* ONE forward DirectedEdge
 	finder.findEdge(&dirEdgeList);
 
 	rightMostCoord=&(finder.getCoordinate());
@@ -357,17 +356,3 @@ std::ostream& operator<< (std::ostream& os, const BufferSubgraph& bs)
 } // namespace geos.operation.buffer
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.34  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.33  2006/05/04 12:33:32  strk
- * Added some comments about RightmostEdgeFinder only considering forward DirectedEdge
- *
- * Revision 1.32  2006/03/22 11:18:39  strk
- * Changed back 'unable to find edge to compute depths' from assertion to TopologyException
- *
- **********************************************************************/
-

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryGraphOperation.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -89,17 +88,3 @@ protected:
 #endif
 
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/03 15:54:33  strk
- * - getArgGeometry() parameter type changed from 'int' to 'unsigned int'
- * - Added port informations
- * - minor assertions checking
- * - minor cleanups
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

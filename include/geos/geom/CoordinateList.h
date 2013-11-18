@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CoordinateList.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2010 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -158,6 +157,15 @@ public:
 		ret->assign(coords.begin(), coords.end());
 		return ret;
 	}
+	void closeRing()
+	{   
+		if(!coords.empty() && ! (*(coords.begin())).equals(*(coords.rbegin())))
+		{   
+			const Coordinate &c = *(coords.begin());
+			coords.insert(coords.end(),c);
+		}   
+	}   
+
 
 private:
 
@@ -190,14 +198,3 @@ std::ostream& operator<< (std::ostream& os, const CoordinateList& cl)
 #endif
 
 #endif // ndef GEOS_GEOM_COORDINATELIST_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/07/21 17:05:22  strk
- * added operator<< for CoordinateList class
- *
- * Revision 1.1  2006/07/21 14:53:12  strk
- * CoordinateList class re-introduced, for list-based ops
- * (not strictly mapped to JTS version, not yet at least)
- *
- **********************************************************************/

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Subgraph.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -155,11 +154,3 @@ protected:
 #endif
 
 #endif // GEOS_PLANARGRAPH_SUBGRAPH_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
-

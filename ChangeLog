@@ -1,16 +1,551 @@
-2013-02-28 09:45  Sandro Santilli <strk@keybit.net>
+2013-08-22 07:44  Sandro Santilli <strk@keybit.net>
 
-	* [r3774] NEWS, src/algorithm/CentroidArea.cpp,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/ticket/bug582.xml: Fix centroid computation
-	  for collections with empty components
+	* [r3915] .travis.yml, tools/ci, tools/ci/before_install.sh,
+	  tools/ci/before_install_autotools.sh,
+	  tools/ci/before_install_cmake.sh, tools/ci/common.sh,
+	  tools/ci/script.sh, tools/ci/script_autotools.sh,
+	  tools/ci/script_cmake.sh: Configure Travis CI for GEOS (#657)
+	  
+	  Configurations for GCC and clang with both Autotools and CMake.
+	  Enable IRC notifications
+	  
+	  Contributed by Mateusz Loskot <mateusz@loskot.net>
+
+2013-08-22 06:35  Sandro Santilli <strk@keybit.net>
+
+	* [r3911] tests/unit/capi/GEOSisValidDetailTest.cpp: Accept
+	  multiple NaN representations (#656)
+
+2013-08-21 13:44  Sandro Santilli <strk@keybit.net>
+
+	* [r3906] CMakeLists.txt, capi/geos_c.h.in, configure.in: Fix CAPI
+	  version to 1.8.2, and fix a missing c++ version too
+
+2013-08-21 13:44  Sandro Santilli <strk@keybit.net>
+
+	* [r3905] NEWS: Fill up 3.4.2 NEWS section so far
+
+2013-08-21 13:44  Sandro Santilli <strk@keybit.net>
+
+	* [r3904] include/geos/geom/BinaryOp.h: Use a double for
+	  PrecisionModel scale, avoiding overflows
+	  
+	  Fixes #652
+
+2013-08-21 11:14  Regina Obe <lr@pcorp.us>
+
+	* [r3903] include/geos/platform.h.in: #650 isnan workaround OS
+	  detection missing NetBSD, DragonFly, Sun nuance
+
+2013-08-19 15:39  Regina Obe <lr@pcorp.us>
+
+	* [r3897] include/geos/Makefile.am: #601 backport trunk fix -- do
+	  not include platform.h , version.h in tar ball, but install
+
+2013-08-17 17:56  Regina Obe <lr@pcorp.us>
+
+	* [r3895] HOWTO_RELEASE, NEWS: update news release date and
+	  reminder to do so for future
+
+2013-08-17 17:47  Regina Obe <lr@pcorp.us>
+
+	* [r3893] capi/geos_c.h.in, configure.in,
+	  include/geos/version.h.vc: bump versions to 3.4.2dev (3.4.2)
+
+2013-08-17 14:06  Regina Obe <lr@pcorp.us>
+
+	* [r3891] CMakeLists.txt, configure.in: other changes in
+	  preparation for 3.4.1 release
+
+2013-08-17 04:22  Regina Obe <lr@pcorp.us>
+
+	* [r3890] ChangeLog, NEWS: update news and changelog in preparation
+	  for geos 3.4.1
+
+2013-08-17 03:09  Regina Obe <lr@pcorp.us>
+
+	* [r3888] CMakeLists.txt: #644 only do svn check if there is a .svn
+	  file in source folder to ensure it works with tar ball
+
+2013-08-16 15:26  Sandro Santilli <strk@keybit.net>
+
+	* [r3886] NEWS, src/operation/overlay/snap/LineStringSnapper.cpp,
+	  tests/unit/capi/GEOSSnapTest.cpp: Fix assertion failure in
+	  snapping code (#649)
+	  
+	  The bug affected attempts to snapping lines to the points
+	  of a rectangle with a side smaller than the tolerance.
+
+2013-08-14 06:10  Regina Obe <lr@pcorp.us>
+
+	* [r3884] CMakeLists.txt, HOWTO_RELEASE: update HOWTO_RELEASE to
+	  include bumping revision numbrs in CMake and also bump numbers in
+	  CMake.
+
+2013-08-14 05:28  Regina Obe <lr@pcorp.us>
+
+	* [r3882] configure.in, include/geos/version.h.vc: bump version
+	  numbers to 3.4.1dev and 3.4.1 in prep for next release
+
+2013-08-11 11:42  Sandro Santilli <strk@keybit.net>
+
+	* [r3880] include/geos/platform.h.in,
+	  tests/xmltester/testrunner.sh, tools/geos-config.in: Set correct
+	  eol-style for geos-config, platform.h and testrunner (#645)
+
+2013-08-11 04:17  Regina Obe <lr@pcorp.us>
+
+	* [r3875] NEWS: update date on news
+
+2013-08-11 03:47  Regina Obe <lr@pcorp.us>
+
+	* [r3872] .: Branch 3.4
+
+2013-08-11 03:44  Regina Obe <lr@pcorp.us>
+
+	* [r3870] update version numbers to agree with configure.in - huh
+	  why are the version numbers all old in this file?
+
+2013-08-11 03:41  Regina Obe <lr@pcorp.us>
+
+	* [r3869] get rid of dev in version# in prep for 3.4.0 release
+
+2013-08-11 03:37  Regina Obe <lr@pcorp.us>
+
+	* [r3868] update change log in prep for 3.4.0 release
+
+2013-08-08 04:25  Regina Obe <lr@pcorp.us>
+
+	* [r3867] update news and change log in prep for Aug 10 release of
+	  3.4.0
+
+2013-08-04 20:05  Regina Obe <lr@pcorp.us>
+
+	* [r3866] #601 do not incude platform.h in tar ball.
+
+2013-08-04 12:27  Sandro Santilli <strk@keybit.net>
+
+	* [r3864] Avoid Coordinate copies in
+	  DelaunayTriangulationBuilder::envelope
+
+2013-08-04 12:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3863] Simplify testcase for
+	  DelaunayTriangulationBuilder::envelope
+
+2013-08-04 11:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3862] envelope() method added to DelaunayTriangulationBuilder
+	  class
+	  
+	  Includes testcase. Patch by Vishal Tiwari
+
+2013-08-03 15:37  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3861] Add geos_svn_revision.h generator to CMake config
+	  
+	  Patch from David Burken attached to #643
+
+2013-08-02 22:38  Regina Obe <lr@pcorp.us>
+
+	* [r3860] #607 Makefile.vc 'clean' step leaks obj files
+
+2013-08-01 21:13  Regina Obe <lr@pcorp.us>
+
+	* [r3858] updates add some missing ticket items and add ticket
+	  numbers where missing
+
+2013-07-31 21:25  Sean Gillies <sgillies@frii.com>
+
+	* [r3857] Print to stderr only in debug mode
+
+2013-07-31 20:38  Regina Obe <lr@pcorp.us>
+
+	* [r3856] #641 - distinguish between active and inactive group and
+	  add Regina Obe to list.
+
+2013-07-31 14:13  Regina Obe <lr@pcorp.us>
+
+	* [r3855]
+
+2013-07-31 14:07  Regina Obe <lr@pcorp.us>
+
+	* [r3854] add myself to author list
+
+2013-07-31 09:42  Sandro Santilli <strk@keybit.net>
+
+	* [r3853] Improve overlay robustness
+	  
+	  - Validate CBR results before accepting them
+	  - Enable overlay node validator even for FIXED precision
+	  - Enable geometry-reduction policy
+	  - Bail out on exception from overlay if any input is invalid
+	  
+	  Fixes bug #459
+
+2013-07-31 08:34  Sandro Santilli <strk@keybit.net>
+
+	* [r3852] Do not expect invalid output from buffer
+	  
+	  The test verification code is tollerant, but better fix this
+
+2013-07-31 08:30  Sandro Santilli <strk@keybit.net>
+
+	* [r3851] Turn test for ticket 275 into an "area test".
+	  
+	  Area test checks that the area of the Union between two
+	  geometries
+	  is about the same as the sum of area of symdifference + area of
+	  intersection.
+
+2013-07-25 21:00  Sandro Santilli <strk@keybit.net>
+
+	* [r3850] Fix CoordinateList.closeRing() use of past-the-end
+	  operator
+
+2013-07-25 20:51  Sandro Santilli <strk@keybit.net>
+
+	* [r3849] closeRing() method added in CoordinateList class
+	  
+	  Patch by Vishal Tiwari <hi.vishal123@gmail.com>
+
+2013-07-23 11:01  Sandro Santilli <strk@keybit.net>
+
+	* [r3848] Cosmetic changes into the CAPI code, by Mike Toews
+	  
+	  - Replace "reader" with "writer" in prototypes
+	  - describe "_r" functions
+	  - Function arguments with only one geometry changed from g1 to g
+	  - Rename nf -> ef for
+	  GEOSContext_setErrorHandler_rsetErrorHandler_r
+	  - Move GEOSBuffer* declaration to top of buffer related function
+	  section
+	  - Change char* mat to char *mat
+	  - Fix typos in comments
+	  - Clip trailing white space, and other white space consistencies
+	  - Other minor rearrangements for consistency
+
+2013-07-17 16:07  Sandro Santilli <strk@keybit.net>
+
+	* [r3846] Make GEOSOffsetCurve survive single-point input (with an
+	  exception)
+
+2013-07-17 15:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3845] Fix OffsetCurve op in presence of duplicated vertices
+	  (#602)
+
+2013-07-17 13:05  Sandro Santilli <strk@keybit.net>
+
+	* [r3844] Fix LineSegmentVisitor copy ctor (#636)
+
+2013-07-15 15:21  Sandro Santilli <strk@keybit.net>
+
+	* [r3840] Drop SRID from geometrycollection elements (#583)
+
+2013-07-12 12:37  Sandro Santilli <strk@keybit.net>
+
+	* [r3839] Add test for #580 (successful)
+
+2013-07-11 15:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3837] Fix memory leak in testcase
+
+2013-07-11 15:54  Sandro Santilli <strk@keybit.net>
+
+	* [r3836] Drop carriage returns
+
+2013-07-11 15:34  Sandro Santilli <strk@keybit.net>
+
+	* [r3835] Fix memory in QuadEdgeSubdivision (#604)
+
+2013-07-11 08:21  Sandro Santilli <strk@keybit.net>
+
+	* [r3834] Expose Delaunay triangulation to PHP API (#567)
+
+2013-07-11 07:36  Sandro Santilli <strk@keybit.net>
+
+	* [r3833] Fix test after changes in PointOnSurface
+
+2013-07-11 05:49  Sandro Santilli <strk@keybit.net>
+
+	* [r3832] Add --cclibs, --static-clibs and --static-cclibs to
+	  geos-config (#497)
+
+2013-07-11 05:46  Sandro Santilli <strk@keybit.net>
+
+	* [r3831] Add 3.3.1 to 3.3.8 section
+
+2013-07-11 05:42  Sandro Santilli <strk@keybit.net>
+
+	* [r3830] Cleanup NEWS file confused in r3816
+
+2013-07-05 14:56  Sandro Santilli <strk@keybit.net>
+
+	* [r3829] Fix install location of linearref headers (#624)
+
+2013-06-28 10:33  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3827] Add NMAKE version from Visual Studio 2012 Update 3 RTM
+
+2013-06-26 16:27  Sandro Santilli <strk@keybit.net>
+
+	* [r3826] Fix typo in HotPixel corners initializer
+	  
+	  Patch by Mickael BORNE <mickael.borne@ign.fr>
+
+2013-06-26 16:03  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3824] Add another NMAKE version from Visual Studio 2012
+
+2013-06-12 16:08  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3823] Final clarification of
+	  BufferBuilder::bufferLineSingleSided behaviour (ticket #633)
+	  * Ignore BufferParameters::setSingleSided() parameter as it is
+	  specific to areal geometries.
+	  * Document semantic of input parameters.
+	  * Document order of coordinates in generated output (conforms to
+	  PostGIS behaviour).
+	  * Add test for coordinates order assumptions.
+
+2013-06-12 14:06  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3822] Update single side offset curve tests to check uniform
+	  coordinates order in output (ticket #633). We need to decide if
+	  BufferBuilder::bufferLineSingleSided should take care of
+	  reversing coordinates if necessary.
+
+2013-06-12 13:22  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3821] Add updated C++ API test case for the left/right offset
+	  curve (ticket #633)
+
+2013-06-12 09:56  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3820] Add comment missing from previous commit.
+
+2013-06-12 09:50  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3819] Add test case for #633 based on GEOSOffsetCurve from
+	  C-API. Passing negative distance for right-sided offset curve
+	  generates correct/expected output. Interestingly, equivalent test
+	  using BufferBuilder directly, from C++ API, does not pass.
+
+2013-06-11 15:29  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3818] Revert r3817 as partial or incorrect fix. See ticket #633
+	  for details.
+
+2013-06-11 14:19  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3817] * Fix bug in OffsetCurveBuilder case for right-side
+	  offset curve used left-side flag to initialise the side segments.
+	  * Corresponding test case attached.
+
+2013-06-11 12:42  Sandro Santilli <strk@keybit.net>
+
+	* [r3816] Fix for mingw64 compile, by Regina Obe (#630)
+
+2013-06-07 09:29  Sandro Santilli <strk@keybit.net>
+
+	* [r3814] Simplify code looking for closer vertex snap
+
+2013-06-07 09:21  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3813] Fix incomplete type of Node at the point of destruction
+	  (by GeometryNoder) leading to never called destructor bug.
+
+2013-06-07 09:13  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3812] Correct int and std::size_t mismatch for 64-bit target.
+
+2013-06-07 09:10  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3811] * Disable copy constructor and assignment operator.
+	  * Correct int and std::size_t mismatch for 64-bit target.
+
+2013-06-07 09:02  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3810] Disable copy constructor and assignment operator
+
+2013-06-07 08:30  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3809] Correct return type of OffsetSegmentString::size() to be
+	  size_t
+
+2013-06-06 20:18  Sandro Santilli <strk@keybit.net>
+
+	* [r3808] Drop obsoleted files
+
+2013-06-06 16:39  Sandro Santilli <strk@keybit.net>
+
+	* [r3807] Drop commented out / disabled code
+
+2013-06-05 22:18  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3806] Implement generating geos_svn_revision.h using shell
+	  script.
+
+2013-06-05 08:52  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3805] Make Visual C++ 11.0 recognised by CMake configuration
+
+2013-06-03 07:36  Sandro Santilli <strk@keybit.net>
+
+	* [r3803] Short-circuit prepared polygon/point intersection
+	  
+	  Reduces memory fragmentation for area-puntal ops
+
+2013-05-30 20:16  Sandro Santilli <strk@keybit.net>
+
+	* [r3800] Improve snap algorithm reducing likelyhood of invalid
+	  output
+	  
+	  - Snap input vertices to closest snap point (#629)
+	  - Do not snap segments to external points (#501)
+	  - Never snap multiple vertices to the same snap point
+	  
+	  Work funded by Tuscany Region - SITA. Contract "Support to the
+	  use
+	  of GFOSS (Geographic Free and Open Source Software) Desktop
+	  tools"
+	  (CIG Z3B06FA6D7).
+
+2013-05-23 17:21  Sandro Santilli <strk@keybit.net>
+
+	* [r3799] Create geos_svn_revision.h in the source tree
+	  
+	  It's a generated source, should always be in the tarball anyway
+
+2013-05-23 15:51  Sandro Santilli <strk@keybit.net>
+
+	* [r3798] Distribute svn_repo_revision.sh
+
+2013-05-10 08:40  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3797] Add NMAKE option WIN64 to simplify x64 build
+	  configuration
+
+2013-05-09 10:04  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3796] Add NMAKE version from Visual Studio 2012 Update 3
+
+2013-04-02 09:24  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3795] Add missing directories
+
+2013-04-02 09:20  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3794] Add Visual Leak Detector (VLD) support to GEOS core
+	  * Add MSVC_VLD_DIR option to nmake.opt to enable/disable VLD
+	  * Add optional #include <vld.h> to Geometry.cpp
+
+2013-03-15 18:48  Sandro Santilli <strk@keybit.net>
+
+	* [r3793] Fix memory leaks in unit tests
+
+2013-03-15 18:05  Sandro Santilli <strk@keybit.net>
+
+	* [r3792] Add GEOSNearestPoints CAPI function
+	  
+	  Contributed by Richard Frith-Macdonald
+	  <richard@tiptree.demon.co.uk>
+
+2013-03-15 15:36  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3791] Add x64 NMAKE version from Visual Studio 2012 Update 1
+
+2013-03-12 16:20  Sandro Santilli <strk@keybit.net>
+
+	* [r3790] Fix "puts puts" typo in ruby macro (#625)
+
+2013-03-11 11:19  Sandro Santilli <strk@keybit.net>
+
+	* [r3789] Port new RobustLineIntersection test from JTS
+
+2013-03-08 17:51  Sandro Santilli <strk@keybit.net>
+
+	* [r3787] Fix RobustLineIntersector handling of invalid
+	  intersection points (#622)
+	  
+	  Adds new testcases. Many of them fail, probably due to the lack
+	  of
+	  double double use, but one of them only fails with the old
+	  RobustLineIntersector heuristic handling invalid intersection
+	  points
+
+2013-03-08 17:48  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3786] Add algorithm/Centroid.obj
+
+2013-03-08 17:41  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3785] Untabify
+
+2013-03-08 17:37  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3784] Add NMAKE version from Visual Studio 2012 Update 1
+
+2013-03-08 13:02  Sandro Santilli <strk@keybit.net>
+
+	* [r3781] Fix GEOSPointOnSurface returning point on boundary (#623)
+	  
+	  Ports SafeBisector for InteriorPointArea from JTS
+
+2013-03-05 14:46  Sandro Santilli <strk@keybit.net>
+
+	* [r3779] Speedup GEOSWKBWriter_read_r (#621)
+	  
+	  Patch by Daniel Zeitlin
+
+2013-03-01 11:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3778] Add wiki update and announce steps
+
+2013-02-28 09:40  Sandro Santilli <strk@keybit.net>
+
+	* [r3773] Fix centroid computation for collections with empty
+	  components
 	  
 	  Fixes bug #582
 
-2013-02-21 10:25  Sandro Santilli <strk@keybit.net>
+2013-02-25 11:41  Sandro Santilli <strk@keybit.net>
 
-	* [r3766] NEWS, src/io/WKTWriter.cpp: WKTWriter::appendCoordinate
-	  optimisation
+	* [r3772] Update macros/ruby.m4 for ruby 1.9.x
+	  
+	  Used RbConfig instead of obsolete and deprecated Config.
+	  Updated SWIG generated files.
+	  
+	  Patch by Kashif Rasul <kashif.rasul@gmail.com>
+
+2013-02-25 11:11  Sandro Santilli <strk@keybit.net>
+
+	* [r3771] Fix build under cygwin (#595)
+	  
+	  Thanks Jason Huntley
+
+2013-02-25 11:04  Sandro Santilli <strk@keybit.net>
+
+	* [r3770] Deprecate WKTReader constructor taking GeometryFactory by
+	  pointer
+	  
+	  Add constructor taking it by reference, for consistency with
+	  WKBReader
+	  Closes #310
+
+2013-02-25 10:37  Sandro Santilli <strk@keybit.net>
+
+	* [r3769] New ::reserve(size_t) method for io::Writer class
+
+2013-02-25 10:34  Sandro Santilli <strk@keybit.net>
+
+	* [r3768] io::Writer: take and give strings by const ref, use
+	  .append, testcase
+
+2013-02-21 10:29  Sandro Santilli <strk@keybit.net>
+
+	* [r3767] WKTWriter::appendCoordinate optimisation
 	  
 	  Modified the WKTWriter::appendCoordinate method to not create an
 	  intermediate std::string, but instead write directly into the
@@ -19,54 +554,33 @@
 	  
 	  Patch by Mats Taraldsvik <mats.taraldsvik@norkart.no>
 
-2013-02-01 06:37  Sandro Santilli <strk@keybit.net>
+2013-02-15 13:46  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3764] NEWS: Add header guard news
-
-2013-02-01 06:34  Sandro Santilli <strk@keybit.net>
-
-	* [r3763] include/geos/io/CLocalizer.h: Add header guard to
-	  CLocalizer (#619)
+	* [r3765] Update svn:ignore property
 
 2013-02-01 06:31  Sandro Santilli <strk@keybit.net>
 
-	* [r3761] include/geos/linearref/LocationIndexOfLine.h,
-	  src/linearref/LocationIndexOfLine.cpp: Fix header guard and port
-	  info in LocatioNIndexOfLine (#618)
+	* [r3762] Add header guard to CLocalizer (#619)
 
-2013-02-01 06:27  Sandro Santilli <strk@keybit.net>
+2013-02-01 06:28  Sandro Santilli <strk@keybit.net>
 
-	* [r3759] include/geos/geom/util/GeometryExtracter.h: Fix header
-	  guard in GeometryExtracter (#617)
+	* [r3760] Fix header guard and port info in LocatioNIndexOfLine
+	  (#618)
 
-2013-01-25 17:29  Sandro Santilli <strk@keybit.net>
+2013-02-01 06:25  Sandro Santilli <strk@keybit.net>
 
-	* [r3757] capi/geos_c.h.in, configure.in,
-	  include/geos/version.h.vc: Prepare codebase for next 3.3 release
-	  (3.3.8)
+	* [r3758] Fix header guard in GeometryExtracter (#617)
 
-2013-01-25 17:26  Sandro Santilli <strk@keybit.net>
+2013-01-25 17:19  Sandro Santilli <strk@keybit.net>
 
-	* [r3756] NEWS, src/operation/valid/IsValidOp.cpp: IsValidOp: throw
-	  proper error on nested shells (#608)
+	* [r3755] IsValidOp: throw proper error on nested shells (#608)
 	  
 	  Thanks geomworx
 
-2013-01-22 18:39  Sandro Santilli <strk@keybit.net>
+2013-01-17 12:07  Sandro Santilli <strk@keybit.net>
 
-	* [r3753] ChangeLog: Updated for 3.3.7 release
-
-2013-01-22 18:21  Sandro Santilli <strk@keybit.net>
-
-	* [r3752] NEWS, configure.in, swig/python/geos.py,
-	  swig/python/geos_wrap.cxx: Set version to 3.3.7
-
-2013-01-17 12:04  Sandro Santilli <strk@keybit.net>
-
-	* [r3750] NEWS, include/geos/geom/BinaryOp.h,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/ticket/bug615.xml: Only attempt to fix
-	  self-intersection between multiple components
+	* [r3751] Only attempt to fix self-intersection between multiple
+	  components
 	  
 	  Doing this reduces the likelyhood of entering an infinite
 	  recursion
@@ -79,677 +593,1089 @@
 	  which is the same behavior JTS exposes. The (bogus) test for it
 	  is disabled by this commit.
 
-2013-01-14 11:08  Sandro Santilli <strk@keybit.net>
+2013-01-14 16:15  Sandro Santilli <strk@keybit.net>
 
-	* [r3746] NEWS, include/geos/algorithm/InteriorPointArea.h,
-	  src/algorithm/InteriorPointArea.cpp,
-	  tests/xmltester/tests/general/TestInteriorPoint.xml: Fix EMPTY
-	  return from zero-area polygon (#613)
+	* [r3749] Fix EMPTY return from single-point lines and zero-length
+	  polygons
+	  
+	  This commit ports new Centroid class from JTS (#612)
 
-2013-01-14 11:05  Sandro Santilli <strk@keybit.net>
+2013-01-14 11:16  Sandro Santilli <strk@keybit.net>
 
-	* [r3745] tests/xmltester/XMLTester.cpp: Have XMLTester use POINT
-	  EMPTY for a null return from getInteriorPoint
+	* [r3748] Fix EMPTY return from zero-area polygon (#613)
 
-2013-01-11 14:25  Sandro Santilli <strk@keybit.net>
+2013-01-14 11:12  Sandro Santilli <strk@keybit.net>
 
-	* [r3739] NEWS, src/algorithm/InteriorPointLine.cpp,
-	  tests/unit/capi/GEOSPointOnSurfaceTest.cpp: Fix
-	  GEOSPointOnSurface with zero-length linestring (#609)
+	* [r3747] Have XMLTester use POINT EMPTY for a null return from
+	  getInteriorPoint
 
-2012-12-06 17:44  Sandro Santilli <strk@keybit.net>
+2013-01-14 09:50  Sandro Santilli <strk@keybit.net>
 
-	* [r3738] tests/unit/capi/GEOSisValidDetailTest.cpp: Accept weird
-	  NAN values in testcase, sometimes seen on windows...
+	* [r3744] Move static class members of Interrupt out of header
+	  (#611)
+	  
+	  Patch by Mateusz Loskot
 
-2012-12-05 11:00  Sandro Santilli <strk@keybit.net>
+2013-01-11 17:15  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3735] swig/python/geos.py, swig/python/geos_wrap.cxx:
-	  Regenerate swig wrappers (due to version change)
+	* [r3743] Missing QuadEdge.h causing incomplete types.
 
-2012-12-05 07:41  Sandro Santilli <strk@keybit.net>
+2013-01-11 17:11  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3732] NEWS, src/operation/buffer/BufferOp.cpp: Do not reduce
-	  precision below 6 significant digits.
+	* [r3742] Report general and custom flags separately
+
+2013-01-11 14:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3741] Fix GEOSPointOnSurface with zero-length linestring (#609)
+
+2013-01-11 14:35  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3740] Added test<7>() for the poorly reported bug ticket #610 -
+	  bug not reproducible.
+
+2012-12-06 08:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3737] See if AC_CONFIG_HEADERS makes winnie happier
+	  
+	  ... and also how many other builds it breaks, if any
+
+2012-12-06 08:04  Sandro Santilli <strk@keybit.net>
+
+	* [r3736] Add missing classes to build script for evil compiler
+	  
+	  Curtesy of Geoff Evans
+
+2012-12-05 09:06  Sandro Santilli <strk@keybit.net>
+
+	* [r3734] Add note about rounding in fixed precision buffer op
+	  (#605)
+
+2012-12-05 07:56  Sandro Santilli <strk@keybit.net>
+
+	* [r3733] Do not reduce precision below 6 significant digits.
 	  
 	  Avoids gross results (preferring an exception)
 	  See http://trac.osgeo.org/geos/ticket/605
 
-2012-12-04 21:43  Sandro Santilli <strk@keybit.net>
+2012-12-04 21:50  Sandro Santilli <strk@keybit.net>
 
-	* [r3730] NEWS, src/operation/buffer/RightmostEdgeFinder.cpp: Fix
-	  abort in Buffer op (RightmostEdgeFinder)
+	* [r3731] Add note about BufferOp robustness improvement
+
+2012-12-04 21:22  Sandro Santilli <strk@keybit.net>
+
+	* [r3728] Reduce coordinates precision on robustness issues in
+	  BufferOp
 	  
-	  Rather than aborting we throw a TopologyException,
-	  because the problem occurs when noding isn't correct.
+	  Fixes #605, adds test for it
+
+2012-12-04 19:26  Sandro Santilli <strk@keybit.net>
+
+	* [r3727] Fix an abort in Buffer op (RightmostEdgeFinder)
+	  
+	  Rather than abort we throw a TopologyException, because the
+	  problem
+	  seems to occur when noding isn't correct.
 	  See http://trac.osgeo.org/geos/ticket/605
 
-2012-12-04 21:39  Sandro Santilli <strk@keybit.net>
+2012-12-04 17:23  Sandro Santilli <strk@keybit.net>
 
-	* [r3729] src/operation/buffer/BufferSubgraph.cpp: typo in comment
+	* [r3726] Add unit test for OrientedCoordinateArray
 
-2012-11-15 17:35  Sandro Santilli <strk@keybit.net>
+2012-11-15 15:55  Sandro Santilli <strk@keybit.net>
 
-	* [r3725] HOWTO_RELEASE, capi/geos_c.h.in, configure.in,
-	  include/geos/version.h.vc: Prepare codebase for next 3.3 release
-	  (3.3.7)
+	* [r3720] Add automated test for #599 (succeeds)
 
-2012-11-15 16:37  Sandro Santilli <strk@keybit.net>
+2012-10-26 14:01  Sandro Santilli <strk@keybit.net>
 
-	* [r3723] ChangeLog: Updated ChangeLog for 3.3.6 release
+	* [r3719] Fix building outside the source tree
 
-2012-11-15 16:31  Sandro Santilli <strk@keybit.net>
+2012-09-10 10:34  Sandro Santilli <strk@keybit.net>
 
-	* [r3722] NEWS, configure.in, swig/python/geos.py,
-	  swig/python/geos_wrap.cxx: Set version to 3.3.6
-
-2012-11-15 15:59  Sandro Santilli <strk@keybit.net>
-
-	* [r3721] tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/ticket/bug599.xml: Add automated test for
-	  #599 (succeeds)
-
-2012-09-10 09:17  Sandro Santilli <strk@keybit.net>
-
-	* [r3714] tests/xmltester/tests/ticket/bug586.xml: Tweak the test
-	  for bug 586 to succeed while still being small
-
-2012-09-10 08:05  Sandro Santilli <strk@keybit.net>
-
-	* [r3713] NEWS, include/geos/geom/BinaryOp.h,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/ticket/bug586.xml: Do not try to fix valid
-	  geometries (#586)
+	* [r3716] Add Z support in delaunay triangulation (#570)
 	  
-	  Fixes a stack overflow in BinaryOp, includes testcase
+	  Thanks Benjamin Campbell
 
-2012-09-07 11:26  Sandro Santilli <strk@keybit.net>
+2012-09-10 09:23  Sandro Santilli <strk@keybit.net>
 
-	* [r3709] swig/python/geos.py, swig/python/geos_wrap.cxx:
-	  Regenerate swig files with swig 2.0.4
+	* [r3715] Tweak the test for bug 586 to succeed while still being
+	  small
 
-2012-09-06 18:15  Sandro Santilli <strk@keybit.net>
+2012-09-10 08:00  Sandro Santilli <strk@keybit.net>
 
-	* [r3707] php/test/test.php: Use version_compare to compare
-	  versions...
+	* [r3712] Add test for bug #586
 
-2012-09-06 18:05  Sandro Santilli <strk@keybit.net>
+2012-09-10 07:56  Sandro Santilli <strk@keybit.net>
 
-	* [r3706] NEWS, php/README, php/test/test.php: Add support for
-	  phpunit 3.6 (not loosing support for 3.4)
+	* [r3711] Do not try to fix valid geometries (#586)
+
+2012-09-07 12:01  Sandro Santilli <strk@keybit.net>
+
+	* [r3710] Regenerate swig files with swig 2.0.4
+
+2012-09-06 18:22  Sandro Santilli <strk@keybit.net>
+
+	* [r3708] Add support for phpunit 3.6 (not loosing support for 3.4)
 	  
 	  I don't have phpunit-3.4 anymore so if anyone does please see
 	  if "make check" still works (with php enabled)
 	  
 	  NOTE: Ubuntu 10.04 ships phpunit 3.4
 
-2012-06-26 20:42  Mateusz Loskot <mateusz@loskot.net>
+2012-07-27 08:09  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3698] CMakeLists.txt, cmake/cmake_uninstall.cmake.in,
-	  include/CMakeLists.txt, src/CMakeLists.txt: [CMake] Merged recent
-	  fixes from trunk. Updated version numbers according to
-	  configure.in
+	* [r3705] Updated NMAKE makefile with recently added source files
+	  (Ticket #574)
 
-2012-06-25 15:15  Sandro Santilli <strk@keybit.net>
+2012-07-26 22:43  Sandro Santilli <strk@keybit.net>
 
-	* [r3690] HOWTO_RELEASE: Add tarball verification step
-
-2012-06-25 11:59  Sandro Santilli <strk@keybit.net>
-
-	* [r3689] NEWS, capi/geos_c.h.in, configure.in,
-	  include/geos/version.h.vc: Set 3.3 branch ready for work on 3.3.6
-	  release.
-
-2012-06-25 10:50  Sandro Santilli <strk@keybit.net>
-
-	* [r3687] ChangeLog: Update ChangeLog for release 3.3.5
-
-2012-06-25 10:49  Sandro Santilli <strk@keybit.net>
-
-	* [r3686] NEWS, configure.in: Set version to 3.3.5 final, and
-	  release date
-
-2012-06-25 10:20  Sandro Santilli <strk@keybit.net>
-
-	* [r3685] NEWS, capi/geos_ts_c.cpp, tests/unit/Makefile.am,
-	  tests/unit/capi/GEOSPointOnSurfaceTest.cpp: Always return POINT
-	  from GEOSPointOnSurface, even for EMPTY (#561)
-
-2012-06-24 15:16  Sandro Santilli <strk@keybit.net>
-
-	* [r3682] configure.in: 3.3.5 isn't final yet
-
-2012-06-22 15:46  Sandro Santilli <strk@keybit.net>
-
-	* [r3681] include/geos/algorithm/CentroidArea.h: Add note about
-	  handling of degenerate polygons
-
-2012-06-22 15:31  Sandro Santilli <strk@keybit.net>
-
-	* [r3678] NEWS, capi/geos_ts_c.cpp,
-	  tests/unit/capi/GEOSGetCentroidTest.cpp: Always return POINT from
-	  GEOSGetCentroid, even for EMPTY (#560)
-
-2012-06-22 15:02  Sandro Santilli <strk@keybit.net>
-
-	* [r3676] NEWS, include/geos/algorithm/CentroidArea.h,
-	  src/algorithm/CentroidArea.cpp, tests/unit/Makefile.am,
-	  tests/unit/capi/GEOSGetCentroidTest.cpp: Port robustness fix to
-	  CentroidArea (#559)
-
-2012-06-22 11:47  Sandro Santilli <strk@keybit.net>
-
-	* [r3675] capi/geos_c.h.in: Update version also for MSVC... (#558)
-
-2012-06-22 11:07  Sandro Santilli <strk@keybit.net>
-
-	* [r3674] NEWS, configure.in: Set CAPI interface revision to 5
-	  (#558)
+	* [r3704] Don't live triangulate includes out of build (#573)
 	  
-	  This is to resolve a problem with versioning of the CAPI library
-	  shipped with 3.3.3 (1.7.4) and 3.3.4 (1.7.3). So 3.3.5 will ship
-	  with 1.7.5 (ASAP).
+	  Thanks Sandro Furieri
 
-2012-06-06 07:04  Sandro Santilli <strk@keybit.net>
+2012-06-27 10:53  Sandro Santilli <strk@keybit.net>
 
-	* [r3664] README, src/Makefile.am: Clarify problems with linking
-	  against C++ api (#553)
+	* [r3703] Add test for Delaunay triangulation with a tolerance
+
+2012-06-27 10:43  Sandro Santilli <strk@keybit.net>
+
+	* [r3702] Expose Delaunay triangulation to C-API (#565)
+
+2012-06-27 10:43  Sandro Santilli <strk@keybit.net>
+
+	* [r3701] Const-correct getTriangles / getEdges and move to proper
+	  namespace
+
+2012-06-27 10:43  Sandro Santilli <strk@keybit.net>
+
+	* [r3700] indent
+
+2012-06-27 09:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3699] Indent and port info style
+
+2012-06-26 20:41  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3697] [CMake] Corrected description of default value for
+	  GEOS_ENABLE_MACOSX_FRAMEWORK option
+
+2012-06-26 20:34  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3696] Updated NEWS file with changes related to ticket #446
+
+2012-06-26 20:29  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3695] Updated svn:ignore for tests/perf
+
+2012-06-26 17:17  Sandro Santilli <strk@keybit.net>
+
+	* [r3694] typo
+
+2012-06-26 17:11  Sandro Santilli <strk@keybit.net>
+
+	* [r3693] Port Delaunay Triangulation API from JTS (#487)
+	  
+	  Work contributed by Benjamin Campbell
+
+2012-06-25 23:31  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3692] [CMake] Fixed incorrect SOVERSION value. The SOVERSION is
+	  now set with CAPI_VERSION_CURRENT - CAPI_VERSION_AGE (Ticket
+	  #446)
+
+2012-06-25 15:17  Sandro Santilli <strk@keybit.net>
+
+	* [r3691] Add tarball verification step
+
+2012-06-25 10:19  Sandro Santilli <strk@keybit.net>
+
+	* [r3684] Always return POINT from GEOSPointOnSurface, even for
+	  EMPTY (#561)
+
+2012-06-24 22:22  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3683] [CMake] Set SOVERSION property on C API shared library
+	  using CAPI_INTERFACE_* values (Ticket #446).
+
+2012-06-22 15:44  Sandro Santilli <strk@keybit.net>
+
+	* [r3680] Add note about handling of degenerate polygons
+
+2012-06-22 15:32  Sandro Santilli <strk@keybit.net>
+
+	* [r3679] Always return POINT from GEOSGetCentroid, even for EMPTY
+	  (#560)
+
+2012-06-22 15:03  Sandro Santilli <strk@keybit.net>
+
+	* [r3677] Port robustness fix to CentroidArea (#559)
+
+2012-06-11 09:18  Sandro Santilli <strk@keybit.net>
+
+	* [r3673] Retain GEOS_INLINE define while building XMLTester (#319,
+	  #472)
+
+2012-06-07 15:11  Sandro Santilli <strk@keybit.net>
+
+	* [r3672] Allow chaining interrupt callbacks, drop arg parameter
+
+2012-06-07 15:10  Sandro Santilli <strk@keybit.net>
+
+	* [r3671] Revert the interrupt request callback reset on initGEOS
+	  
+	  Once you set a callback why would you want it unregistered on
+	  initGEOS ? You will not want that....
+
+2012-06-07 14:41  Sandro Santilli <strk@keybit.net>
+
+	* [r3670] Clear interruption request flag just before interrupting
+
+2012-06-07 10:24  Sandro Santilli <strk@keybit.net>
+
+	* [r3669] Drop orphaned custom allocation signatures from C-API
+	  header
+
+2012-06-07 10:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3668] Test that initGEOS clears the interrupt callback
+	  
+	  Also explicitly cleanup the callback after each test.
+
+2012-06-07 10:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3667] Unregister the interrupt request on initGEOS
+
+2012-06-07 10:07  Sandro Santilli <strk@keybit.net>
+
+	* [r3666] Add support for registering interruption-checking
+	  callback.
+	  
+	  This is to enhance flexibility of the interruption request model.
+
+2012-06-06 14:15  Sandro Santilli <strk@keybit.net>
+
+	* [r3665] Enable capi::GEOSConvexHull test, and fix it (#555)
+
+2012-06-06 07:03  Sandro Santilli <strk@keybit.net>
+
+	* [r3663] Clarify problems with linking against C++ api (#553)
 	  
 	  Path by Greg Troxel.
 
-2012-05-31 19:16  Paul Ramsey <pramsey@cleverelephant.ca>
+2012-05-29 19:23  Sandro Santilli <strk@keybit.net>
 
-	* [r3662] capi/geos_c.h.in, configure.in,
-	  include/geos/version.h.vc: Bump versions to 3.3.5
+	* [r3657] No need to forward declare Coordinate (full definition
+	  included)
 
-2012-05-31 18:41  Paul Ramsey <pramsey@cleverelephant.ca>
+2012-05-29 19:23  Sandro Santilli <strk@keybit.net>
 
-	* [r3661] ChangeLog: Update for 3.3.4
+	* [r3656] Do not define an empty destructor for Coordinate
 
-2012-05-30 07:04  Sandro Santilli <strk@keybit.net>
+2012-05-29 16:41  Sandro Santilli <strk@keybit.net>
 
-	* [r3659] ChangeLog: ChangeLog updated for 3.3.4
+	* [r3655] Make sure to build geos_svn_config.h
 
-2012-05-30 06:42  Sandro Santilli <strk@keybit.net>
+2012-05-29 10:04  Sandro Santilli <strk@keybit.net>
 
-	* [r3658] NEWS, capi/geos_c.h.in, configure.in,
-	  include/geos/version.h.vc, swig/python/geos.py,
-	  swig/python/geos_wrap.cxx: Fix release date and version for 3.3.4
+	* [r3654] Include SVN revision in GEOSversion output
 
-2012-05-21 14:12  Sandro Santilli <strk@keybit.net>
+2012-05-29 10:04  Sandro Santilli <strk@keybit.net>
 
-	* [r3634] include/geos/geom/Geometry.h, src/geom/Geometry.cpp:
-	  Don't call GeometryFactory::getDefaultInstance() at startup
-	  (#540)
+	* [r3653] Fix revision file path
 
-2012-05-14 19:00  Sandro Santilli <strk@keybit.net>
+2012-05-29 09:48  Sandro Santilli <strk@keybit.net>
 
-	* [r3628] NEWS, src/operation/polygonize/EdgeRing.cpp: Reduce calls
-	  to ptNotInList, greatly speeding up Polygonizer (#545)
+	* [r3652] Fix test for directory existance
+
+2012-05-29 09:45  Sandro Santilli <strk@keybit.net>
+
+	* [r3651] Add script to fetch SVN revision from git or SVN
+
+2012-05-29 08:42  Sandro Santilli <strk@keybit.net>
+
+	* [r3650] Drop embedded RCS logs
+
+2012-05-28 12:29  Sandro Santilli <strk@keybit.net>
+
+	* [r3649] Install BufferInputLineSimplifier.h header (#548)
+	  
+	  Thanks ylan for the patch
+
+2012-05-28 07:48  Sandro Santilli <strk@keybit.net>
+
+	* [r3648] Rename interrupt request/cancel methods, cancel interrupt
+	  in init
+
+2012-05-25 15:50  Sandro Santilli <strk@keybit.net>
+
+	* [r3647] Revert the whole custom memory allocation work (#540)
+	  
+	  It wasn't well done. Pity.
+
+2012-05-25 15:26  Sandro Santilli <strk@keybit.net>
+
+	* [r3646] Expose interrupt request cancel to the C-API
+
+2012-05-25 12:26  Sandro Santilli <strk@keybit.net>
+
+	* [r3645] Add method to cancel an interruption request in
+	  util::Interrupt
+
+2012-05-25 12:15  Sandro Santilli <strk@keybit.net>
+
+	* [r3644] Add strategic check for interrupt in MCIndexNoder loop
+	  
+	  Greatly increases interruptability of buffer operations in
+	  presence of many polygons.
+
+2012-05-25 10:54  Sandro Santilli <strk@keybit.net>
+
+	* [r3643] Check for interruption in OverlayOp and BufferBuilder
+	  
+	  These are just two operations known to take a lot of time.
+	  It'll take a better analisys to find appropriate check point.
+	  
+	  The checks could as well be put within graph operation loops or
+	  Coordinate constructors...
+
+2012-05-25 10:54  Sandro Santilli <strk@keybit.net>
+
+	* [r3642] Initial support for an explicit mechanism to request
+	  interruption
+	  
+	  This commit provides a GEOS_CHECK_FOR_INTERRUPTS macro for
+	  internal
+	  use but adds no users.
+	  
+	  Early tests shows that registering a SIGINT handler is an
+	  effective
+	  way to request interruption of running GEOS operations.
+
+2012-05-24 06:00  Sandro Santilli <strk@keybit.net>
+
+	* [r3641] Don't call GeometryFactory::getDefaultInstance() at
+	  startup (#540)
+
+2012-05-24 00:23  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3640] Replaced static members/references to global boundary
+	  rule objects with static methods providing access to those
+	  objects. The previous implementation was troublesome for exports
+	  from Windows DLL. From POV, it is just syntactical change.
+	  Semantically nothing has changed.
+
+2012-05-24 00:21  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3639] [CMake] Link GEOS C-API library against geos.dll instead
+	  of static geos.lib to avoid breaking ODR for allocators.
+
+2012-05-23 23:53  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3638] Added missing GEOS_DLL directive to GeometryNoder and
+	  custom allocators.
+
+2012-05-23 23:34  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3637] Updated svn:ignore patterns
+
+2012-05-23 23:03  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3636] Renamed Freer to Deallocator
+
+2012-05-23 22:57  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3635] Missing namespace prevented Visual C++ compiler to find
+	  GEOSAllocator and GEOSFreer
+
+2012-05-16 16:47  Sandro Santilli <strk@keybit.net>
+
+	* [r3633] Fix CustomAllocators to really use the custom allocators
+	  
+	  Improve the unit test for it
+
+2012-05-16 12:20  Sandro Santilli <strk@keybit.net>
+
+	* [r3632] Lazily create default GeometryFactory instance (#540)
+	  
+	  Seems to fix a problem with mismatch of allocator and deallocator
+	  for the static object
+
+2012-05-16 12:20  Sandro Santilli <strk@keybit.net>
+
+	* [r3631] Allow passing custom memory managment functions (#540)
+	  
+	  This is both in the C++ library _and_ the C library.
+
+2012-05-16 10:29  Mateusz Loskot <mateusz@loskot.net>
+
+	* [r3630] New test for C-API convex hull func.
+
+2012-05-14 19:03  Sandro Santilli <strk@keybit.net>
+
+	* [r3629] Reduce calls to ptNotInList, greatly speeding up
+	  Polygonizer (#545)
 
 2012-05-09 18:02  Sandro Santilli <strk@keybit.net>
 
-	* [r3626] NEWS, include/geos/simplify/TaggedLineStringSimplifier.h,
-	  include/geos/simplify/TopologyPreservingSimplifier.h,
-	  src/simplify/TaggedLineStringSimplifier.cpp,
-	  src/simplify/TopologyPreservingSimplifier.cpp,
-	  tests/unit/simplify/TopologyPreservingSimplifierTest.cpp: Fix
-	  TopologyPreservingSimplifier invalid output on closed line (#508)
+	* [r3627] Fix TopologyPreservingSimplifier invalid output on closed
+	  line (#508)
 
 2012-05-09 16:28  Sandro Santilli <strk@keybit.net>
 
-	* [r3624] NEWS, php/geos.c: Add support for PHP 5.4 (#513) --
-	  thanks voxik
+	* [r3625] Add support for PHP 5.4 (#513) -- thanks voxik
 
-2012-05-08 18:23  Sandro Santilli <strk@keybit.net>
+2012-05-08 18:41  Sandro Santilli <strk@keybit.net>
 
-	* [r3622] NEWS, src/geom/Geometry.cpp: Envelope-based short-circuit
-	  for Geometry->symDifference (#543)
+	* [r3623] Envelope-based short-circuit for Geometry->symDifference
+	  (#543)
 
-2012-05-08 17:35  Sandro Santilli <strk@keybit.net>
+2012-05-08 17:39  Sandro Santilli <strk@keybit.net>
 
-	* [r3620] NEWS, capi/geos_ts_c.cpp, tests/xmltester/XMLTester.cpp:
-	  Geometry methods do use BinaryOp internally + shortcuts (#542)
+	* [r3621] Geometry methods do use BinaryOp internally + shortcuts
+	  (#542)
 	  
 	  This commit changes both XMLTester and C-API to not use BinaryOp
 	  directly but rather rely on geometry methods to do that.
 
-2012-05-04 08:13  Sandro Santilli <strk@keybit.net>
+2012-05-04 14:51  Sandro Santilli <strk@keybit.net>
 
-	* [r3617] NEWS, acsite.m4: Update PGAC_TYPE_64BIT_INT for better
-	  cross-compiler support (#534)
+	* [r3619] Correct include directives for GeometryNoder (#538)
 
-2012-04-12 09:05  Sandro Santilli <strk@keybit.net>
+2012-05-04 08:24  Sandro Santilli <strk@keybit.net>
 
-	* [r3613] NEWS, src/geomgraph/Node.cpp,
-	  tests/unit/capi/GEOSUnaryUnionTest.cpp: Throw an exception rather
-	  than aborting on NaN overlay input (#530)
+	* [r3618] Update PGAC_TYPE_64BIT_INT for better cross-compiler
+	  support (#534)
 
-2012-04-10 15:32  Sandro Santilli <strk@keybit.net>
+2012-05-03 10:08  Sandro Santilli <strk@keybit.net>
 
-	* [r3610] tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/ticket/bug527.xml: Add test for bug #527
+	* [r3616] Check size of "intt64"
+
+2012-04-27 07:01  Sandro Santilli <strk@keybit.net>
+
+	* [r3615] Expose GEOSNode to PHP api
+
+2012-04-12 09:07  Sandro Santilli <strk@keybit.net>
+
+	* [r3614] Throw an exception rather than aborting on NaN overlay
+	  input (#530)
+
+2012-04-10 17:01  Sandro Santilli <strk@keybit.net>
+
+	* [r3612] Abort if HotPixel is constructed with zero scale (#529)
+
+2012-04-10 15:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3611] Add test for bug #527
 
 2012-04-10 15:16  Sandro Santilli <strk@keybit.net>
 
-	* [r3608] include/geos/operation/union/UnaryUnionOp.h: Have
-	  UnaryUnion use BinaryOp for the simple case
+	* [r3609] Have UnaryUnion use BinaryOp for the simple case
 	  
 	  See ticket #527 -- there's no infinite loop triggered by our
 	  testsuite...
 
-2012-04-10 15:02  Sandro Santilli <strk@keybit.net>
+2012-04-10 15:04  Sandro Santilli <strk@keybit.net>
 
-	* [r3606] NEWS, include/geos/geom/BinaryOp.h: Reduce
-	  CommonBitsRemover harmful effects during overlay op (#527)
+	* [r3607] Reduce CommonBitsRemover harmful effects during overlay
+	  op (#527)
 
-2012-04-05 16:49  Sandro Santilli <strk@keybit.net>
+2012-04-10 08:38  Sandro Santilli <strk@keybit.net>
 
-	* [r3600] swig/python/geos.py, swig/python/geos_wrap.cxx:
-	  Regenerate swig wrappers with SWIG 1.3.40
+	* [r3605] Port GeometryPrecisionReducer, include testcase
+
+2012-04-06 19:04  Sandro Santilli <strk@keybit.net>
+
+	* [r3604] Deep copy Geometry with GeometryFactory.createGeometry()
+	  
+	  Uses the CoordinateSequenceFactory of the factory
+
+2012-04-06 19:03  Sandro Santilli <strk@keybit.net>
+
+	* [r3603] Add CoordinateSequence deep copy trhough
+	  CoordinateSequenceFactory
+
+2012-04-05 17:07  Sandro Santilli <strk@keybit.net>
+
+	* [r3602] Normalize noded geometry before comparing with expected
+	  value
+	  
+	  In this way we can change the noding implementation w/out
+	  breaking the tests.
+
+2012-04-05 16:56  Sandro Santilli <strk@keybit.net>
+
+	* [r3601] Regnerate geos wrapper with correct version for this
+	  branch
+
+2012-04-05 16:47  Sandro Santilli <strk@keybit.net>
+
+	* [r3599] Regenerate swig wrappers with SWIG 1.3.40
+
+2012-04-05 14:53  Sandro Santilli <strk@keybit.net>
+
+	* [r3598] Fix SimpleSnapRounder::getNodedSubstrings, fix leak on
+	  exception
+
+2012-04-05 14:37  Sandro Santilli <strk@keybit.net>
+
+	* [r3597] Clean memory on exception
+
+2012-04-05 14:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3596] Generalize NodedSegmentString::getNodedSubstrings
+
+2012-04-05 14:14  Sandro Santilli <strk@keybit.net>
+
+	* [r3595] Ensure GEOSNode doesn't throw an exception with current
+	  tests
+
+2012-04-05 13:43  Sandro Santilli <strk@keybit.net>
+
+	* [r3594] Add note about GEOSNode
+
+2012-04-05 13:40  Sandro Santilli <strk@keybit.net>
+
+	* [r3593] Add GEOSNode C-API interface (#496)
+	  
+	  Includes a new GeometryNoder C++ class and regression testing.
+
+2012-04-05 12:05  Sandro Santilli <strk@keybit.net>
+
+	* [r3592] Fix memory leak with IteratedNoder
+
+2012-04-05 11:07  Sandro Santilli <strk@keybit.net>
+
+	* [r3591] Update port info and cleanup IteratedNoder
+
+2012-04-05 10:30  Sandro Santilli <strk@keybit.net>
+
+	* [r3590] Make OrientedCoordinateArray comparable
+
+2012-04-05 10:30  Sandro Santilli <strk@keybit.net>
+
+	* [r3589] Make OrientedCoordinateArray assignable
+
+2012-04-03 14:23  Sandro Santilli <strk@keybit.net>
+
+	* [r3588] Make OrientedCoordinateArray copyable
+
+2012-04-03 12:59  Sandro Santilli <strk@keybit.net>
+
+	* [r3587] Const-correct PrecisionModel use in MCIndexSnapRounder
 
 2012-04-01 20:50  Paul Ramsey <pramsey@cleverelephant.ca>
 
-	* [r3584] HOWTO_RELEASE: Update howto release
+	* [r3585] Update howto release
 
-2012-04-01 20:42  Paul Ramsey <pramsey@cleverelephant.ca>
+2012-04-01 20:45  Paul Ramsey <pramsey@cleverelephant.ca>
 
-	* [r3581] capi/geos_c.h.in, configure.in: Update version numbers
-	  after tag
+	* [r3583] Sync up versions advertised in capi to those in
+	  configure.in
 
-2012-04-01 20:33  Paul Ramsey <pramsey@cleverelephant.ca>
+2012-03-27 08:37  Sandro Santilli <strk@keybit.net>
 
-	* [r3577] ChangeLog, NEWS: Update for 3.3.3 release
+	* [r3576] Indent..
 
-2012-03-22 08:34  Sandro Santilli <strk@keybit.net>
+2012-03-22 08:39  Sandro Santilli <strk@keybit.net>
 
-	* [r3574] NEWS, src/simplify/TaggedLineString.cpp,
-	  src/simplify/TaggedLineStringSimplifier.cpp,
-	  tests/unit/simplify/TopologyPreservingSimplifierTest.cpp: Fix
-	  simplification of collections with empty items (#519)
+	* [r3575] Fix simplification of collections with empty items (#519)
+
+2012-02-20 21:34  Paul Ramsey <pramsey@cleverelephant.ca>
+
+	* [r3573] Synch patch level version with autoconf number
 
 2012-02-16 18:19  Paul Ramsey <pramsey@cleverelephant.ca>
 
-	* [r3572] src/algorithm/RobustDeterminant.cpp: Update provenance
-	  for Olivier Devillers.
+	* [r3568] Update provenance for Olivier Devillers.
 
-2012-01-08 13:46  Sandro Santilli <strk@keybit.net>
+2012-01-16 20:36  Paul Ramsey <pramsey@cleverelephant.ca>
 
-	* [r3564] CMakeLists.txt, NEWS,
-	  tests/unit/capi/GEOSisValidDetailTest.cpp: Backports
-	  
-	  Missing <cctype> header for toupper. Fixed Visual C++ warning.
-	  Fixed (hopefully) CMake issues with std:: namespace detection
-	  (Ticket #493)
+	* [r3567] More info on provenance.
 
-2012-01-06 21:50  Sandro Santilli <strk@keybit.net>
+2012-01-16 20:15  Paul Ramsey <pramsey@cleverelephant.ca>
 
-	* [r3560] NEWS, configure.in: Prepare for 3.3.3
+	* [r3566] Update provenenance
 
-2012-01-06 21:34  Howard Butler <hobu.inc@gmail.com>
+2012-01-16 18:00  Paul Ramsey <pramsey@cleverelephant.ca>
 
-	* [r3559] src/operation/buffer/BufferOp.cpp: Fix MSVC compilation
-	  of ambiguous log() call #506
+	* [r3565] Complete Note#1 in the
+	  http://wiki.osgeo.org/wiki/GEOS_Provenance_Review to get out of
+	  incubation.
 
-2012-01-05 17:00  Sandro Santilli <strk@keybit.net>
+2012-01-07 21:09  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3557] ChangeLog: Update ChangeLog for the 3.3.2 release
+	* [r3563] Fixed (hopefully) CMake issues with std:: namespace
+	  detection (Ticket #493)
 
-2012-01-05 16:56  Sandro Santilli <strk@keybit.net>
+2012-01-07 21:08  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3556] NEWS, configure.in: Prepare for 3.3.2 release
+	* [r3562] Missing <cctype> header for toupper. Fixed Visual C++
+	  warning.
 
-2011-12-16 14:12  Sandro Santilli <strk@keybit.net>
+2012-01-06 21:53  Sandro Santilli <strk@keybit.net>
 
-	* [r3554] src/operation/overlay/snap/LineStringSnapper.cpp: Make
-	  debugging output of LineStringSnapper more readable
+	* [r3561] Forward port: Fix MSVC compilation of ambiguous log()
+	  call #506
 
-2011-12-15 14:18  Sandro Santilli <strk@keybit.net>
+2011-12-16 14:15  Sandro Santilli <strk@keybit.net>
 
-	* [r3552] NEWS, include/geos/geom/BinaryOp.h,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/ticket/bug488.xml: Check validity after
-	  snapping in BinaryOp. Fixes bug #488
+	* [r3555] Make debugging output of LineStringSnapper more readable
+
+2011-12-15 14:36  Sandro Santilli <strk@keybit.net>
+
+	* [r3553] Check validity after snapping in BinaryOp. Fixes bug #488
 	  
 	  Adds regression test. This is a GEOS-only approach.
 
-2011-12-15 11:35  Sandro Santilli <strk@keybit.net>
+2011-12-15 11:34  Sandro Santilli <strk@keybit.net>
 
-	* [r3551] include/geos/operation/overlay/OverlayOp.h: indent
+	* [r3550] indent
 
-2011-12-15 10:58  Sandro Santilli <strk@keybit.net>
+2011-12-15 08:59  Sandro Santilli <strk@keybit.net>
 
-	* [r3549] include/geos/geom/BinaryOp.h: Fix build with
-	  CBR_BEFORE_SNAPPING undefined
+	* [r3548] Fix build with CBR_BEFORE_SNAPPING undefined
 
-2011-12-12 15:11  Howard Butler <hobu.inc@gmail.com>
+2011-12-12 15:09  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3547] NEWS: a note about #500 fix
+	* [r3546] apply patch for #500 to fix clang's complaint about a
+	  missing default initialization
 
-2011-12-12 15:04  Howard Butler <hobu.inc@gmail.com>
+2011-12-12 10:10  Sandro Santilli <strk@keybit.net>
 
-	* [r3545] src/operation/overlay/OverlayNodeFactory.cpp: apply patch
-	  for #500 to fix clang's complaint about a missing default
-	  initialization
+	* [r3544] Apply Shoelace formula for area calculation (#485)
 
-2011-12-12 10:09  Sandro Santilli <strk@keybit.net>
+2011-12-12 09:59  Sandro Santilli <strk@keybit.net>
 
-	* [r3543] NEWS, src/algorithm/CGAlgorithms.cpp: Apply Shoelace
-	  formula for area calculation (#485)
+	* [r3542] Add --clibs to geos-config and GEOS_C_LIBS to geos.m4
+	  (#497)
 
-2011-12-12 09:57  Sandro Santilli <strk@keybit.net>
+2011-12-09 10:54  Sandro Santilli <strk@keybit.net>
 
-	* [r3541] NEWS, macros/geos.m4, tools/geos-config.in: Add --clibs
-	  to geos-config and GEOS_C_LIBS to geos.m4 (#497)
+	* [r3540] Fix C++11 build by avoiding std::pair<auto_ptr> (#491)
 
-2011-12-09 10:46  Sandro Santilli <strk@keybit.net>
+2011-12-09 10:04  Sandro Santilli <strk@keybit.net>
 
-	* [r3539] NEWS: typo
+	* [r3536] Ignore built performance tests
 
-2011-12-09 10:44  Sandro Santilli <strk@keybit.net>
+2011-12-09 10:04  Sandro Santilli <strk@keybit.net>
 
-	* [r3538] NEWS, include/geos/geom/Geometry.h,
-	  include/geos/operation/overlay/snap/GeometrySnapper.h,
-	  include/geos/operation/overlay/snap/SnapOverlayOp.h,
-	  src/operation/overlay/snap/GeometrySnapper.cpp,
-	  src/operation/overlay/snap/SnapOverlayOp.cpp: Fix C++11 build by
-	  avoiding std::pair<auto_ptr> (#491)
-
-2011-12-09 10:12  Sandro Santilli <strk@keybit.net>
-
-	* [r3537] NEWS, src/operation/buffer/BufferOp.cpp,
-	  tests/unit/operation/buffer/BufferOpTest.cpp,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/safe/TestBufferJagged.xml,
-	  tests/xmltester/tests/safe/buffer-1.01.xml: Improve buffer
-	  robustness by reverting to non snaprounding noder
+	* [r3535] Improve buffer robustness by reverting to non
+	  snaprounding noder
 	  
 	  This commit fixes all cases reported in
 	  http://trac.osgeo.org/geos/wiki/BufferRobustness
 	  They include #495 and #494
 
-2011-12-09 08:47  Sandro Santilli <strk@keybit.net>
+2011-12-09 08:48  Sandro Santilli <strk@keybit.net>
 
-	* [r3533] tests/xmltester/tests/general/TestUnaryUnionFloating.xml:
-	  Oops, forgot this one in previous commit
-
-2011-12-09 08:46  Sandro Santilli <strk@keybit.net>
-
-	* [r3532] NEWS,
-	  include/geos/operation/union/CascadedPolygonUnion.h,
-	  src/operation/union/CascadedPolygonUnion.cpp,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/general/TestUnaryUnion.xml: Fix
-	  CascadedPolygonUnion to discard non-polygonal components created
-	  during unioning
+	* [r3534] Fix CascadedPolygonUnion to discard non-polygonal
+	  components created during unioning
 	  
 	  This is to avoid failures and provide more desirable behaviour.
 	  Includes automated testing. Closes ticket #499.
 
-2011-12-09 08:46  Sandro Santilli <strk@keybit.net>
+2011-12-07 15:13  Sandro Santilli <strk@keybit.net>
 
-	* [r3531] tests/xmltester/XMLTester.cpp: Allow XML tests not to
-	  specify a precision model, defaulting to floating
+	* [r3530] Update port info for MCIndexPointSnapper and
+	  MCIndexSnapRounder
+
+2011-12-07 11:17  Sandro Santilli <strk@keybit.net>
+
+	* [r3529] Add a simple test for MCIndexSnapRounderTest
 	  
-	  This allows running some JTS tests w/out touching them
+	  The test would fail before the fix in r3528
 
 2011-12-06 17:26  Sandro Santilli <strk@keybit.net>
 
-	* [r3527] NEWS, include/geos/noding/snapround/HotPixel.h,
-	  src/noding/snapround/HotPixel.cpp, tests/unit/Makefile.am,
-	  tests/unit/noding/snapround,
-	  tests/unit/noding/snapround/HotPixelTest.cpp: HotPixel: do not
-	  invalidate reference to original point. Fixes #498.
+	* [r3528] HotPixel: do not invalidate reference to original point.
+	  Fixes #498.
 
-2011-12-02 09:44  Sandro Santilli <strk@keybit.net>
+2011-12-02 09:42  Sandro Santilli <strk@keybit.net>
 
-	* [r3526] tests/xmltester/tests/safe/buffer-1.01.xml: Add
-	  <resultMatcher> tag to make the test runnable with JTS
+	* [r3525] Add <resultMatcher> tag to make the test runnable with
+	  JTS
 
-2011-11-30 09:49  Sandro Santilli <strk@keybit.net>
+2011-11-30 09:45  Sandro Santilli <strk@keybit.net>
 
-	* [r3524] NEWS, include/geos/noding/snapround/MCIndexSnapRounder.h,
-	  src/noding/snapround/MCIndexSnapRounder.cpp,
-	  tests/unit/operation/buffer/BufferOpTest.cpp: Fix
-	  MCIndexSnapRounder use of provided precision model.
+	* [r3523] Fix MCIndexSnapRounder use of provided precision model.
 	  
 	  Fixes bug #473 (RightmostEdgeFinder assertion failure).
 	  Includes regression test.
 
 2011-11-29 14:01  Sandro Santilli <strk@keybit.net>
 
-	* [r3521] NEWS, src/geom/Coordinate.cpp: Use 18 significant digits
-	  for TopologyException point coordinates
+	* [r3522] Use 18 significant digits for TopologyException point
+	  coordinates
 
-2011-11-28 08:40  Sandro Santilli <strk@keybit.net>
+2011-11-28 08:53  Sandro Santilli <strk@keybit.net>
 
-	* [r3519] NEWS, src/operation/buffer/BufferBuilder.cpp,
-	  tests/xmltester/Makefile.am,
-	  tests/xmltester/tests/safe/buffer-1.01.xml: BufferBuilder: fix
-	  handling of collapsed edges skipping. Fixes #494.
+	* [r3520] BufferBuilder: fix handling of collapsed edges skipping.
+	  Fixes #494.
 	  
 	  Includes regression test, provided by SAFE.
 
-2011-11-04 20:52  Sandro Santilli <strk@keybit.net>
+2011-11-24 22:07  Sandro Santilli <strk@keybit.net>
 
-	* [r3516] tests/unit/capi/GEOSisValidDetailTest.cpp: Allow any case
-	  in NaN for testcase purposes (#486)
+	* [r3518] Fix to get swig/ruby compiling for ruby 1.9
+	  
+	  Patch by Kashif Rasul
 
-2011-11-04 17:45  Sandro Santilli <strk@keybit.net>
+2011-11-06 03:25  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3513] NEWS, src/operation/union/UnaryUnionOp.cpp,
-	  tests/unit/operation/union/UnaryUnionOpTest.cpp,
-	  tests/xmltester/tests/general/TestUnaryUnion.xml: Fix noding of
-	  self-intersecting lines through UnaryUnion (#482)
+	* [r3517] * GEOS builds with Visual C++ from Visual Studio
+	  11(Developer Preview).
+	  * Added related _NMAKE_VER case to nmake.opt.
+
+2011-11-04 20:41  Sandro Santilli <strk@keybit.net>
+
+	* [r3515] Allow any case in NaN for testcase purposes (#486)
+
+2011-11-04 17:59  Sandro Santilli <strk@keybit.net>
+
+	* [r3514] Fix noding of self-intersecting lines through UnaryUnion
+	  (#482)
 	  
 	  Includes updated tests from JTS
 
-2011-11-04 15:00  Sandro Santilli <strk@keybit.net>
+2011-10-28 23:13  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3512] src/index/sweepline/SweepLineIndex.cpp: Fix
-	  initialization order
+	* [r3511] Updated svn:ignore property
 
-2011-10-26 16:08  Sandro Santilli <strk@keybit.net>
+2011-10-27 07:04  Sandro Santilli <strk@keybit.net>
 
-	* [r3507] tests/unit/Makefile.am,
-	  tests/unit/operation/buffer/BufferParametersTest.cpp: Add test
-	  for BufferParameters class
+	* [r3510] Add JTS triangulation api item
 
-2011-10-26 14:29  Sandro Santilli <strk@keybit.net>
+2011-10-26 16:49  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3506] NEWS: Add changes introduced by last commit
+	* [r3509] * Test of two ways of executing buffer operation.
+	  * Test problems with BufferOp when using BufferParameters
+	  reported by Markus Meyer.
+	  * TODO: if possible, replace sample WKT with WKT from Markus.
 
-2011-10-19 00:47  Mateusz Loskot <mateusz@loskot.net>
+2011-10-26 16:14  Sandro Santilli <strk@keybit.net>
 
-	* [r3503] CMakeLists.txt: ported from trunk: Fixed CMAKE_CXX_FLAGS
-	  overridind -std=gnu++0x (#489)
+	* [r3508] Add test for BufferParameters class
 
-2011-10-18 22:08  Mateusz Loskot <mateusz@loskot.net>
+2011-10-26 14:16  Sandro Santilli <strk@keybit.net>
 
-	* [r3500] CMakeLists.txt: Missing versions update in CMake
-	  configuration (#490)
+	* [r3505] Add missing entries in the author file. Order
+	  alphabetically.
 
-2011-10-04 16:18  Sandro Santilli <strk@keybit.net>
+2011-10-26 14:16  Sandro Santilli <strk@keybit.net>
 
-	* [r3496] NEWS: Add missing CAPI additions of 3.3.0 to NEWS file
+	* [r3504] Add missing CAPI additions of 3.3.0 to NEWS file
 
-2011-09-27 16:02  Sandro Santilli <strk@keybit.net>
+2011-10-19 00:45  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3490] NEWS: Prepare slot for 3.3.2 news
+	* [r3502] Fixed CMAKE_CXX_FLAGS overridind -std=gnu++0x (#489)
 
-2011-09-27 15:41  Sandro Santilli <strk@keybit.net>
+2011-10-18 22:12  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3489] configure.in: Bump versions up for next (3.3.2) release
+	* [r3501] Missing 3.4.0 versions update in CMake configuration
 
-2011-09-27 15:34  Sandro Santilli <strk@keybit.net>
+2011-10-05 23:24  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3487] ChangeLog, NEWS, configure.in: Set version to 3.3.1
-	  final, update ChangeLog and set release date in NEWS
+	* [r3499] Removed redundant casts between integer types
 
-2011-09-27 12:41  Sandro Santilli <strk@keybit.net>
+2011-10-05 00:09  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3486] NEWS: Merge items
+	* [r3498] declare these functions static inline to silence
+	  unused-function warning
 
-2011-09-23 15:59  Sandro Santilli <strk@keybit.net>
+2011-10-04 20:46  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3485] NEWS, capi/CMakeLists.txt, src/CMakeLists.txt: Fix OS X
-	  framework cmake build (#385) -- thanks kyngchaos
+	* [r3497] remove extra ;'s to satisfy pedantic warning
 
-2011-09-21 08:06  Sandro Santilli <strk@keybit.net>
+2011-10-04 15:48  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3474] NEWS, swig/geos.i.in, swig/python/Makefile.am: Fix
-	  out-of-place build for python binding (#332)
+	* [r3495] turn off framework building by default on APPLE
 
-2011-09-21 07:37  Sandro Santilli <strk@keybit.net>
+2011-10-04 15:43  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3473] NEWS: Add build fix items
+	* [r3494] propsets to svn:ignore CMake build junk
 
-2011-09-20 14:34  Sandro Santilli <strk@keybit.net>
+2011-10-04 15:42  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3471] include/geos/geom/GeometryFactory.h: apply clang fix for
-	  #463
+	* [r3493] fix up non-framework CMake builds on APPLE
 
-2011-09-17 15:42  Sandro Santilli <strk@keybit.net>
+2011-10-04 15:32  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3467] include/geos/platform.h.in: Use the global isnan from
-	  math.h for Solaris (#461)
+	* [r3492] fix up order initialization
 
-2011-09-12 07:48  Sandro Santilli <strk@keybit.net>
+2011-09-28 17:23  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3466] NEWS: Add item about leak fix
+	* [r3491] * Added interesting test<11> case to Douglas-Peucker unit
+	  * Visual C++ build on Windows x86-32 is all green and happy
+	  throwing ok:737
 
-2011-09-12 07:39  Sandro Santilli <strk@keybit.net>
+2011-09-23 12:14  Sandro Santilli <strk@keybit.net>
 
-	* [r3464] src/algorithm/InteriorPointArea.cpp,
-	  tests/unit/Makefile.am,
-	  tests/unit/algorithm/InteriorPointAreaTest.cpp: Fix memory leak
-	  on invalid geometry in InteriorPointArea (#475)
+	* [r3484] Fixed handling of Linear Referencing over
+	  MultiLineStrings to always return lowest index, and to trim
+	  zero-length result components (#323)
+	  
+	  Includes test. This is a port of JTS changesets 463, 464 and 465
 
-2011-08-24 14:54  Sandro Santilli <strk@keybit.net>
+2011-09-23 12:14  Sandro Santilli <strk@keybit.net>
 
-	* [r3462] include/geos/operation/buffer/OffsetSegmentGenerator.h,
-	  include/geos/operation/relate/RelateComputer.h,
-	  src/geom/util/SineStarFactory.cpp,
-	  src/operation/relate/RelateComputer.cpp: Fix warnings on MSVC
-	  2008 64 Bit (#470)
+	* [r3483] Port updates to the LenghtIndexedLineTest testcase (see
+	  #323)
+	  
+	  Note that the test fails if the library isn't also fixed
 
-2011-08-20 20:52  Sandro Santilli <strk@keybit.net>
+2011-09-23 01:03  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3460] NEWS, src/geom/GeometryCollection.cpp,
-	  src/geom/LineString.cpp, src/geom/Point.cpp,
-	  src/geom/Polygon.cpp, tests/unit/Makefile.am,
-	  tests/unit/geom/Geometry/clone.cpp: Fix Geometry::clone() to copy
-	  SRID. Closes ticket #464.
+	* [r3482] Removed Subversion Id keyword from all text files (#480)
 
-2011-08-19 10:47  Sandro Santilli <strk@keybit.net>
+2011-09-23 00:16  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3459] NEWS, tests/perf/capi/Makefile.am: Fix out of source
-	  builds (make check, actually)
+	* [r3481] Removed Subversion svn:keywords property (#480)
 
-2011-07-20 11:48  Sandro Santilli <strk@keybit.net>
+2011-09-21 08:11  Sandro Santilli <strk@keybit.net>
 
-	* [r3440] NEWS, src/operation/buffer/BufferBuilder.cpp,
-	  tests/unit/capi/GEOSOffsetCurveTest.cpp: Fix EMPTY result from
-	  GEOSOffsetCurve with distance 0 (#454)
+	* [r3475] Fix out-of-place build for python binding (#332)
 
-2011-07-07 08:31  Sandro Santilli <strk@keybit.net>
+2011-09-20 14:35  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3431] NEWS: Note the solaris build fix
+	* [r3472] mark concrete implementations as non-virtual for
+	  GeometryCollection::computeEnvelopInternal and
+	  GeometryCollection::compareToSameClass #478
 
-2011-07-07 08:30  Sandro Santilli <strk@keybit.net>
+2011-09-20 14:24  Howard Butler <hobu.inc@gmail.com>
 
-	* [r3430] src/operation/buffer/BufferParameters.cpp: Include
-	  platform.h, fixing SOLARIS build. Patch by Tai Meng
-	  <tai.meng@safe.com>.
+	* [r3470] apply clang fix for #463
 
-2011-07-05 11:49  Sandro Santilli <strk@keybit.net>
+2011-09-19 15:07  Mateusz Loskot <mateusz@loskot.net>
 
-	* [r3426] src/operation/valid/IndexedNestedRingTester.cpp,
-	  src/operation/valid/IndexedNestedRingTester.h: Update port info
-	  for IndexedNestedRingTester
+	* [r3469] Disable unit test relying on C99 feature if GEOS built
+	  using Visual C++
 
-2011-07-05 10:31  Sandro Santilli <strk@keybit.net>
+2011-09-17 15:53  Sandro Santilli <strk@keybit.net>
 
-	* [r3420] NEWS, src/operation/valid/IndexedNestedRingTester.cpp,
-	  tests/xmltester/tests/general/TestValid.xml: Fixed
-	  NestedRingTester (used by IsValidOp) to correctly handle the case
-	  where a hole touches all the vertices of another hole (#449)
+	* [r3468] Use the global isnan from math.h for Solaris (#461)
 
-2011-07-05 10:13  Sandro Santilli <strk@keybit.net>
+2011-09-12 07:47  Sandro Santilli <strk@keybit.net>
 
-	* [r3419] NEWS: Add notes about the recent changes
+	* [r3465] Fix memory leak on invalid geometry in InteriorPointArea
+	  (#475)
 
-2011-07-05 10:13  Sandro Santilli <strk@keybit.net>
+2011-08-24 14:55  Sandro Santilli <strk@keybit.net>
 
-	* [r3418] Makefile.am: Tweak 'make cl' rule to make sure an 'svn
-	  update' is performed before the svn2cl call (or it may miss
-	  changes!)
+	* [r3463] Fix warnings on MSVC 2008 64 Bit (#470)
 
-2011-07-05 09:44  Sandro Santilli <strk@keybit.net>
+2011-08-20 21:02  Sandro Santilli <strk@keybit.net>
 
-	* [r3408] src/algorithm/MinimumDiameter.cpp: Initialize
-	  MinimumDiamiter::minPtIndex in the constructor, to make static
-	  analisys tools happier
+	* [r3461] Forward port fix for #464 (Geometry.clone SRID copy)
 
-2011-07-05 09:44  Sandro Santilli <strk@keybit.net>
+2011-08-19 09:42  Sandro Santilli <strk@keybit.net>
 
-	* [r3407] src/index/sweepline/SweepLineIndex.cpp: Initialize
-	  SweepLineIndex::indexBuilt in ctor
+	* [r3458] Fix missing return from DirectedEdge output operator
 
-2011-07-05 09:44  Sandro Santilli <strk@keybit.net>
+2011-08-19 09:41  Sandro Santilli <strk@keybit.net>
 
-	* [r3406] include/geos/algorithm/LineIntersector.h: Initialize
-	  LineIntersector::isProperVar in constructor (not really needed
-	  but makes less noise under static analisys tools)
+	* [r3457] Fix out-of-source builds
 
-2011-07-05 09:44  Sandro Santilli <strk@keybit.net>
+2011-08-06 09:10  Sandro Santilli <strk@keybit.net>
 
-	* [r3405] include/geos/geom/prep/PreparedPoint.h,
-	  src/geom/prep/PreparedPoint.cpp: Fix bogus override of
-	  PreparedGeometry::intersect by PreparedPoint
+	* [r3456] Drop dangling references to SegmentString.inl (ticket
+	  #467)
 
-2011-07-05 09:43  Sandro Santilli <strk@keybit.net>
+2011-07-27 13:55  Sandro Santilli <strk@keybit.net>
 
-	* [r3404] src/index/quadtree/Node.cpp: Assert that the variable
-	  used as array index is not negative before using it (quadtree)
+	* [r3455] Add test file printing sizes of some classes
 
-2011-07-05 09:43  Sandro Santilli <strk@keybit.net>
+2011-07-27 13:29  Sandro Santilli <strk@keybit.net>
 
-	* [r3403] src/geomgraph/GeometryGraph.cpp: Avoid segfalting when an
-	  added node has no label in GeometryGraph::insertBoundaryPoint.
-	  See https://sourceforge.net/tracker
-	  /?func=detail&aid=3353879&group_id=128875&atid=713120
+	* [r3454] Earlier release of input segment strings, earlier release
+	  of buffer subgraphs.
 
-2011-07-05 09:43  Sandro Santilli <strk@keybit.net>
+2011-07-27 08:12  Sandro Santilli <strk@keybit.net>
 
-	* [r3402] src/geomgraph/Node.cpp: Avoid segfaulting when
-	  Node.setLabelBoundary is called against a node with null label.
-	  See https://sourceforge.net/tracker/
-	  ?func=detail&aid=3353871&group_id=128875&atid=713120
+	* [r3453] Change Noder interface to transfer ownership of noded
+	  segment strings to caller. Delete them as soon as converted to
+	  Edges in BufferOp.
 
-2011-07-05 09:43  Sandro Santilli <strk@keybit.net>
+2011-07-26 16:36  Sandro Santilli <strk@keybit.net>
 
-	* [r3401] src/index/bintree/Node.cpp: Assert that the variable used
-	  as array index is not negative before using it.
+	* [r3452] Update class documentation and port info. Drop empty .inl
+	  file.
 
-2011-07-05 09:43  Sandro Santilli <strk@keybit.net>
+2011-07-26 16:23  Sandro Santilli <strk@keybit.net>
 
-	* [r3400] src/util/Profiler.cpp: Do not dereference past-the-end
-	  iterator on invalid call
+	* [r3451] Have NodedSegmentString take ownership of
+	  CoordinateSequence
 
-2011-07-01 09:02  Sandro Santilli <strk@keybit.net>
+2011-07-26 15:09  Sandro Santilli <strk@keybit.net>
 
-	* [r3399] tests/unit/capi/GEOSBufferTest.cpp: Add test for bug #455
-	  to 3.3 branch (passes)
+	* [r3450] Use geomgraph::Label by value (less extra-heap), cleanups
+	  and port sync.
 
-2011-06-27 11:49  Sandro Santilli <strk@keybit.net>
+2011-07-21 09:54  Sandro Santilli <strk@keybit.net>
 
-	* [r3395] configure.in: Bump versions up for 3.3.1dev (second part
-	  of fix for #453)
+	* [r3449] Make geomgraph::Label non virtual, implement assignment
+	  operator, drop old logs, sync port info.
 
-2011-06-09 07:59  Sandro Santilli <strk@keybit.net>
+2011-07-21 09:54  Sandro Santilli <strk@keybit.net>
 
-	* [r3391] .: Creating 3.3 branch
+	* [r3448] Add assignment operator to TopologyLocation, drop old
+	  logs, sync port info
+
+2011-07-20 15:40  Sandro Santilli <strk@keybit.net>
+
+	* [r3444] Port JTS robustness fix for ConvexHull (ticket #457)
+
+2011-07-20 14:32  Sandro Santilli <strk@keybit.net>
+
+	* [r3443] Allow XML tests not to specify a precision model,
+	  defaulting to floating
+	  
+	  This allows running some JTS tests w/out touching them
+
+2011-07-20 14:19  Sandro Santilli <strk@keybit.net>
+
+	* [r3442] Add unit test for bug #337.
+
+2011-07-20 14:04  Sandro Santilli <strk@keybit.net>
+
+	* [r3441] Reset CXXFLAGS for building XMLTester, should fix bug
+	  #319 (non-c++98 tinyxml)
+
+2011-07-20 11:45  Sandro Santilli <strk@keybit.net>
+
+	* [r3439] Have GEOSOffsetCurve with distance 0 return the input
+	  (fixes bug #454)
+
+2011-07-20 09:12  Sandro Santilli <strk@keybit.net>
+
+	* [r3438] Add note about new BufferOp interface
+
+2011-07-20 09:03  Sandro Santilli <strk@keybit.net>
+
+	* [r3437] Add setSingleSided interface to BufferOp-accessible
+	  BufferParam setters
+	  
+	  Patch by Tai Meng <tai.meng@safe.com>
+
+2011-07-20 08:46  Sandro Santilli <strk@keybit.net>
+
+	* [r3436] Add output operator for planargraph::DirectedEdge class
+
+2011-07-20 08:46  Sandro Santilli <strk@keybit.net>
+
+	* [r3435] Drop unused variable
+
+2011-07-20 08:46  Sandro Santilli <strk@keybit.net>
+
+	* [r3434] Add port info
+
+2011-07-20 08:46  Sandro Santilli <strk@keybit.net>
+
+	* [r3433] Port JTS unit test for Polygonizer class (very light..)
+
+2011-07-07 08:33  Sandro Santilli <strk@keybit.net>
+
+	* [r3432] Include platform.h, fixing SOLARIS build. Patch by Tai
+	  Meng <tai.meng@safe.com>.
+
+2011-07-06 07:02  Sandro Santilli <strk@keybit.net>
+
+	* [r3429] Nodes always have labels (ported JTS fix to
+	  GeometryGraph::insertBoundaryPoint). Update port info.
+
+2011-07-06 07:02  Sandro Santilli <strk@keybit.net>
+
+	* [r3428] Update port info for geomgraph::Node after GEOS fix was
+	  ported to JTS
+
+2011-07-05 13:59  Sandro Santilli <strk@keybit.net>
+
+	* [r3427] svn update before running svn2cl
+
+2011-07-05 11:07  Sandro Santilli <strk@keybit.net>
+
+	* [r3425] Update port info for IndexedNestedRingTester class
+
+2011-07-05 10:58  Sandro Santilli <strk@keybit.net>
+
+	* [r3424] Changes of 3.3.1 do not belong in trunk (aimed at 3.4.0)
+
+2011-07-05 10:56  Sandro Santilli <strk@keybit.net>
+
+	* [r3423] Fix #449 (Assertion fails checking validity of polygon)
+	  the JTS way.
+
+2011-07-05 10:56  Sandro Santilli <strk@keybit.net>
+
+	* [r3422] Revert "When checking for validity, do not abort if every
+	  vertex of an hole is also a vertex of another one. Fixes bug
+	  #449, including regress testing." (will redo the JTS way)
+	  
+	  This reverts commit 7d2306c8dca2f0f1c5722640758578c1d59c7295.
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3417] Initialize MinimumDiamiter::minPtIndex in the
+	  constructor, to make static analisys tools happier
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3416] Initialize SweepLineIndex::indexBuilt in ctor
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3415] Initialize LineIntersector::isProperVar in constructor
+	  (not really needed but makes less noise under static analisys
+	  tools)
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3414] Fix bogus override of PreparedGeometry::intersect by
+	  PreparedPoint
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3413] Assert that the variable used as array index is not
+	  negative before using it (quadtree)
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3412] Avoid segfalting when an added node has no label in
+	  GeometryGraph::insertBoundaryPoint. See
+	  https://sourceforge.net/tracker/?func=detail&aid=3353879&group_id=128875&atid=713120
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3411] Avoid segfaulting when Node.setLabelBoundary is called
+	  against a node with null label. See
+	  https://sourceforge.net/tracker/?func=detail&aid=3353871&group_id=128875&atid=713120
+
+2011-07-05 09:52  Sandro Santilli <strk@keybit.net>
+
+	* [r3410] Assert that the variable used as array index is not
+	  negative before using it.
+
+2011-07-05 09:51  Sandro Santilli <strk@keybit.net>
+
+	* [r3409] Do not dereference past-the-end iterator on invalid call
+
+2011-07-01 08:22  Sandro Santilli <strk@keybit.net>
+
+	* [r3398] Add test for ticket #455 (bad result from the deprecated
+	  GEOSSingleSidedBuffer). It passes here in trunk, good!
+
+2011-07-01 08:22  Sandro Santilli <strk@keybit.net>
+
+	* [r3397] NEWS item about #449
+
+2011-06-27 11:45  Sandro Santilli <strk@keybit.net>
+
+	* [r3394] Bump versions up assuming a new minor release will come
+	  out from trunk. Closes #453
+
+2011-06-09 15:28  Sandro Santilli <strk@keybit.net>
+
+	* [r3392] When checking for validity, do not abort if every vertex
+	  of an hole is also a vertex of another one. Fixes bug #449,
+	  including regress testing.
 
 2011-06-02 20:18  Sandro Santilli <strk@keybit.net>
 
@@ -11142,7 +12068,7 @@
 	  Geometry::setSRID
 	  and Geometry::getSRID
 
-2006-02-09 01:47  frank
+2006-02-09 01:47  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r1049] Botched last fix. Hopefully this is better.
 
@@ -11150,7 +12076,7 @@
 
 	* [r1048] Added missing <limits> include
 
-2006-02-09 00:06  frank
+2006-02-09 00:06  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r1047] Fixed support for consuming WKB for 'POLYGON EMPTY' with
 	  numRings==0.
@@ -11287,11 +12213,11 @@
 	  - New ShortCircuitedGeometryVisitor class
 	  - New operation/predicate package
 
-2006-01-30 21:59  frank
+2006-01-30 21:59  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r1027] yikes! comment out debug define again
 
-2006-01-30 21:58  frank
+2006-01-30 21:58  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r1026] fixed up some debug messages
 
@@ -11870,15 +12796,15 @@
 
 	* [r889] Reduced set<> lookups
 
-2005-11-07 13:17  frank
+2005-11-07 13:17  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r888] no longer used
 
-2005-11-07 13:17  frank
+2005-11-07 13:17  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r887] removed VisualStudio, no longer distributed
 
-2005-11-07 13:16  frank
+2005-11-07 13:16  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r886] obsolete
 
@@ -11968,39 +12894,39 @@
 
 	* [r868] typo fixed
 
-2005-10-21 02:46  frank
+2005-10-21 02:46  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r867] added myself to authors - isn't that cheeky!
 
-2005-10-21 02:45  frank
+2005-10-21 02:45  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r866] added note on source\makefile.vc
 
-2005-10-21 02:44  frank
+2005-10-21 02:44  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r865] added a wee readme
 
-2005-10-21 02:41  frank
+2005-10-21 02:41  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r864] added DLL building, and geostest.exe
 
-2005-10-21 02:41  frank
+2005-10-21 02:41  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r863] need to DLL export C API
 
-2005-10-21 02:37  frank
+2005-10-21 02:37  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r862] DLL Export functions
 
-2005-10-21 02:37  frank
+2005-10-21 02:37  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r861] avoid non-portable vasprintf, make big buffer static
 
-2005-10-21 01:57  frank
+2005-10-21 01:57  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r860] updated for 3.0.0 and added C API
 
-2005-10-20 20:37  frank
+2005-10-20 20:37  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r859] added getMachineByteOrder(), convert to unix text mode
 
@@ -12339,7 +13265,7 @@
 	* [r752] Changes file renamed back to NEWS, automake insists on
 	  finding it.
 
-2005-05-30 16:20  autorun
+2005-05-30 16:20  No Body <no@body.net>
 
 	* [r750] Blank news file to molfify new versions of autoconf
 
@@ -12807,7 +13733,7 @@
 	* [r622] Added VisualStudio dir in distribution, removed platform.h
 	  and version.h from it.
 
-2004-12-04 01:20  frank
+2004-12-04 01:20  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r621] removed dll delete
 
@@ -12816,24 +13742,24 @@
 	* [r620] enforced const return of CoordinateSequence::toVector()
 	  method to derivate classes.
 
-2004-12-03 16:26  frank
+2004-12-03 16:26  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r619] added headers
 
-2004-12-03 16:25  frank
+2004-12-03 16:25  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r618] New
 
-2004-12-03 16:22  frank
+2004-12-03 16:22  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r617] update to use I64 on MSVC for 64 bit integer constants,
 	  also toVector chg.
 
-2004-12-03 16:21  frank
+2004-12-03 16:21  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r616] dont try for sys/time.h with MSVC
 
-2004-12-03 16:19  frank
+2004-12-03 16:19  Frank Warmerdam <warmerdam@pobox.com>
 
 	* [r615] New
 
@@ -13656,7 +14582,7 @@
 
 	* [r432] re-generated with doxygen 1.2.15
 
-2004-07-01 15:47  cvs
+2004-07-01 15:47  No Body <no@body.net>
 
 	* [r431] Added doxygen file for better doco generation.
 
@@ -15115,7 +16041,7 @@
 
 	* [r107] Build support for new example programs.
 
-2003-04-04 00:18  dblasby
+2003-04-04 00:18  David Blasby <dblasby@gmail.com>
 
 	* [r106] added comment about running ./autogen.sh
 
@@ -15329,7 +16255,7 @@
 
 	* [r56] Small changes in PointCoordinateList and EdgeEndStar.
 
-2003-02-11 19:01  mbdavis
+2003-02-11 19:01  Martin Davis <mtnclimb@gmail.com>
 
 	* [r55] fixed duplicate for loop index
 
@@ -15390,7 +16316,7 @@
 
 	* [r41] New build changes necessary to build under Linux GNU.
 
-2002-10-23 02:21  nvine
+2002-10-23 02:21  Norman Vine <nhv@cape.com>
 
 	* [r40] GNU portability changes
 
@@ -15574,7 +16500,7 @@
 
 	* [r2] Initial revision
 
-2002-06-07 17:47  cvs
+2002-06-07 17:47  No Body <no@body.net>
 
 	* [r1] New repository initialized by cvs2svn.
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: InteriorPointArea.h 3746 2013-01-14 11:08:51Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2013 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -40,14 +39,19 @@ namespace geos {
 namespace algorithm { // geos::algorithm
 
 /** \brief
- * Computes a point in the interior of an area geometry.
+ * Computes a point in the interior of an areal geometry.
  *
  * <h2>Algorithm</h2>
  * <ul>
- *   <li>Find the intersections between the geometry
- *       and the horizontal bisector of the area's envelope
- *   <li>Pick the midpoint of the largest intersection (the intersections
- *       will be lines and points)
+ *   <li>Find a Y value which is close to the centre of
+ *       the geometry's vertical extent but is different
+ *       to any of it's Y ordinates.
+ *   <li>Create a horizontal bisector line using the Y value
+ *       and the geometry's horizontal extent
+ *   <li>Find the intersection between the geometry
+ *       and the horizontal bisector line.
+ *       The intersection is a collection of lines and points.
+ *   <li>Pick the midpoint of the largest intersection geometry
  * </ul>
  *
  * <b>
@@ -78,14 +82,27 @@ private:
 
 public:
 
+	/**
+	 * Creates a new interior point finder
+	 * for an areal geometry.
+	 *
+	 * @param g an areal geometry
+	 */
 	InteriorPointArea(const geom::Geometry *g);
 
 	~InteriorPointArea();
 
+	/**
+	 * Gets the computed interior point.
+	 *
+	 * @return the coordinate of an interior point
+	 */
 	bool getInteriorPoint(geom::Coordinate& ret) const;
 
+private:
+
 	/** \brief
-	 * Finds a reasonable point at which to label a Geometry.
+	 * Finds an interior point of a Polygon
 	 *
 	 * @param geometry the geometry to analyze
 	 * @return the midpoint of the largest intersection between the geometry and
@@ -99,11 +116,4 @@ public:
 } // namespace geos
 
 #endif // GEOS_ALGORITHM_INTERIORPOINTAREA_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:48  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
 

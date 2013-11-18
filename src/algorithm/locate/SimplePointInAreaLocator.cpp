@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SimplePointInAreaLocator.cpp 2069 2007-12-21 20:47:01Z benjubb $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -95,17 +94,3 @@ SimplePointInAreaLocator::containsPointInPolygon(const Coordinate& p, const Poly
 } // namespace geos.algorithm.locate
 } // namespace geos.algorithm
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.22  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.21  2006/03/21 11:12:23  strk
- * Cleanups: headers inclusion and Log section
- *
- * Revision 1.20  2006/03/09 16:46:46  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

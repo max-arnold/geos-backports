@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SortedPackedIntervalRTree.cpp 2768 2009-12-03 19:23:05Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -146,8 +145,3 @@ SortedPackedIntervalRTree::query( double min, double max, index::ItemVisitor * v
 } // geos::intervalrtree
 } // geos::index
 } // geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

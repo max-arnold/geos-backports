@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PolygonizeDirectedEdge.cpp 2567 2009-06-08 16:58:42Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -111,11 +110,3 @@ PolygonizeDirectedEdge::setRing(EdgeRing *newEdgeRing)
 } // namespace geos.operation.polygonize
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.7  2006/03/22 11:19:06  strk
- * opPolygonize.h headers split.
- *
- **********************************************************************/
-

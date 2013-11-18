@@ -1056,7 +1056,7 @@ MULTIPOINT(
         $g = $reader->read('POLYGON((0 0, 0 10, 5 5, 10 10, 10 0, 0 0))');
         $b = $g->pointOnSurface();
         $this->assertEquals(
-'POINT (2 5)'
+'POINT (1 8)'
             , $writer->write($b));
     }
 
@@ -2017,6 +2017,26 @@ MULTIPOINT(
 
     }
 
+    public function testGeometry_delaunayTriangulation()
+    {
+        $reader = new GEOSWKTReader();
+        $writer = new GEOSWKTWriter();
+        $writer->setRoundingPrecision(0);
+
+        $g = $reader->read('POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))');
+
+        $b = $g->delaunayTriangulation();
+        $this->assertEquals(
+'GEOMETRYCOLLECTION (POLYGON ((0 1, 0 0, 1 0, 0 1)), POLYGON ((0 1, 1 0, 1 1, 0 1)))'
+            , $writer->write($b));
+
+        $b = $g->delaunayTriangulation(0,true);
+        $this->assertEquals(
+'MULTILINESTRING ((0 1, 1 1), (0 0, 0 1), (0 0, 1 0), (1 0, 1 1), (0 1, 1 0))'
+            , $writer->write($b));
+
+    }
+
     public function testGeometry_snapTo()
     {
         $reader = new GEOSWKTReader();
@@ -2034,6 +2054,20 @@ MULTIPOINT(
         $snapped = $g->snapTo($g2, 0.5);
         $this->assertEquals('POLYGON ((0.1 0, 1 0, 1 1, 0 1, 0.1 0))'
             , $writer->write($snapped) );
+    }
+
+    public function testGeometry_node()
+    {
+        $reader = new GEOSWKTReader();
+        $writer = new GEOSWKTWriter();
+        $writer->setTrim(true);
+
+        $g = $reader->read('LINESTRING(0 0, 10 0, 5 -5, 5 5)');
+
+        $noded = $g->node();
+        $this->assertEquals('MULTILINESTRING ((0 0, 5 0), (5 0, 10 0, 5 -5, 5 0), (5 0, 5 5))'
+            , $writer->write($noded) );
+
     }
 
     public function testWKBWriter__construct()

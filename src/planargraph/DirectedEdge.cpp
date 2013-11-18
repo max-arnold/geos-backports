@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DirectedEdge.cpp 2131 2008-07-15 22:04:51Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -168,22 +167,18 @@ string
 DirectedEdge::print() const
 {
 	ostringstream s;
-	s<<typeid(*this).name()<<": "<<p0.toString()<<" - "<<p1.toString();
-	s<<" "<<quadrant<<":"<<angle;
+  s << *this;
 	return s.str();
 }
 
+std::ostream&
+operator << (std::ostream& s, const DirectedEdge& de)
+{
+  s << typeid(de).name() << ": " << de.p0 << " - " << de.p1;
+  s << " " << de.quadrant << ":" << de.angle;
+  return s;
+}
 
 } // namespace planargraph
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/06/12 15:46:09  strk
- * provided a memory friendly version of toEdges() method.
- *
- * Revision 1.1  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
 

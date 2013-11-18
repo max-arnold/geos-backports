@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PointLocator.cpp 3174 2011-02-02 19:24:03Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2011 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -166,20 +165,4 @@ PointLocator::locate(const Coordinate& p,const Polygon *poly)
 
 } // namespace geos.algorithm
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.31  2006/06/12 10:49:43  strk
- * unsigned int => size_t
- *
- * Revision 1.30  2006/04/07 09:54:29  strk
- * Geometry::getNumGeometries() changed to return 'unsigned int'
- * rather then 'int'
- *
- * Revision 1.29  2006/03/21 11:12:23  strk
- * Cleanups: headers inclusion and Log section
- *
- * Revision 1.28  2006/03/09 16:46:46  strk
- * geos::geom namespace definition, first pass at headers split
- **********************************************************************/
 

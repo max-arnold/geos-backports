@@ -1,4 +1,3 @@
-// $Id: SegmentNodeTest.cpp 2991 2010-05-18 20:07:01Z warmerdam $
 // 
 // Test Suite for geos::noding::SegmentNode class.
 
@@ -68,7 +67,7 @@ namespace tut
 
         // Create SegmentString instance
         
-        NodedSegmentString segment(cs.get(), 0);
+        NodedSegmentString segment(cs.release(), 0);
 
         ensure_equals( segment.size(), coords_size );
 
@@ -116,7 +115,7 @@ namespace tut
 
         // Create SegmentString instance
         
-        NodedSegmentString segment(cs.get(), 0);
+        NodedSegmentString segment(cs.release(), 0);
 
         ensure_equals( segment.size(), coords_size );
 
@@ -158,7 +157,7 @@ namespace tut
 
         // Create SegmentString instance
         
-        NodedSegmentString segment(cs.get(), 0);
+        NodedSegmentString segment(cs.release(), 0);
 
         ensure_equals( segment.size(), coords_size );
 
@@ -200,7 +199,7 @@ namespace tut
 
         // Create SegmentString instance
         
-        NodedSegmentString segment(cs.get(), 0);
+        NodedSegmentString segment(cs.release(), 0);
 
         ensure_equals( segment.size(), coords_size );
 

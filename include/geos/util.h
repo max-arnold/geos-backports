@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: util.h 2757 2009-12-01 15:39:41Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.

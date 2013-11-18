@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPolygonCovers.h 2420 2009-04-29 08:56:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -108,7 +107,3 @@ public:
 } // geos
 
 #endif // GEOS_GEOM_PREP_PREPAREDPOLYGONCOVERS_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

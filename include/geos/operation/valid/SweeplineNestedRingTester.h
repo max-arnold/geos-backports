@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SweeplineNestedRingTester.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -118,14 +117,3 @@ public:
 #endif
 
 #endif // GEOS_OP_SWEEPLINENESTEDRINGTESTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/06/01 10:28:47  strk
- * Reduced number of installed headers for the geos::index namespace
- *
- * Revision 1.1  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

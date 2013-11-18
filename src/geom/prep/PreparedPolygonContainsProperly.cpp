@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPolygonContainsProperly.cpp 2420 2009-04-29 08:56:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -60,7 +59,6 @@ PreparedPolygonContainsProperly::containsProperly( const geom::Geometry * geom)
 	bool segsIntersect = prepPoly->getIntersectionFinder()->intersects( &lineSegStr);
 
 	for ( size_t i = 0, ni = lineSegStr.size(); i < ni; i++ ) {
-		delete lineSegStr[ i ]->getCoordinates();
 		delete lineSegStr[ i ];
 	}
 
@@ -87,8 +85,3 @@ PreparedPolygonContainsProperly::containsProperly( const geom::Geometry * geom)
 } // namespace geos.geom.prep
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

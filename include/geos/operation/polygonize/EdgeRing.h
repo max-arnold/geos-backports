@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: EdgeRing.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -210,14 +209,3 @@ public:
 #endif
 
 #endif // GEOS_OP_POLYGONIZE_EDGERING_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/05/02 14:32:49  strk
- * Added port info for polygonize/EdgeRing class, polygonize/EdgeRing.h header
- * not installed.
- *
- * Revision 1.1  2006/03/22 11:19:06  strk
- * opPolygonize.h headers split.
- *
- **********************************************************************/

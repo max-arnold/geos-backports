@@ -1,6 +1,5 @@
 /************************************************************************
  *
- * $Id: geostest.c 2809 2009-12-06 01:05:24Z mloskot $
  *
  * Test for C-Wrapper of GEOS library
  *
@@ -11,7 +10,7 @@
  * by the Free Software Foundation. 
  * See the COPYING file for more information.
  *
- * Author: Sandro Santilli <strk@refractions.net>
+ * Author: Sandro Santilli <strk@keybit.net>
  *
  ***********************************************************************/
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: AbstractNode.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -95,11 +94,3 @@ protected:
 #endif
 
 #endif // GEOS_INDEX_STRTREE_ABSTRACTNODE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 10:47:34  strk
- * indexStrtree.h split
- *
- **********************************************************************/
-

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CoordinateArraySequence.cpp 3278 2011-04-13 10:44:04Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005 Refractions Research Inc.
@@ -58,6 +57,18 @@ CoordinateArraySequence::CoordinateArraySequence(
 	vect(new vector<Coordinate>(*(c.vect))),
         dimension(c.getDimension())
 {
+}
+
+CoordinateArraySequence::CoordinateArraySequence(
+    const CoordinateSequence &c )
+	:
+	CoordinateSequence(c),
+	vect(new vector<Coordinate>(c.size())),
+  dimension(c.getDimension())
+{
+  for (size_t i = 0, n = vect->size(); i < n; ++i) {
+      (*vect)[i] = c.getAt(i);
+  }
 }
 
 CoordinateSequence *
@@ -276,26 +287,3 @@ CoordinateArraySequence::removeRepeatedPoints()
 
 } // namespace geos::geom
 } //namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.10  2006/06/12 15:07:47  strk
- * explicitly invoked CoordinateSequence (copy) ctor - suggested by GCC warning.
- *
- * Revision 1.9  2006/06/12 10:10:39  strk
- * Fixed getGeometryN() to take size_t rather then int, changed unsigned int parameters to size_t.
- *
- * Revision 1.8  2006/05/03 08:58:34  strk
- * added new non-static CoordinateSequence::removeRepeatedPoints() mutator.
- *
- * Revision 1.7  2006/03/27 09:00:50  strk
- * Bug #79 - Small fix in CoordinateArraySequence::toString()
- *
- * Revision 1.6  2006/03/22 16:58:34  strk
- * Removed (almost) all inclusions of geom.h.
- * Removed obsoleted .cpp files.
- * Fixed a bug in WKTReader not using the provided CoordinateSequence
- * implementation, optimized out some memory allocations.
- *
- **********************************************************************/
-

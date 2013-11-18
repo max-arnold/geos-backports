@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Interval.cpp 2475 2009-05-06 16:36:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -110,11 +109,3 @@ Interval::contains(double p) const
 } // namespace geos.index.bintree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/03/22 16:01:33  strk
- * indexBintree.h header split, classes renamed to match JTS
- *
- **********************************************************************/
-

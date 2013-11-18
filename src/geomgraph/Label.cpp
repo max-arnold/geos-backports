@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Label.cpp 2545 2009-06-05 12:07:52Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -14,7 +13,7 @@
  *
  **********************************************************************
  *
- * Last port: geomgraph/Label.java rev. 1.8 (JTS-1.10)
+ * Last port: geomgraph/Label.java r428 (JTS-1.12+)
  *
  **********************************************************************/
 
@@ -36,12 +35,12 @@ namespace geos {
 namespace geomgraph { // geos.geomgraph
 
 /*public static*/
-Label*
+Label
 Label::toLineLabel(const Label &label)
 {
-	Label *lineLabel=new Label(Location::UNDEF);
+	Label lineLabel(Location::UNDEF);
 	for (int i=0; i<2; i++) {
-		lineLabel->setLocation(i, label.getLocation(i));
+		lineLabel.setLocation(i, label.getLocation(i));
 	}
 	return lineLabel;
 }
@@ -84,8 +83,12 @@ Label::Label(const Label &l)
 }
 
 /*public*/
-Label::~Label()
+Label&
+Label::operator=(const Label &l)
 {
+	elt[0] = TopologyLocation(l.elt[0]);
+	elt[1] = TopologyLocation(l.elt[1]);
+	return *this;
 }
 
 /*public*/
@@ -189,6 +192,13 @@ Label::isNull(int geomIndex) const
 
 /*public*/
 bool
+Label::isNull() const
+{
+	return elt[0].isNull() && elt[1].isNull();
+}
+
+/*public*/
+bool
 Label::isAnyNull(int geomIndex) const
 {
 	assert(geomIndex>=0 && geomIndex<2);
@@ -265,23 +275,3 @@ operator<< (std::ostream& os, const Label& l)
 
 } // namespace geos.geomgraph
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.10  2006/04/06 09:01:37  strk
- * Doxygen comments, port info, operator<<, assertion checking
- *
- * Revision 1.9  2006/04/03 17:05:22  strk
- * Assertion checking, port info, cleanups
- *
- * Revision 1.8  2006/03/14 12:55:55  strk
- * Headers split: geomgraphindex.h, nodingSnapround.h
- *
- * Revision 1.7  2006/03/03 10:46:21  strk
- * Removed 'using namespace' from headers, added missing headers in .cpp files, removed useless includes in headers (bug#46)
- *
- * Revision 1.6  2006/02/19 19:46:49  strk
- * Packages <-> namespaces mapping for most GEOS internal code (uncomplete, but working). Dir-level libs for index/ subdirs.
- *
- **********************************************************************/
-

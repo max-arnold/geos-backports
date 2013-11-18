@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: OffsetSegmentString.h 3301 2011-04-27 09:42:31Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2007 Refractions Research Inc.
@@ -172,7 +171,7 @@ public:
 		return ret;
 	}
 
-	inline int size() const { return ptList ? ptList->size() : 0 ; }
+	inline size_t size() const { return ptList ? ptList->size() : 0 ; }
 
 };
 

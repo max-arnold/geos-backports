@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: STRtree.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -106,7 +105,7 @@ protected:
 	
 	IntersectsOp* getIntersectsOp() {
 		return &intersectsOp;
-	};
+	}
 
 public:
 
@@ -153,17 +152,3 @@ public:
 #endif
 
 #endif // GEOS_INDEX_STRTREE_STRTREE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/06/12 10:49:43  strk
- * unsigned int => size_t
- *
- * Revision 1.2  2006/04/03 08:43:09  strk
- * Added port info, minor cleanups
- *
- * Revision 1.1  2006/03/21 10:47:34  strk
- * indexStrtree.h split
- *
- **********************************************************************/
-

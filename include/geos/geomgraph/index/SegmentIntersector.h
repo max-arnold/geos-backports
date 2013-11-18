@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SegmentIntersector.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -135,11 +134,4 @@ public:
 #endif
 
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/14 12:55:55  strk
- * Headers split: geomgraphindex.h, nodingSnapround.h
- *
- **********************************************************************/
 

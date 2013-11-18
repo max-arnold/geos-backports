@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Quadtree.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -194,14 +193,3 @@ public:
 #endif
 
 #endif // GEOS_IDX_QUADTREE_QUADTREE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/03 08:29:30  strk
- * Added port info, cleaned up log message, minor assertion checking.
- *
- * Revision 1.1  2006/03/22 12:22:50  strk
- * indexQuadtree.h split
- *
- **********************************************************************/
-

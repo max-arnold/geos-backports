@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CoordinateArraySequenceFactory.inl 2990 2010-05-18 19:18:54Z warmerdam $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *
@@ -41,6 +40,13 @@ CoordinateArraySequenceFactory::create(std::size_t size, std::size_t dimension)
 		const
 {
 	return new CoordinateArraySequence(size,dimension);
+}
+
+INLINE CoordinateSequence *
+CoordinateArraySequenceFactory::create(const CoordinateSequence& seq)
+		const
+{
+	return new CoordinateArraySequence(seq);
 }
 
 

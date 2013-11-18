@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CLocalizer.h 3763 2013-02-01 06:34:23Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2008 Sean Gillies
  *

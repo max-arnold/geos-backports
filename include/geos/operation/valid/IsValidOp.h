@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IsValidOp.h 3258 2011-03-02 13:13:50Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2010 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -277,14 +276,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_OP_ISVALIDOP_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/29 13:53:59  strk
- * EdgeRing equipped with Invariant testing function and lots of exceptional assertions. Removed useless heap allocations, and pointers usages.
- *
- * Revision 1.1  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

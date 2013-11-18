@@ -1,10 +1,11 @@
-# $Id$
 #
 # nmake.opt - main configuration file for NMAKE makefiles
 #
 !MESSAGE **********************************************************************
 !MESSAGE *** GEOS Build Configuration ***
-!INCLUDE <ntwin32.mak>
+
+# TODO: Confirm as redundant and remove, nmake /P displays _NMAKE_VER anyway.
+#!INCLUDE <ntwin32.mak>
 
 ###############################################################################
 # For convenience, user may put custom settings to private mynmake.opt
@@ -48,6 +49,16 @@ BUILD_BATCH = NO
 !MESSAGE *** Setting BUILD_BATCH $(BUILD_BATCH)
 
 ###############################################################################
+# Set WIN64=YES if you are building for 64-bit windows (x64).
+# Alternatively, pass WIN64=YES as NMAKE command line argument.
+###############################################################################
+!IFNDEF WIN64
+WIN64 = NO
+!ENDIF
+
+!MESSAGE *** Setting WIN64 $(WIN64)
+
+###############################################################################
 # Derive version of Visual C++ being used from NMAKE if not specified
 #
 # WARNING:
@@ -88,18 +99,55 @@ GEOS_MSC = 1600
 !ELSEIF "$(_NMAKE_VER)" == "10.00.30319.01"
 GEOS_MSVC = 10.0
 GEOS_MSC = 1600
+!ELSEIF "$(_NMAKE_VER)" == "11.00.40825.2"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
+!ELSEIF "$(_NMAKE_VER)" == "11.00.51106.1"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
+!ELSEIF "$(_NMAKE_VER)" == "11.00.50727.1"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
+!ELSEIF "$(_NMAKE_VER)" == "11.00.60315.1"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
+!ELSEIF "$(_NMAKE_VER)" == "11.00.60430.2"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
+!ELSEIF "$(_NMAKE_VER)" == "11.00.60521.0"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
+!ELSEIF "$(_NMAKE_VER)" == "11.00.60610.1"
+GEOS_MSVC = 11.0
+GEOS_MSC = 1700
 !ELSE
 GEOS_MSVC = 0.0
 GEOS_MSC = 0
 !ENDIF
 
 !IF "$(GEOS_MSVC)" == "0.0" && "$(GEOS_MSC)" == "0"
-!MESSAGE *** Cannot determined Visual C++ version
+!MESSAGE *** Cannot determine Visual C++ version
 !ERROR *** Aborting make job
 !ELSE
 !MESSAGE *** Using Microsoft NMAKE version $(_NMAKE_VER)
 !MESSAGE *** Using Microsoft Visual C++ version $(GEOS_MSVC)
 !MESSAGE *** Using Microsoft C/C++ version $(GEOS_MSC)
+!ENDIF
+
+###############################################################################
+# Optional use of Visual Leak Detector (VLD) http://vld.codeplex.com/
+# Uncomment this line to use VLD in debug configuration only:
+!IF "$(BUILD_DEBUG)" == "YES"
+MSVC_VLD_DIR=$(EXTLIBDIR)\Source\vld\vld
+!ENDIF
+
+!IFDEF MSVC_VLD_DIR
+MSVC_VLD_FLAGS=-DMSVC_USE_VLD=1 -I$(MSVC_VLD_DIR)\include
+!IFDEF WIN64
+MSVC_VLD_LIB=/LIBPATH:$(MSVC_VLD_DIR)/lib/Win64
+!ELSE
+MSVC_VLD_LIB=/LIBPATH:$(MSVC_VLD_DIR)/lib/Win32
+!ENDIF
 !ENDIF
 
 ###############################################################################
@@ -114,7 +162,7 @@ GEOS_INCLUDE = -I..\include -I..\capi
 # Compilation flags for Release and Debug modes
 
 GEOS_CPPFLAGS = /D "NOMINMAX" /D "WIN32_LEAN_AND_MEAN" /D "NOGDI"
-GEOS_CPPFLAGS = $(GEOS_CPPFLAGS) /D "GEOS_DLL_EXPORT"
+GEOS_CPPFLAGS = $(GEOS_CPPFLAGS) /D "GEOS_DLL_EXPORT" $(MSVC_VLD_FLAGS)
 
 !IF "$(BUILD_DEBUG)" == "YES"
 BUILD_PREFIX=_d
@@ -145,10 +193,12 @@ MPFLAGS = /MP
 GEOS_CFLAGS = /D "GEOS_INLINE"
 !ENDIF
 
-!MESSAGE *** Using CFLAGS $(GEOS_CFLAGS)
-!MESSAGE *** Using CPPFLAGS $(GEOS_CPPFLAGS)
+!MESSAGE *** Using GEOS_CFLAGS $(GEOS_CFLAGS)
+!MESSAGE *** Using GEOS_CPPFLAGS $(GEOS_CPPFLAGS)
 
-CFLAGS= $(MPFLAGS) $(GEOS_CFLAGS) $(GEOS_CPPFLAGS) $(GEOS_INCLUDE)
+CFLAGS=$(MPFLAGS) $(GEOS_CFLAGS) $(GEOS_CPPFLAGS) $(GEOS_INCLUDE)
+
+!MESSAGE *** Complete CFLAGS $(CFLAGS)
 
 ###############################################################################
 # Output location
@@ -173,6 +223,7 @@ CP = copy
 # - Static Libraries (use of lib.exe wrapper is not portable, see VC++ Toolkit 2003)
 # $(LINK) /lib
 LINK = link.exe
+LINKER_FLAGS = $(MSVC_VLD_LIB)
 
 !MESSAGE **********************************************************************
 # EOF

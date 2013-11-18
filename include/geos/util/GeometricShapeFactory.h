@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometricShapeFactory.h 3313 2011-04-28 10:04:27Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -199,10 +198,3 @@ public:
 #endif
 
 #endif // GEOS_UTIL_GEOMETRICSHAPEFACTORY_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

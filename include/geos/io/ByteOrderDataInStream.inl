@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ByteOrderDataInStream.inl 2853 2010-01-16 18:14:41Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -96,11 +95,3 @@ ByteOrderDataInStream::readDouble()
 } // namespace geos
 
 #endif // #ifndef GEOS_IO_BYTEORDERDATAINSTREAM_INL
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/28 11:26:13  strk
- * ByteOrderDataInStream inlines moved to .inl file, updated
- * implementation files includes.
- *
- **********************************************************************/

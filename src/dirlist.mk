@@ -1,4 +1,3 @@
-# $Id: dirlist.mk 2967 2010-04-07 13:22:56Z mloskot $
 #
 # List of directories use by makefile.vc to clean .obj files
 #
@@ -36,10 +35,13 @@ GEOS_DIRLIST =  \
 	operation\polygonize \
 	operation\predicate \
 	operation\relate \
+	operation\sharedpaths \
 	operation\union \
 	operation\valid \
 	planargraph \
 	planargraph\algorithm \
 	precision \
 	simplify \
+	triangulate \
+	triangulate\quadedge \
 	util

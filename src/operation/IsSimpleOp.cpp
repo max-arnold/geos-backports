@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IsSimpleOp.cpp 3179 2011-02-03 19:59:23Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009      Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2001-2002 Vivid Solutions Inc.

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: EnhancedPrecisionOp.cpp 2755 2009-11-30 17:29:48Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -246,17 +245,4 @@ EnhancedPrecisionOp::buffer(const Geometry *geom, double distance)
 
 } // namespace geos.precision
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.9  2006/04/07 08:31:37  strk
- * Debugging lines
- *
- * Revision 1.8  2006/04/06 14:36:51  strk
- * Cleanup in geos::precision namespace (leaks plugged, auto_ptr use, ...)
- *
- * Revision 1.7  2006/03/23 09:17:19  strk
- * precision.h header split, minor optimizations
- *
- **********************************************************************/
 

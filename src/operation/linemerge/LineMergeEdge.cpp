@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineMergeEdge.cpp 3309 2011-04-27 15:47:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -46,11 +45,3 @@ LineMergeEdge::getLine() const {
 } // namespace geos.operation.linemerge
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.6  2006/03/22 10:13:54  strk
- * opLinemerge.h split
- *
- **********************************************************************/
-

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPolygonPredicate.h 2771 2009-12-03 19:29:54Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -143,7 +142,4 @@ public:
 } // namespace geos
 
 #endif // GEOS_GEOM_PREP_PREPAREDPOLYGONPREDICATE_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
 

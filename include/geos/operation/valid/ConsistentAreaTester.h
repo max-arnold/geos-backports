@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ConsistentAreaTester.h 2557 2009-06-08 09:30:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -152,15 +151,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_OP_CONSISTENTAREATESTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/27 10:37:58  strk
- * Reduced heap allocations and probability of error by making LineIntersector
- * and RelateNodeGraph part of ConsistentAreaTester class .
- *
- * Revision 1.1  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

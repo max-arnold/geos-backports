@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DouglasPeuckerLineSimplifier.cpp 3275 2011-03-26 14:02:32Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -116,16 +115,3 @@ DouglasPeuckerLineSimplifier::simplifySection(
 
 } // namespace geos::simplify
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/06/12 11:29:24  strk
- * unsigned int => size_t
- *
- * Revision 1.2  2006/06/03 22:29:39  hobu
- * Use a fully qualified namespace for LineSegment because we're inside of geos::simplify at the time
- *
- * Revision 1.1  2006/04/03 10:16:11  strk
- * DouglasPeuckerLineSimplifier class port
- *
- **********************************************************************/

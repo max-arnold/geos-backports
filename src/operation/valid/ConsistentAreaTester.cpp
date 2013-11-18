@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ConsistentAreaTester.cpp 2547 2009-06-05 13:41:50Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -125,25 +124,4 @@ ConsistentAreaTester::hasDuplicateRings()
 } // namespace geos.operation.valid
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.17  2006/03/27 10:37:59  strk
- * Reduced heap allocations and probability of error by making LineIntersector
- * and RelateNodeGraph part of ConsistentAreaTester class .
- *
- * Revision 1.16  2006/03/21 13:11:29  strk
- * opRelate.h header split
- *
- * Revision 1.15  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- * Revision 1.14  2006/03/17 16:48:55  strk
- * LineIntersector and PointLocator made complete components of RelateComputer
- * (were statics const pointers before). Reduced inclusions from opRelate.h
- * and opValid.h, updated .cpp files to allow build.
- *
- * Revision 1.13  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- **********************************************************************/
 

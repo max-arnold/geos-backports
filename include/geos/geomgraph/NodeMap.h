@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodeMap.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -118,26 +117,8 @@ private:
 } // namespace geos.geomgraph
 } // namespace geos
 
-//#ifdef GEOS_INLINE
-//# include "geos/geomgraph/NodeMap.inl"
-//#endif
-
 #ifdef _MSC_VER
 #pragma warning(pop)
 #endif
 
 #endif // ifndef GEOS_GEOMGRAPH_NODEMAP_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/05/04 12:54:26  strk
- * Added invariant tester for NodeMap class, fixed comment about ownership of NodeFactory
- *
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

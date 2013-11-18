@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ByteOrderDataInStream.cpp 2579 2009-06-15 14:03:52Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *

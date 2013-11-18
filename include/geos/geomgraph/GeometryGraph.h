@@ -1,9 +1,9 @@
 /**********************************************************************
- * $Id: GeometryGraph.h 3329 2011-05-06 18:51:19Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
+ * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -14,7 +14,7 @@
  *
  **********************************************************************
  *
- * Last port: geomgraph/GeometryGraph.java rev. 1.9 (JTS-1.10)
+ * Last port: geomgraph/GeometryGraph.java r428 (JTS-1.12+)
  *
  **********************************************************************/
 
@@ -66,6 +66,9 @@ namespace geos {
 namespace geos {
 namespace geomgraph { // geos.geomgraph
 
+/**
+ * A GeometryGraph is a graph that models a given Geometry
+ */
 class GEOS_DLL GeometryGraph: public PlanarGraph
 {
 using PlanarGraph::add;
@@ -244,20 +247,3 @@ public:
 #endif
 
 #endif // ifndef GEOS_GEOMGRAPH_GEOMETRYGRAPH_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/06/13 22:00:26  strk
- * Changed GeometryGraph::lineEdgeMap set comparison function to be pointer-based. Should be safe and much faster. Available tests all succeed.
- *
- * Revision 1.3  2006/03/29 15:23:49  strk
- * Moved GeometryGraph inlines from .h to .inl file
- *
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

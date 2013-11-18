@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Node.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -138,17 +137,3 @@ std::ostream& operator<<(std::ostream& os, const Node& n);
 } // namespace geos
 
 #endif // GEOS_PLANARGRAPH_NODE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/06/12 16:57:26  strk
- * Added note about ownership of return from getEdgesBetween()
- *
- * Revision 1.2  2006/06/12 10:49:43  strk
- * unsigned int => size_t
- *
- * Revision 1.1  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
-

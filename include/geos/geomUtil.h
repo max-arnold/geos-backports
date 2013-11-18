@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: geomUtil.h 2120 2008-01-30 22:34:13Z benjubb $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -38,10 +37,3 @@ namespace util { // geos.geom.util
 } // namespace geos
 
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.9  2006/03/09 16:46:48  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

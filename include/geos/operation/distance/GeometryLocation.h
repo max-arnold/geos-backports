@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryLocation.h 2561 2009-06-08 10:37:11Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -117,11 +116,4 @@ public:
 } // namespace geos
 
 #endif // GEOS_OP_DISTANCE_GEOMETRYLOCATION_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 17:55:01  strk
- * opDistance.h header split
- *
- **********************************************************************/
 

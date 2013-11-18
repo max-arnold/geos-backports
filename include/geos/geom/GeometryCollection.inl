@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryCollection.inl 2435 2009-04-30 11:15:12Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *

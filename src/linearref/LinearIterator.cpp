@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LinearIterator.cpp 3014 2010-06-19 11:23:44Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -14,7 +13,7 @@
  *
  **********************************************************************
  *
- * Last port: linearref/LinearIterator.java rev. 1.35
+ * Last port: linearref/LinearIterator.java r463
  *
  **********************************************************************/
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DistanceOp.h 3259 2011-03-02 13:45:13Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -279,11 +278,4 @@ private:
 #endif
 
 #endif // GEOS_OP_DISTANCE_DISTANCEOP_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 17:55:01  strk
- * opDistance.h header split
- *
- **********************************************************************/
 

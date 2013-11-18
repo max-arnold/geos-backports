@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: StringTokenizer.cpp 2579 2009-06-15 14:03:52Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -153,10 +152,3 @@ StringTokenizer::getSVal()
 
 } // namespace geos.io
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.16  2006/04/26 16:35:40  strk
- * Had WKTReader accept correct form for MultiPoint
- *
- **********************************************************************/

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: XMLTester.cpp 3745 2013-01-14 11:05:23Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -958,7 +957,7 @@ XMLTester::parseTest(const TiXmlNode* node)
 			GeomAutoPtr gRealRes(gT->getCentroid());
 
 			if ( gRealRes.get() ) gRealRes->normalize();
-			else gRealRes.reset(factory->createGeometryCollection());
+			else gRealRes.reset(factory->createPoint());
 			gRealRes->normalize();
 
 			if (gRes->compareTo(gRealRes.get())==0) success=1;

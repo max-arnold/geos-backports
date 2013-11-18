@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IteratedNoder.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -13,7 +12,7 @@
  *
  **********************************************************************
  *
- * Last port: noding/IteratedNoder.java rev. 1.6 (JTS-1.9)
+ * Last port: noding/IteratedNoder.java r591 (JTS-1.12+)
  *
  **********************************************************************/
 
@@ -41,12 +40,13 @@ namespace geos {
 namespace geos {
 namespace noding { // geos::noding
 
-/**
+/** \brief
  * Nodes a set of SegmentStrings completely.
+ * 
  * The set of segmentStrings is fully noded;
  * i.e. noding is repeated until no further
  * intersections are detected.
- * <p>
+ * 
  * Iterated noding using a FLOATING precision model is not guaranteed to converge,
  * due to roundoff error.   This problem is detected and an exception is thrown.
  * Clients can choose to rerun the noding using a lower precision model.
@@ -114,19 +114,4 @@ public:
 } // namespace geos
 
 
-//#ifdef GEOS_INLINE
-//# include "geos/noding/IteratedNoder.inl"
-//#endif
-
 #endif // GEOS_NODING_ITERATEDNODER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

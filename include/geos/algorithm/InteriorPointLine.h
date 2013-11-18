@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: InteriorPointLine.h 3164 2010-12-24 14:27:46Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -83,11 +82,4 @@ private:
 } // namespace geos
 
 #endif // GEOS_ALGORITHM_INTERIORPOINTLINE_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:48  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GeometryLocation.cpp 2561 2009-06-08 10:37:11Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -80,11 +79,3 @@ bool GeometryLocation::isInsideArea() {
 } // namespace geos.operation.distance
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.6  2006/03/21 17:55:01  strk
- * opDistance.h header split
- *
- **********************************************************************/
-

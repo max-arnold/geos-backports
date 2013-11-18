@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CoordinateOperation.cpp 2758 2009-12-01 16:16:18Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -58,11 +57,3 @@ CoordinateOperation::edit(const Geometry *geometry,
 } // namespace geos.geom.util
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:47  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

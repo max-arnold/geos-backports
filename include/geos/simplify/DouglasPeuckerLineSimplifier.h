@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DouglasPeuckerLineSimplifier.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -101,19 +100,3 @@ private:
 #endif
 
 #endif // GEOS_SIMPLIFY_DOUBGLASPEUCKERLINESIMPLIFIER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/07/10 10:16:06  strk
- * changed vector<bool> to vector<short int> (see bug#101)
- *
- * Revision 1.3  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.2  2006/04/13 10:39:12  strk
- * Initial implementation of TaggedLinesSimplifier class
- *
- * Revision 1.1  2006/04/03 10:16:11  strk
- * DouglasPeuckerLineSimplifier class port
- *
- **********************************************************************/

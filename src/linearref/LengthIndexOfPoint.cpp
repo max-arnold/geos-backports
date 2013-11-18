@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LengthIndexOfPoint.cpp 2809 2009-12-06 01:05:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.

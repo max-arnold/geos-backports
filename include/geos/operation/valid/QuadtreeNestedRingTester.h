@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: QuadtreeNestedRingTester.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -102,14 +101,3 @@ private:
 #endif
 
 #endif // GEOS_OP_QUADTREENESTEDRINGTESTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/29 11:48:53  strk
- * Removed useless heap allocations in construction, enforced const correctness
- *
- * Revision 1.1  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- **********************************************************************/
-

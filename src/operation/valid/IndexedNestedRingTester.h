@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: IndexedNestedRingTester.h 3426 2011-07-05 11:49:01Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009 Sandro Santilli <strk@keybit.net>
  *
@@ -106,8 +105,3 @@ private:
 } // namespace geos
 
 #endif // GEOS_OP_VALID_OFFSETCURVEVERTEXLIST_H
-
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

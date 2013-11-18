@@ -1,4 +1,3 @@
-dnl $Id: geos.m4 3541 2011-12-12 09:57:21Z strk $
 dnl 
 dnl GEOS_INIT (MINIMUM_VERSION)
 dnl

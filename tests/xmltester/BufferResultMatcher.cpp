@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferResultMatcher.cpp 2809 2009-12-06 01:05:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  *

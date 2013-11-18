@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Node.cpp 3401 2011-07-05 09:43:15Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -163,11 +162,3 @@ Node::createSubnode(int index)
 } // namespace geos.index.bintree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/03/22 16:01:33  strk
- * indexBintree.h header split, classes renamed to match JTS
- *
- **********************************************************************/
-

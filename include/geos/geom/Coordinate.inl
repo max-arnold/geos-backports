@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Coordinate.inl 3367 2011-05-17 16:50:03Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  *
@@ -37,11 +36,6 @@ INLINE bool
 Coordinate::isNull() const
 {
 	return (ISNAN(x) && ISNAN(y) && ISNAN(z));
-}
-
-INLINE
-Coordinate::~Coordinate()
-{
 }
 
 INLINE

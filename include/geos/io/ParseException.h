@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ParseException.h 2579 2009-06-15 14:03:52Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -45,7 +44,7 @@ public:
 
 	ParseException(const std::string& msg, double num);
 
-	~ParseException() throw() {};
+	~ParseException() throw() {}
 
 private:
 	static std::string stringify(double num);
@@ -55,14 +54,3 @@ private:
 } // namespace geos
 
 #endif // #ifndef GEOS_IO_PARSEEXCEPTION_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/04 08:16:46  strk
- * Changed GEOSException hierarchy to be derived from std::runtime_exception.
- * Removed the GEOSException::toString redundant method (use ::what() instead)
- *
- * Revision 1.1  2006/03/20 18:18:14  strk
- * io.h header split
- *
- **********************************************************************/

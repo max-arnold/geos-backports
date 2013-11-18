@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: WKBReader.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -81,7 +80,7 @@ class GEOS_DLL WKBReader {
 
 public:
 
-	WKBReader(geom::GeometryFactory const& f): factory(f) {};
+	WKBReader(geom::GeometryFactory const& f): factory(f) {}
 
 	/// Inizialize parser with default GeometryFactory.
 	WKBReader();
@@ -171,16 +170,3 @@ private:
 #endif
 
 #endif // #ifndef GEOS_IO_WKBREADER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/06/01 11:49:36  strk
- * Reduced installed headers form geomgraph namespace
- *
- * Revision 1.2  2006/04/12 10:57:19  strk
- * Added WKBReader default ctor using default GeometryFactory instance
- *
- * Revision 1.1  2006/03/20 18:18:14  strk
- * io.h header split
- *
- **********************************************************************/

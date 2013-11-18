@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferOp.cpp 3732 2012-12-05 07:41:45Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009-2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2007 Refractions Research Inc.
@@ -23,6 +22,7 @@
 #include <cmath>
 
 #include <geos/profiler.h>
+#include <geos/precision/GeometryPrecisionReducer.h>
 #include <geos/operation/buffer/BufferOp.h>
 #include <geos/operation/buffer/BufferBuilder.h>
 #include <geos/geom/Geometry.h>
@@ -239,8 +239,32 @@ BufferOp::bufferFixedPrecision(const PrecisionModel& fixedPM)
 
 	bufBuilder.setNoder(&noder);
 
+	// Reduce precision of the input geometry
+	//
+	// NOTE: this reduction is not in JTS and should supposedly 
+	//       not be needed because the PrecisionModel we pass
+	//       to the BufferBuilder above (with setWorkingPrecisionModel)
+	//       should be used to round coordinates emitted by the
+	//       OffsetCurveBuilder, thus effectively producing a fully
+	//       rounded input to the noder.
+	//       Nonetheless the amount of scrambling done by rounding here
+	//       is known to fix at least one case in which MCIndexNoder
+	//       would fail: http://trac.osgeo.org/geos/ticket/605
+	//
+	// TODO: follow JTS in MCIndexSnapRounder usage
+	//
+	const Geometry *workGeom = argGeom;
+	const PrecisionModel& argPM = *(argGeom->getFactory()->getPrecisionModel());
+	std::auto_ptr<Geometry> fixedGeom;
+	if ( argPM.getType() != PrecisionModel::FIXED || argPM.getScale() != fixedPM.getScale() )
+	{
+		using precision::GeometryPrecisionReducer;
+		fixedGeom = GeometryPrecisionReducer::reduce(*argGeom, fixedPM);
+		workGeom = fixedGeom.get();
+	}
+
 	// this may throw an exception, if robustness errors are encountered
-	resultGeometry=bufBuilder.buffer(argGeom, distance);
+	resultGeometry = bufBuilder.buffer(workGeom, distance);
 }
 
 } // namespace geos.operation.buffer

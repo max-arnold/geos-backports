@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ByteOrderDataInStream.h 2579 2009-06-15 14:03:52Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -81,14 +80,3 @@ private:
 #endif
 
 #endif // #ifndef GEOS_IO_BYTEORDERDATAINSTREAM_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/28 11:26:13  strk
- * ByteOrderDataInStream inlines moved to .inl file, updated
- * implementation files includes.
- *
- * Revision 1.1  2006/03/20 18:18:14  strk
- * io.h header split
- *
- **********************************************************************/

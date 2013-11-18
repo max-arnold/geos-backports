@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: EdgeString.cpp 3309 2011-04-27 15:47:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -101,11 +100,3 @@ EdgeString::toLineString()
 } // namespace geos.operation.linemerge
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.10  2006/03/22 10:13:54  strk
- * opLinemerge.h split
- *
- **********************************************************************/
-

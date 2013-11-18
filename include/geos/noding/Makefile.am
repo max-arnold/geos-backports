@@ -1,4 +1,3 @@
-# $Id: Makefile.am 3234 2011-02-23 10:25:20Z strk $
 #
 # This file is part of project GEOS (http://trac.osgeo.org/geos/) 
 #
@@ -12,6 +11,7 @@ geos_HEADERS = \
     BasicSegmentString.h \
     FastNodingValidator.h \
     FastSegmentSetIntersectionFinder.h \
+    GeometryNoder.h \
     IntersectionAdder.h \
     IntersectionFinderAdder.h \
     IteratedNoder.h \
@@ -32,7 +32,6 @@ geos_HEADERS = \
     SegmentPointComparator.h \
     SegmentSetMutualIntersector.h \
     SegmentString.h \
-    SegmentString.inl \
     SegmentStringUtil.h \
     SimpleNoder.h \
     SingleInteriorIntersectionFinder.h \

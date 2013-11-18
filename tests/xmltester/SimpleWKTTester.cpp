@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SimpleWKTTester.cpp 2555 2009-06-06 22:17:20Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -66,17 +65,3 @@ int main(int /*argc*/, char** /*argv*/)
 
 	return 0;
 }
-
-/**********************************************************************
- * $Log$
- * Revision 1.7  2006/06/12 16:59:04  strk
- * Removed unused parameter warnings
- *
- * Revision 1.6  2006/06/09 08:28:38  strk
- * Removed compiler warning
- *
- * Revision 1.5  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

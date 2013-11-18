@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PlanarGraph.h 3281 2011-04-18 15:08:24Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -14,7 +13,7 @@
  *
  **********************************************************************
  *
- * Last port: geomgraph/PlanarGraph.java rev. 1.6 (JTS-1.10)
+ * Last port: geomgraph/PlanarGraph.java r428 (JTS-1.12+)
  *
  **********************************************************************/
 
@@ -207,23 +206,4 @@ private:
 //#endif
 
 #endif // ifndef GEOS_GEOMGRAPH_PLANARGRAPH_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.5  2006/06/01 11:49:36  strk
- * Reduced installed headers form geomgraph namespace
- *
- * Revision 1.4  2006/04/07 16:52:20  strk
- * Port info, doxygen comments, assertion checking
- *
- * Revision 1.3  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.2  2006/03/14 15:46:54  strk
- * Added PlanarGraph::getNodes(vector&) func, to reduce useless heap allocations
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
 

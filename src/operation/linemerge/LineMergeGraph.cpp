@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineMergeGraph.cpp 3309 2011-04-27 15:47:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
@@ -128,14 +127,3 @@ LineMergeGraph::~LineMergeGraph()
 } // namespace geos.operation.linemerge
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.15  2006/03/22 10:13:54  strk
- * opLinemerge.h split
- *
- * Revision 1.14  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
-

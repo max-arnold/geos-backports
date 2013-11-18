@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: TaggedLineString.cpp 3574 2012-03-22 08:34:59Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -249,24 +248,3 @@ TaggedLineString::addToResult(auto_ptr<TaggedLineSegment> seg)
 
 } // namespace geos::simplify
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.5  2006/06/12 11:29:24  strk
- * unsigned int => size_t
- *
- * Revision 1.4  2006/04/13 21:52:35  strk
- * Many debugging lines and assertions added. Fixed bug in TaggedLineString class.
- *
- * Revision 1.3  2006/04/13 09:21:46  mloskot
- * Removed definition of copy ctor and assignment operator for TaggedLineString class.
- * According to following rule: Declaring, but not defining, private copy operations has
- * the effect of "turning off" copying for the class.
- *
- * Revision 1.2  2006/04/12 15:20:37  strk
- * LineSegmentIndex class
- *
- * Revision 1.1  2006/04/12 14:22:12  strk
- * Initial implementation of TaggedLineSegment and TaggedLineString classes
- *
- **********************************************************************/

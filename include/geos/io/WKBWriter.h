@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: WKBWriter.h 3068 2010-06-24 09:01:54Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -204,14 +203,3 @@ private:
 } // namespace geos
 
 #endif // #ifndef GEOS_IO_WKBWRITER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/28 11:26:13  strk
- * ByteOrderDataInStream inlines moved to .inl file, updated
- * implementation files includes.
- *
- * Revision 1.1  2006/03/20 18:18:14  strk
- * io.h header split
- *
- **********************************************************************/

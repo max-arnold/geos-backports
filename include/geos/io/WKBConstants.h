@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: WKBConstants.h 2579 2009-06-15 14:03:52Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -46,14 +45,3 @@ namespace WKBConstants {
 } // namespace geos
 
 #endif // #ifndef GEOS_IO_WKBCONSTANTS_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/05/23 09:24:37  strk
- * * source/io/ByteOrderValues.cpp: changed ENDIAN_BIG and ENDIAN_LITTLE values to match WKBConstants::XDR and WKBConstants::NDR respectively.
- * * source/headers/geos/io/WKBConstants.h: added comments about meaning of XDR/NDR.
- *
- * Revision 1.1  2006/03/20 18:18:14  strk
- * io.h header split
- *
- **********************************************************************/

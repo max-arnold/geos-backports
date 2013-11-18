@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PlanarGraph.cpp 3078 2010-07-01 21:44:33Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -149,14 +148,4 @@ PlanarGraph::findNodesOfDegree(size_t degree, vector<Node*>& nodesFound)
 
 } // namespace planargraph
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/06/12 10:49:43  strk
- * unsigned int => size_t
- *
- * Revision 1.3  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
 

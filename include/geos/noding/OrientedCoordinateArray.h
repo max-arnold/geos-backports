@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: OrientedCoordinateArray.h 2809 2009-12-06 01:05:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009    Sandro Santilli <strk@keybit.net>
  *
@@ -56,7 +55,7 @@ public:
 	 */
 	OrientedCoordinateArray(const geom::CoordinateSequence& pts)
 		:
-		pts(pts),
+		pts(&pts),
 		orientationVar(orientation(pts))
 	{
 	}
@@ -93,14 +92,20 @@ private:
 	static bool orientation(const geom::CoordinateSequence& pts);
 
 	/// Externally owned
-	const geom::CoordinateSequence& pts;
+	const geom::CoordinateSequence* pts;
 
 	bool orientationVar;
 
-    // Declare type as noncopyable
-    OrientedCoordinateArray(const OrientedCoordinateArray& other);
-    OrientedCoordinateArray& operator=(const OrientedCoordinateArray& rhs);
 };
+
+/// Strict weak ordering operator for OrientedCoordinateArray
+//
+/// This is the C++ equivalent of JTS's compareTo
+inline bool operator< ( const OrientedCoordinateArray& oca1,
+                        const OrientedCoordinateArray& oca2 )
+{
+  return oca1.compareTo(oca2)<0;
+}
 
 } // namespace geos.noding
 } // namespace geos

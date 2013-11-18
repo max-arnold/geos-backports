@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SweepLineIndex.cpp 3512 2011-11-04 15:00:15Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -113,18 +112,4 @@ SweepLineIndex::processOverlaps(int start, int end,
 } // namespace geos.index.sweepline
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.10  2006/06/12 11:29:23  strk
- * unsigned int => size_t
- *
- * Revision 1.9  2006/03/21 10:01:30  strk
- * indexSweepline.h header split
- *
- * Revision 1.8  2006/02/20 10:14:18  strk
- * - namespaces geos::index::*
- * - Doxygen documentation cleanup
- *
- **********************************************************************/
 

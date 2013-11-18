@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: STRtree.cpp 2685 2009-10-20 16:59:30Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -252,32 +251,4 @@ STRtree::sortBoundables(const BoundableList* input)
 } // namespace geos.index.strtree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.33  2006/06/12 10:49:43  strk
- * unsigned int => size_t
- *
- * Revision 1.32  2006/04/03 10:44:19  strk
- * Added missing headers
- *
- * Revision 1.31  2006/04/03 08:43:09  strk
- * Added port info, minor cleanups
- *
- * Revision 1.30  2006/03/21 10:47:34  strk
- * indexStrtree.h split
- *
- * Revision 1.29  2006/03/20 16:57:44  strk
- * spatialindex.h and opValid.h headers split
- *
- * Revision 1.28  2006/03/15 18:44:52  strk
- * Bug #60 - Missing <cmath> header in some files
- *
- * Revision 1.27  2006/03/06 19:40:47  strk
- * geos::util namespace. New GeometryCollection::iterator interface, many cleanups.
- *
- * Revision 1.26  2006/03/03 10:46:21  strk
- * Removed 'using namespace' from headers, added missing headers in .cpp files, removed useless includes in headers (bug#46)
- *
- **********************************************************************/
 

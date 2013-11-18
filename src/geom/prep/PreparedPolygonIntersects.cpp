@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPolygonIntersects.cpp 2420 2009-04-29 08:56:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -23,6 +22,7 @@
 #include <geos/geom/prep/PreparedPolygon.h>
 #include <geos/geom/Geometry.h>
 #include <geos/geom/Polygon.h>
+#include <geos/geom/Puntal.h>
 #include <geos/geom/MultiPolygon.h>
 #include <geos/geom/prep/PreparedPolygonPredicate.h>
 #include <geos/noding/SegmentString.h>
@@ -52,6 +52,12 @@ PreparedPolygonIntersects::intersects( const geom::Geometry * geom)
 	bool isInPrepGeomArea = isAnyTestComponentInTarget( geom);
 	if ( isInPrepGeomArea ) 
 		return true;
+
+	if ( dynamic_cast<const geom::Puntal *>(geom) ) {
+		// point-in-poly failed, no way there can be an intersection
+		// (NOTE: isAnyTestComponentInTarget also checks for boundary)
+		return false;
+	}
 	
 	// If any segments intersect, result is true
 	noding::SegmentString::ConstVect lineSegStr;
@@ -60,7 +66,6 @@ PreparedPolygonIntersects::intersects( const geom::Geometry * geom)
 
 	for ( size_t i = 0, ni = lineSegStr.size(); i < ni; i++ ) 
 	{
-	      delete lineSegStr[ i ]->getCoordinates();
 		delete lineSegStr[ i ];
 	}
 	
@@ -84,8 +89,3 @@ PreparedPolygonIntersects::intersects( const geom::Geometry * geom)
 } // geos::geom::prep
 } // geos::geom
 } // geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

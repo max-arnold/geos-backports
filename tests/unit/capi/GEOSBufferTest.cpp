@@ -1,4 +1,3 @@
-// $Id: GEOSBufferTest.cpp 3399 2011-07-01 09:02:54Z strk $
 // 
 // Test Suite for C-API GEOSBuffer and GEOSBufferWithStyle
 

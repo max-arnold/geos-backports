@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LinearComponentExtracter.h 2772 2009-12-03 19:30:54Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -85,10 +84,3 @@ if ( const LineString *ls=dynamic_cast<const LineString *>(geom) )
 } // namespace geos
 
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

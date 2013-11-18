@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: MonotoneChainOverlapAction.h 2961 2010-03-29 12:17:37Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -52,9 +51,9 @@ protected:
 
 public:
 
-	MonotoneChainOverlapAction() {};
+	MonotoneChainOverlapAction() {}
 
-	virtual ~MonotoneChainOverlapAction() {};
+	virtual ~MonotoneChainOverlapAction() {}
 
 	/**
 	 * This function can be overridden if the original chains are needed
@@ -87,11 +86,4 @@ public:
 } // namespace geos
 
 #endif // GEOS_IDX_CHAIN_MONOTONECHAINOVERLAPACTION_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/22 18:12:31  strk
- * indexChain.h header split.
- *
- **********************************************************************/
 

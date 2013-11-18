@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PreparedPolygonPredicate.cpp 2420 2009-04-29 08:56:14Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -140,8 +139,3 @@ PreparedPolygonPredicate::isAnyTargetComponentInAreaTest(
 } // namespace geos.geom.prep
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

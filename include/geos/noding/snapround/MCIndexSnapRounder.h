@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: MCIndexSnapRounder.h 3524 2011-11-30 09:49:58Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -13,7 +12,7 @@
  *
  **********************************************************************
  *
- * Last port: noding/snapround/MCIndexSnapRounder.java r480 (JTS-1.12)
+ * Last port: noding/snapround/MCIndexSnapRounder.java r486 (JTS-1.12+)
  *
  **********************************************************************/
 
@@ -76,7 +75,7 @@ class GEOS_DLL MCIndexSnapRounder: public Noder { // implments Noder
 
 public:
 
-	MCIndexSnapRounder(geom::PrecisionModel& nPm)
+	MCIndexSnapRounder(const geom::PrecisionModel& nPm)
     :
 		pm(nPm),
 		scaleFactor(nPm.getScale()),
@@ -104,7 +103,7 @@ public:
 private:
 
 	/// externally owned
-	geom::PrecisionModel& pm;
+	const geom::PrecisionModel& pm;
 
 	algorithm::LineIntersector li;
 
@@ -156,14 +155,3 @@ private:
 #endif
 
 #endif // GEOS_NODING_SNAPROUND_MCINDEXSNAPROUNDER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/14 12:55:56  strk
- * Headers split: geomgraphindex.h, nodingSnapround.h
- *
- **********************************************************************/
-

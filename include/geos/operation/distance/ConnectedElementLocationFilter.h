@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ConnectedElementLocationFilter.h 2557 2009-06-08 09:30:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -79,11 +78,4 @@ public:
 } // namespace geos
 
 #endif // GEOS_OP_DISTANCE_CONNECTEDELEMENTLOCATIONFILTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 17:55:01  strk
- * opDistance.h header split
- *
- **********************************************************************/
 

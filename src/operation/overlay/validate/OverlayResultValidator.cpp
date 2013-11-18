@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: OverlayResultValidator.cpp 2868 2010-01-18 00:59:21Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -247,8 +246,4 @@ OverlayResultValidator::computeBoundaryDistanceTolerance(
 } // namespace geos.operation.overlay
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- **********************************************************************/
 

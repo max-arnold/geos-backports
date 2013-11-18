@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BasicPreparedGeometry.h 2419 2009-04-29 08:22:16Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -181,7 +180,3 @@ public:
 } // namespace geos
 
 #endif // GEOS_GEOM_PREP_BASICPREPAREDGEOMETRY_H
-/**********************************************************************
- * $Log$
- **********************************************************************/
-

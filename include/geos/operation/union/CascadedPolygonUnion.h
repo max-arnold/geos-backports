@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: CascadedPolygonUnion.h 3532 2011-12-09 08:46:21Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -242,9 +241,3 @@ private:
 } // namespace geos
 
 #endif
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/
-

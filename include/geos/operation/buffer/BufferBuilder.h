@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BufferBuilder.h 3301 2011-04-27 09:42:31Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009-2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2008-2010 Safe Software Inc.
@@ -139,16 +138,34 @@ public:
 	geom::Geometry* buffer(const geom::Geometry *g, double distance);
 		// throw (GEOSException);
 
-	/// Not in JTS: this is a GEOS extension
+	/**
+     * Generates offset curve for linear geometry.
+     *
+	 * @param g non-areal geometry object
+     * @param distance width of offset
+     * @param leftSide controls on which side of the input geometry
+     *        offset curve is generated.
+     *
+     * @note For left-side offset curve, the offset will be at the left side
+     *       of the input line and retain the same direction.
+     *       For right-side offset curve, it'll be at the right side
+     *       and in the opposite direction.
+     *
+     * @note BufferParameters::setSingleSided parameter, which is specific to
+     *       areal geometries only, is ignored by this routine.
+     *
+     * @note Not in JTS: this is a GEOS extension
+	 */
 	geom::Geometry* bufferLineSingleSided( const geom::Geometry* g,
 	                                double distance, bool leftSide ) ;
 		// throw (GEOSException);
 
 private:
+
 	/**
 	 * Compute the change in depth as an edge is crossed from R to L
 	 */
-	static int depthDelta(geomgraph::Label *label);
+	static int depthDelta(const geomgraph::Label& label);
 
 	const BufferParameters& bufParams; 
 
@@ -231,14 +248,3 @@ private:
 #endif
 
 #endif // ndef GEOS_OP_BUFFER_BUFFERBUILDER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/14 16:08:21  strk
- * changed buildSubgraphs signature to use refs rather then pointers, made it const-correct. Reduced heap allocations in createSubgraphs()
- *
- * Revision 1.1  2006/03/14 00:19:40  strk
- * opBuffer.h split, streamlined headers in some (not all) files in operation/buffer/
- *
- **********************************************************************/
-

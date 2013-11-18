@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineSegmentIndex.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -88,13 +87,3 @@ private:
 #endif
 
 #endif // GEOS_SIMPLIFY_LINESEGMENTINDEX_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/04/13 09:28:09  mloskot
- * Removed definition of copy ctor and assignment operator for LineSegmentString class.
- *
- * Revision 1.1  2006/04/12 15:20:37  strk
- * LineSegmentIndex class
- *
- **********************************************************************/

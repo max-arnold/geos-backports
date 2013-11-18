@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: OffsetPointGenerator.cpp 2566 2009-06-08 16:46:33Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *

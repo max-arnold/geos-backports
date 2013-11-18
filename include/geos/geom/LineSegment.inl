@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineSegment.inl 3257 2011-03-02 12:46:57Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.

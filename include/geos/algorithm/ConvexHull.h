@@ -1,9 +1,9 @@
 /**********************************************************************
- * $Id: ConvexHull.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
+ * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -11,6 +11,10 @@
  * the terms of the GNU Lesser General Public Licence as published
  * by the Free Software Foundation. 
  * See the COPYING file for more information.
+ *
+ **********************************************************************
+ *
+ * Last port: algorithm/ConvexHull.java r407 (JTS-1.12+)
  *
  **********************************************************************/
 
@@ -85,15 +89,19 @@ private:
 	 * vertices is not 100% robust, this does not affect the
 	 * robustness of the convex hull.
 	 *
-	 * @param pts The vector of const Coordinate pointers
-	 *            to be reduced
+	 * To satisfy the requirements of the Graham Scan algorithm,
+	 * the resulting array has at least 3 entries.
 	 *
+	 * @param pts The vector of const Coordinate pointers
+	 *            to be reduced (to at least 3 elements)
 	 *
 	 * WARNING: the parameter will be modified
 	 *
 	 */
 	void reduce(geom::Coordinate::ConstVect &pts);
 
+	/// parameter will be modified
+	void padArray3(geom::Coordinate::ConstVect &pts);
 
 	/// parameter will be modified
 	void preSort(geom::Coordinate::ConstVect &pts);
@@ -182,14 +190,3 @@ public:
 #endif
 
 #endif // GEOS_ALGORITHM_CONVEXHULL_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:48  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

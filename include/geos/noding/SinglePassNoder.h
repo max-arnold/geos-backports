@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SinglePassNoder.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -94,19 +93,4 @@ public:
 } // namespace geos.noding
 } // namespace geos
 
-//#ifdef GEOS_INLINE
-//# include "geos/noding/SinglePassNoder.inl"
-//#endif
-
 #endif // GEOS_NODING_SINGLEPASSNODER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.2  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

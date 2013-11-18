@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: PointInRing.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -31,7 +30,7 @@ namespace algorithm { // geos::algorithm
 
 class GEOS_DLL PointInRing{
 public:
-	virtual ~PointInRing(){};
+	virtual ~PointInRing(){}
 	virtual bool isInside(const geom::Coordinate& pt)=0;
 };
 
@@ -40,11 +39,4 @@ public:
 
 
 #endif
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/09 16:46:48  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
 

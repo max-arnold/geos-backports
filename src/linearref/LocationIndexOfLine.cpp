@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LocationIndexOfLine.cpp 3761 2013-02-01 06:31:04Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.

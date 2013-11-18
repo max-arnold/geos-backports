@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: SimpleNoder.h 2556 2009-06-06 22:22:28Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006      Refractions Research Inc.
  *
@@ -58,7 +57,7 @@ public:
 	SimpleNoder(SegmentIntersector* nSegInt=NULL)
 		:
 		SinglePassNoder(nSegInt)
-	{};
+	{}
 
 	void computeNodes(std::vector<SegmentString*>* inputSegmentStrings);
 
@@ -70,22 +69,4 @@ public:
 } // namespace geos.noding
 } // namespace geos
 
-//#ifdef GEOS_INLINE
-//# include "geos/noding/SimpleNoder.inl"
-//#endif
-
 #endif // GEOS_NODING_SIMPLENODER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.3  2006/03/24 09:52:41  strk
- * USE_INLINE => GEOS_INLINE
- *
- * Revision 1.2  2006/03/15 09:51:49  strk
- * streamlined header usage
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/
-

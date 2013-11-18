@@ -1,9 +1,9 @@
 /**********************************************************************
- * $Id: LengthIndexedLine.cpp 2809 2009-12-06 01:05:24Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
+ * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2005-2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -14,12 +14,13 @@
  *
  **********************************************************************
  *
- * Last port: linearref/LengthIndexedLine.java rev. 1.35
+ * Last port: linearref/LengthIndexedLine.java r463
  *
  **********************************************************************/
 
 #include <geos/linearref/ExtractLineByLocation.h>
 #include <geos/linearref/LengthIndexedLine.h>
+#include <geos/linearref/LocationIndexedLine.h>
 #include <geos/linearref/LinearLocation.h>
 #include <geos/linearref/LengthLocationMap.h>
 #include <geos/linearref/LengthIndexOfPoint.h>
@@ -53,18 +54,31 @@ Coordinate LengthIndexedLine::extractPoint(double index, double offsetDistance) 
 }
 
 
-Geometry *LengthIndexedLine::extractLine(double startIndex, double endIndex) const
+Geometry *
+LengthIndexedLine::extractLine(double startIndex, double endIndex) const
 {
-
-	const LinearLocation startLoc = locationOf(startIndex);
-	const LinearLocation endLoc = locationOf(endIndex);
-	Geometry* g = ExtractLineByLocation::extract(linearGeom, startLoc, endLoc);
-	return g;
+  const LocationIndexedLine lil(linearGeom);
+  const double startIndex2 = clampIndex(startIndex);
+  const double endIndex2 = clampIndex(endIndex);
+  // if extracted line is zero-length, resolve start lower as well to
+  // ensure they are equal
+  const bool resolveStartLower = ( startIndex2 == endIndex2 );
+  const LinearLocation startLoc = locationOf(startIndex2, resolveStartLower);
+  const LinearLocation endLoc = locationOf(endIndex2);
+//    LinearLocation endLoc = locationOf(endIndex2, true);
+//    LinearLocation startLoc = locationOf(startIndex2);
+  return ExtractLineByLocation::extract(linearGeom, startLoc, endLoc);
 }
 
 LinearLocation LengthIndexedLine::locationOf(double index) const
 {
 	return LengthLocationMap::getLocation(linearGeom, index);
+}
+
+LinearLocation
+LengthIndexedLine::locationOf(double index, bool resolveLower) const
+{
+	return LengthLocationMap::getLocation(linearGeom, index, resolveLower);
 }
 
 
@@ -112,15 +126,27 @@ bool LengthIndexedLine::isValidIndex(double index) const
 		&& index <= getEndIndex());
 }
 
-double LengthIndexedLine::clampIndex(double index) const
+/* public */
+double
+LengthIndexedLine::clampIndex(double index) const
 {
+  double posIndex = positiveIndex(index);
 	double startIndex = getStartIndex();
-	if (index < startIndex) return startIndex;
+  if (posIndex < startIndex) return startIndex;
 
 	double endIndex = getEndIndex();
-	if (index > endIndex) return endIndex;
+	if (posIndex > endIndex) return endIndex;
 
-	return index;
+	return posIndex;
 }
+
+/* private */
+double
+LengthIndexedLine::positiveIndex(double index) const
+{
+  if (index >= 0.0) return index;
+  return linearGeom->getLength() + index;
 }
-}
+
+} // geos.linearref
+} // geos

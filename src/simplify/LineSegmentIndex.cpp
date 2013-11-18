@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: LineSegmentIndex.cpp 1820 2006-09-06 16:54:23Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *
@@ -84,6 +83,7 @@ public:
 		if ( this == &o ) return *this;
 		querySeg = o.querySeg;
 		items.reset(new vector<LineSegment*>(*(o.items.get())));
+		return *this;
 	}
 
 	void visitItem(void* item)
@@ -171,19 +171,3 @@ LineSegmentIndex::query(const LineSegment* querySeg) const
 
 } // namespace geos::simplify
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/06/12 17:18:56  strk
- * LineSegmentIndex: explicitly initialized parent class in constructors.
- *
- * Revision 1.3  2006/06/12 11:29:24  strk
- * unsigned int => size_t
- *
- * Revision 1.2  2006/04/13 09:28:09  mloskot
- * Removed definition of copy ctor and assignment operator for LineSegmentString class.
- *
- * Revision 1.1  2006/04/12 15:20:37  strk
- * LineSegmentIndex class
- *
- **********************************************************************/

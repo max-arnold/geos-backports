@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: NodeMap.cpp 2733 2009-11-20 19:58:33Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005 Refractions Research Inc.
@@ -90,11 +89,4 @@ NodeMap::find(const geom::Coordinate& coord)
 
 } //namespace planargraph 
 } //namespace geos 
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/21 21:42:54  strk
- * planargraph.h header split, planargraph:: classes renamed to match JTS symbols
- *
- **********************************************************************/
 

@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: operation.h 2431 2009-04-30 10:47:08Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2005 Refractions Research Inc.

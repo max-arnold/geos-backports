@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: RectangleContains.h 2781 2009-12-03 19:48:04Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  *

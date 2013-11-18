@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Bintree.cpp 3274 2011-03-26 14:02:20Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -151,11 +150,3 @@ Bintree::collectStats(Interval *interval)
 } // namespace geos.index.bintree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.13  2006/03/22 16:01:33  strk
- * indexBintree.h header split, classes renamed to match JTS
- *
- **********************************************************************/
-

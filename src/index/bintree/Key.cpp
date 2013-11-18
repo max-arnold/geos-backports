@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Key.cpp 2131 2008-07-15 22:04:51Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2006 Refractions Research Inc.
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
@@ -97,13 +96,3 @@ Key::computeInterval(int level, Interval *itemInterval)
 } // namespace geos.index.bintree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.11  2006/03/22 16:01:33  strk
- * indexBintree.h header split, classes renamed to match JTS
- *
- * Revision 1.10  2006/03/22 12:22:50  strk
- * indexQuadtree.h split
- **********************************************************************/
-

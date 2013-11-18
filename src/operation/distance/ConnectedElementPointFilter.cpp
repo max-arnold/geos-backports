@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: ConnectedElementPointFilter.cpp 2553 2009-06-06 00:55:55Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -57,11 +56,3 @@ void ConnectedElementPointFilter::filter_ro(const Geometry *geom) {
 } // namespace geos.operation.distance
 } // namespace geos.operation
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.11  2006/03/21 17:55:01  strk
- * opDistance.h header split
- *
- **********************************************************************/
-

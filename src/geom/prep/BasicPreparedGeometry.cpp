@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: BasicPreparedGeometry.cpp 2822 2009-12-11 13:10:32Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  *
@@ -155,8 +154,3 @@ BasicPreparedGeometry::toString()
 } // namespace geos.geom.prep
 } // namespace geos.geom
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- *
- **********************************************************************/

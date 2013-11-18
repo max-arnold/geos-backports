@@ -1,4 +1,3 @@
-# $Id: Makefile.am 3685 2012-06-25 10:20:08Z strk $
 #
 # This file is part of project GEOS (http://trac.osgeo.org/geos/) 
 #
@@ -72,12 +71,16 @@ geos_unit_SOURCES = \
 	io/WKBWriterTest.cpp \
 	io/WKTReaderTest.cpp \
 	io/WKTWriterTest.cpp \
+	io/WriterTest.cpp \
 	linearref/LengthIndexedLineTest.cpp \
 	noding/BasicSegmentStringTest.cpp \
 	noding/NodedSegmentStringTest.cpp \
+	noding/OrientedCoordinateArray.cpp \
 	noding/SegmentNodeTest.cpp \
 	noding/SegmentPointComparatorTest.cpp \
 	noding/snapround/HotPixelTest.cpp \
+	noding/snapround/MCIndexSnapRounderTest.cpp \
+	operation/buffer/BufferBuilderTest.cpp \
 	operation/buffer/BufferOpTest.cpp \
 	operation/buffer/BufferParametersTest.cpp \
 	operation/distance/DistanceOpTest.cpp \
@@ -89,6 +92,7 @@ geos_unit_SOURCES = \
 	operation/overlay/validate/OverlayResultValidatorTest.cpp \
 	operation/overlay/snap/GeometrySnapperTest.cpp \
 	operation/overlay/snap/LineStringSnapperTest.cpp \
+	operation/polygonize/PolygonizeTest.cpp \
 	operation/sharedpaths/SharedPathsOpTest.cpp \
 	operation/union/CascadedPolygonUnionTest.cpp \
 	operation/union/UnaryUnionOpTest.cpp \
@@ -96,19 +100,28 @@ geos_unit_SOURCES = \
 	operation/valid/ValidClosedRingTest.cpp \
 	operation/valid/ValidSelfTouchingRingFormingHoleTest.cpp \
 	precision/SimpleGeometryPrecisionReducerTest.cpp \
+	precision/GeometryPrecisionReducerTest.cpp \
 	simplify/DouglasPeuckerSimplifierTest.cpp \
 	simplify/TopologyPreservingSimplifierTest.cpp \
+	triangulate/quadedge/QuadEdgeTest.cpp \
+	triangulate/quadedge/QuadEdgeSubdivisionTest.cpp \
+	triangulate/DelaunayTest.cpp \
 	util/UniqueCoordinateArrayFilterTest.cpp \
 	capi/GEOSCoordSeqTest.cpp \
+	capi/GEOSDelaunayTriangulationTest.cpp \
 	capi/GEOSGeomFromWKBTest.cpp \
 	capi/GEOSGeomToWKTTest.cpp \
 	capi/GEOSGetCentroidTest.cpp \
 	capi/GEOSContainsTest.cpp \
+	capi/GEOSConvexHullTest.cpp \
+	capi/GEOSDistanceTest.cpp \
+	capi/GEOSInterruptTest.cpp \
 	capi/GEOSIntersectsTest.cpp \
+	capi/GEOSNearestPointsTest.cpp \
 	capi/GEOSWithinTest.cpp \
 	capi/GEOSSimplifyTest.cpp \
 	capi/GEOSPreparedGeometryTest.cpp \
-  capi/GEOSPointOnSurfaceTest.cpp \
+	capi/GEOSPointOnSurfaceTest.cpp \
 	capi/GEOSPolygonizer_getCutEdgesTest.cpp \
 	capi/GEOSBufferTest.cpp \
 	capi/GEOSOffsetCurveTest.cpp \
@@ -116,6 +129,7 @@ geos_unit_SOURCES = \
 	capi/GEOSGeom_extractUniquePointsTest.cpp \
 	capi/GEOSOrientationIndex.cpp \
 	capi/GEOSLineString_PointTest.cpp \
+	capi/GEOSNodeTest.cpp \
 	capi/GEOSSnapTest.cpp \
 	capi/GEOSSharedPathsTest.cpp \
 	capi/GEOSRelateBoundaryNodeRuleTest.cpp \

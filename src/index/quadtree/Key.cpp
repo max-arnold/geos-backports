@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: Key.cpp 2407 2009-04-25 00:23:06Z strk $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  * Copyright (C) 2006 Refractions Research Inc.
@@ -128,13 +127,3 @@ Key::computeKey(int level, const Envelope& itemEnv)
 } // namespace geos.index.quadtree
 } // namespace geos.index
 } // namespace geos
-
-/**********************************************************************
- * $Log$
- * Revision 1.1  2006/03/22 14:28:52  strk
- * Filenames renamed to match class names (matching JTS)
- *
- * Revision 1.13  2006/03/22 12:22:50  strk
- * indexQuadtree.h split
- *
- **********************************************************************/

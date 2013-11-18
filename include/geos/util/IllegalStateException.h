@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id$
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2011 Sandro Santilli <strk@keybit.net>
  *
@@ -37,7 +36,7 @@ public:
 		GEOSException("IllegalStateException", msg)
 	{}
 
-	~IllegalStateException() throw() {};
+	~IllegalStateException() throw() {}
 };
 
 } // namespace geos::util

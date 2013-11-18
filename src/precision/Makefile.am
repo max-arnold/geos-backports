@@ -1,4 +1,3 @@
-# $Id: Makefile.am 2842 2010-01-13 02:01:12Z mloskot $
 #
 # This file is part of project GEOS (http://trac.osgeo.org/geos/) 
 #
@@ -13,6 +12,8 @@ libprecision_la_SOURCES = \
 	CommonBitsOp.cpp \
 	CommonBitsRemover.cpp \
 	EnhancedPrecisionOp.cpp \
+	GeometryPrecisionReducer.cpp \
+	PrecisionReducerCoordinateOperation.cpp \
 	SimpleGeometryPrecisionReducer.cpp 
 
 libprecision_la_LIBADD = 

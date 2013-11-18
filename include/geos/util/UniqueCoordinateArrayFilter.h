@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: UniqueCoordinateArrayFilter.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -90,19 +89,3 @@ private:
 #endif
 
 #endif // GEOS_UTIL_UNIQUECOORDINATEARRAYFILTER_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/06/19 23:33:03  strk
- * Don't *require* CoordinateFilters to define both read-only and read-write methods.
- *
- * Revision 1.3  2006/06/12 10:10:39  strk
- * Fixed getGeometryN() to take size_t rather then int, changed unsigned int parameters to size_t.
- *
- * Revision 1.2  2006/04/10 09:21:23  mloskot
- * Added new test for UniqueCoordinateArrayFilter class. Small fixes related to signed/unsigned comparison.
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

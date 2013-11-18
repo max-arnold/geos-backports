@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: GEOSException.h 2958 2010-03-29 11:29:40Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2001-2002 Vivid Solutions Inc.
  * Copyright (C) 2006 Refractions Research Inc.
@@ -75,20 +74,3 @@ public:
 #endif
 
 #endif // GEOS_UTIL_GEOSEXCEPTION_H
-
-/**********************************************************************
- * $Log$
- * Revision 1.4  2006/05/22 15:08:01  strk
- * Print colon after exception name (as it has always been)
- *
- * Revision 1.3  2006/04/05 09:34:20  strk
- * GEOSException derived from std::exception again, hopefully the correct way now
- *
- * Revision 1.2  2006/04/04 08:16:46  strk
- * Changed GEOSException hierarchy to be derived from std::runtime_exception.
- * Removed the GEOSException::toString redundant method (use ::what() instead)
- *
- * Revision 1.1  2006/03/09 16:46:49  strk
- * geos::geom namespace definition, first pass at headers split
- *
- **********************************************************************/

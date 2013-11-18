@@ -1,8 +1,7 @@
 /**********************************************************************
- * $Id: DiscreteHausdorffDistance.h 3255 2011-03-01 17:56:10Z mloskot $
  *
  * GEOS - Geometry Engine Open Source
- * http://geos.refractions.net
+ * http://geos.osgeo.org
  *
  * Copyright (C) 2009  Sandro Santilli <strk@keybit.net>
  *
@@ -256,8 +255,4 @@ private:
 #endif
 
 #endif // GEOS_ALGORITHM_DISTANCE_DISCRETEHAUSDORFFDISTANCE_H
-
-/**********************************************************************
- * $Log$
- **********************************************************************/
 
