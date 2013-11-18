@@ -8,3 +8,4 @@ TaggedLineString.cpp
 TaggedLineString.h
 TaggedLineStringSimplifier.h
 geos-config
+ruby-so-name.patch

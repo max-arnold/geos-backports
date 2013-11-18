@@ -1,0 +1,26 @@
+diff --git a/configure b/configure
+index eee34f8..896fc2b 100755
+--- a/configure
++++ b/configure
+@@ -17099,7 +17099,7 @@ fi
+ 
+ 				RUBY_EXTENSION_DIR=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG["sitearchdir"] || Config::CONFIG["sitearchdir"]'`
+ 
+-				RUBY_SO_NAME=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG["LIBRUBY_SO"] || Config::CONFIG["RUBY_SO_NAME"]'`
++				RUBY_SO_NAME=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG["RUBY_SO_NAME"] || Config::CONFIG["RUBY_SO_NAME"]'`
+ 
+ 				RUBY_SHARED_LIB=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG["LIBRUBY"] || Config::CONFIG["LIBRUBY"]'`
+ 
+diff --git a/macros/ruby.m4 b/macros/ruby.m4
+index 0b7e655..f599e1f 100644
+--- a/macros/ruby.m4
++++ b/macros/ruby.m4
+@@ -38,7 +38,7 @@ AC_DEFUN([AC_RUBY_DEVEL],
+ 		RUBY_EXTENSION_DIR=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG[["sitearchdir"]] || Config::CONFIG[["sitearchdir"]]'`
+ 
+ 		dnl Get Ruby shared library name, this does not include the lib prefix or extension name
+-		RUBY_SO_NAME=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG[["LIBRUBY_SO"]] || Config::CONFIG[["RUBY_SO_NAME"]]'`
++		RUBY_SO_NAME=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG[["RUBY_SO_NAME"]] || Config::CONFIG[["RUBY_SO_NAME"]]'`
+ 		
+ 		dnl Get Ruby shared libary name
+ 		RUBY_SHARED_LIB=`$RUBY -rrbconfig -e 'puts RbConfig::CONFIG[["LIBRUBY"]] || Config::CONFIG[["LIBRUBY"]]'`
