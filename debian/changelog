@@ -1,3 +1,9 @@
+geos (3.4.2-1~precise1) precise; urgency=low
+
+  * New upstream release 3.4.2
+
+ -- Max Arnold <arnold.maxim@gmail.com>  Mon, 18 Nov 2013 21:09:25 +0700
+
 geos (3.3.8-3~precise1) precise; urgency=low
 
   * Misc tweaks
